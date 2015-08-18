@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] (Layout) Neuer Zwischenstand
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C001001ca0652%24e312b760%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000074.html">
+   <LINK REL="Next"  HREF="000082.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] (Layout) Neuer Zwischenstand</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C001001ca0652%24e312b760%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] (Layout) Neuer Zwischenstand">martinHV at arcor.de
+       </A><BR>
+    <I>Thu Jul 16 22:20:39 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000074.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+        <LI>Next message: <A HREF="000082.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#80">[ date ]</a>
+              <a href="thread.html#80">[ thread ]</a>
+              <a href="subject.html#80">[ subject ]</a>
+              <a href="author.html#80">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;&gt;<i> RAM zwei Alternativen vorzusehen. Einmal neben der 600 mil Fassung
+</I>&gt;&gt;<i> noch eine 300 mil-Fassung mit der gleichen Belegung.
+</I>&gt;<i> 
+</I>&gt;<i> Kennst Du einen PIN-kompatiblen 300 mil Typ, der auch noch kaufbar
+</I>&gt;<i> ist?
+</I>
+Ja, bei Kessler der UM62M256-15 f&#252;r 3,73 EUR das St&#252;ck. Aber ich glaube kaum, da&#223; man den dort kaufen m&#246;chte. Ich habe eben auch ein Herz f&#252;r die Bastler, welche nur die Platine kaufen und dann die restlichen Teile noch zu Hause in Bastelkisten haben. Ob sie dort noch einen Am29F040 finden ist sicherlich fraglich. Aber Cache-RAM sollte sich finden lassen. Demnach k&#246;nnte Nils sp&#228;ter auch einen HC-Bausatz (Hardcore) nur mit Platine inkl. passenden Taster und Schalter und den FLASH-Bausteinen anbieten. Ich w&#252;rde sowas kaufen.
+
+Okay, vielleicht sollte ich nicht von mich auf andere schlie&#223;en. ;-)
+
+&gt;&gt;<i> Au&#223;erdem k&#246;nnte man auch noch die Verwendung der 6116 (24 pol.)
+</I>&gt;&gt;<i> anstelle des 6264 (28 pol.) vorsehen. Es gibt neben den vier
+</I>&gt;&gt;<i> &#252;bersch&#252;ssigen Pins (1, 2, 27 und 28) nur zwei &#196;nderungen:
+</I>&gt;<i> 
+</I>&gt;<i> Mhh, ist es das Wert? Wenn man bedenkt, dass es der 6264 momentan sehr
+</I>&gt;<i> gut erh&#228;ltlich ist und der 6116 schon etwas d&#252;nner ges&#228;ht ist? Nur
+</I>&gt;<i> weil's geht muss man's ja nicht machen.
+</I>
+Tja, das sah ich jetzt etwas anders. Es ist kaum ein Mehraufwand und kostet auch nichts extra. Aber die Flexibilit&#228;t steigt.
+
+&gt;<i> Machen wir uns nicht vor, vermutlich werden die meisten Platinen von
+</I>&gt;<i> Nils kommen. Und da gib't die Bauteile gleich dazu.
+</I>
+Ob das wirklich so ist? Ich habe da meine Zweifel, lasse mich aber gerne eines besseren belehren.
+
+&gt;<i> Steckt doch die Zeit lieber in die Frage nach Schalter und Taste.
+</I>
+Das ist eigentlich nicht so mein Gebiet. Das hei&#223;t Hersteller abklappern und hoffen, da&#223; dies morgen noch lieferbar ist.
+
+&gt;<i> Die Dinger sind f&#252;r die Schaltung wichtig.
+</I>
+Eigentlich nicht. RESET kann man auch anders haben und den Programmier-Schalter brauchen wir eigentlich nur bei der Entwicklung. Ansonsten ist das alles eine Frage der Software, ob sie die m&#246;glichen Fehler abf&#228;ngt und entsprechend reagiert.
+
+&gt;<i> Verdrahtete
+</I>&gt;<i> Schraubtaster/Schalter k&#246;nnten in dem engen Geh&#228;use echt schwierig
+</I>&gt;<i> werden. Da gibt's dann leicht Frickelerscheinungen.
+</I>
+Wie w&#228;r's mit einfachen Print-Tastern bzw. -Druck-Schaltern, welche mittels einem angego&#223;enen Stift durch eine Bohrung im Modul bet&#228;tigt werden k&#246;nnen? Ich meine sowas mal bei Conrad vor vielen Jahren gesehen zu haben.
+
+&gt;<i> Ein Jumper f&#252;r den Schalter w&#228;re auch etwas unpraktisch: Einmal
+</I>&gt;<i> geschlossen gehen die Geh&#228;use ziemlich schwer wieder auf. Wenigstens
+</I>&gt;<i> ein DIP-Schalter, den man durch ein Loch im Geh&#228;use erreichen
+</I>&gt;<i> k&#246;nnte...
+</I>
+Oder ein Loch im Geh&#228;use &#252;ber dem Jumper. Und dann einen mit so einem Zugf&#228;hnchen. Das sollte auch durch das Geh&#228;use gehen. Evtl. nimmt man l&#228;ngere Stifte f&#252;r den Jumper.
+
+Eine andere M&#246;glichkeit w&#228;re f&#252;r den Schalter ein REED-Kontakt. Dann mu&#223; man eben einen Magneten zum Programmieren auf das Modul legen!
+
+Aber ich denke, dies macht sich mit einem Modulgeh&#228;use in der Hand etwas besser. Ich habe leider keines!
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000074.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+	<LI>Next message: <A HREF="000082.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#80">[ date ]</a>
+              <a href="thread.html#80">[ thread ]</a>
+              <a href="subject.html#80">[ subject ]</a>
+              <a href="author.html#80">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

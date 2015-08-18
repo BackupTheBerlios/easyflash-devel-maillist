@@ -1,0 +1,305 @@
+From nils.eilers at gmx.de  Fri Oct 23 19:58:18 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Fri, 23 Oct 2009 19:58:18 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <20090906220159.150d2307@akoya>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>
+	<20090906220159.150d2307@akoya>
+Message-ID: <4AE1EEBA.7030904@gmx.de>
+
+Hallo EasyFlash-Freunde,
+
+Der Shop ist jetzt im Testbetrieb.
+
+Ich w?rde mich ?ber m?glichst viel R?ckmeldung freuen, damit ich noch 
+vorhandene evtl. Fehler fr?hzeitig ausmerzen kann.
+
+Alle Bestellungen aus dem Testbetrieb werden nach dem Test weggeschmissen.
+
+Nur nicht bei PayPal am Ende auf Bezahlen klicken! Das ist schon scharf.
+
+http://test.for8bits.com
+Benutzername: shop
+Passwort: betatest
+
+Viele Gr??e,
+Nils
+
+
+
+From subzero1 at web.de  Fri Oct 23 20:34:19 2009
+From: subzero1 at web.de (s)
+Date: Fri, 23 Oct 2009 20:34:19 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya><20090906220159.150d2307@akoya>
+	<4AE1EEBA.7030904@gmx.de>
+Message-ID: <15AACFE69B6C4EDBB81EC7E887CF3C10@gericom>
+
+hi,
+habs gerade getestet.
+konnte bezahlung per bank?berweisung nicht ausw?hlen.
+sonst ist mir kein fehler aufgefallen.
+gruss sven
+
+----- Original Message ----- 
+From: "Nils Eilers" <nils.eilers at gmx.de>
+To: <easyflash-devel at lists.berlios.de>
+Sent: Friday, October 23, 2009 7:58 PM
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+
+
+> Hallo EasyFlash-Freunde,
+>
+> Der Shop ist jetzt im Testbetrieb.
+>
+> Ich w?rde mich ?ber m?glichst viel R?ckmeldung freuen, damit ich noch
+> vorhandene evtl. Fehler fr?hzeitig ausmerzen kann.
+>
+> Alle Bestellungen aus dem Testbetrieb werden nach dem Test weggeschmissen.
+>
+> Nur nicht bei PayPal am Ende auf Bezahlen klicken! Das ist schon scharf.
+>
+> http://test.for8bits.com
+> Benutzername: shop
+> Passwort: betatest
+>
+> Viele Gr??e,
+> Nils
+>
+> _______________________________________________
+> EasyFlash-devel mailing list
+> EasyFlash-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/easyflash-devel
+> 
+
+
+
+From martinHV at arcor.de  Fri Oct 23 20:56:45 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Fri, 23 Oct 2009 20:56:45 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE1EEBA.7030904@gmx.de>
+Message-ID: <006901ca5412$9267c860$6800a8c0@mhv.webmade.com>
+
+Hallo Nils,
+
+> Der Shop ist jetzt im Testbetrieb.
+
+Das sieht dich schon ganz gut aus.
+
+> Ich w?rde mich ?ber m?glichst viel R?ckmeldung freuen, damit ich noch
+> vorhandene evtl. Fehler fr?hzeitig ausmerzen kann.
+
+Mir ist auf die Schnelle folgendes aufgefallen:
+
+Beim FE werden die Summen ohne das die Seite erneut geladen wird berechnet. Offensichtlich passiert das mit JavaScript. Beim EasyFlash hast Du das ohne JavaScript gel?st. Ich pers?nlich finde das mit JavaScript sch?ner, jedoch sollte man ein Fall-Back f?r Browser ohne JavaScript einbauen. Dazu k?nnte man die Grundlage wie beim EasyFlash verwenden und zus?tzlich mittels dem Event "onClick" das JavaScript einbinden.
+
+Au?erdem vermisse ich eine m?gliche ?bersicht, was bei den Baus?tzen (alle ben?tigten Teile) alles dabei ist. Ein Link auf eine St?ckliste w?re hier etwas transparenter.
+
+Des weiteren fehlt eine Navigationsm?glichkeit aus den Projekten (FE oder EF) zur?ck zu der ?bersichtsseite des Shops!
+
+Gru? Martin
+
+
+
+From alex at kazik.de  Fri Oct 23 22:19:01 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Fri, 23 Oct 2009 22:19:01 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <006901ca5412$9267c860$6800a8c0@mhv.webmade.com>
+References: <4AE1EEBA.7030904@gmx.de>
+	<006901ca5412$9267c860$6800a8c0@mhv.webmade.com>
+Message-ID: <3cdcf94b0910231319wc2fee11k846ceb64dcfaffdc@mail.gmail.com>
+
+Hi,
+
+also ich konnte ohne probleme bestellen.
+
+aber die mail zur aktivierung des accounts ist bei mir im spam gelandet...
+die unten angehaengte zeile koennte der grund dafuer sein.
+
+Ciao, ALeX.
+
+Received-SPF: softfail (google.com: best guess record for domain of
+transitioning web218 at c8.ibone.ch does not designate 213.203.223.115 as
+permitted sender) client-ip=213.203.223.115;
+
+
+From martin at oswald24.de  Fri Oct 23 23:06:25 2009
+From: martin at oswald24.de (Martin Oswald)
+Date: Fri, 23 Oct 2009 23:06:25 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE1EEBA.7030904@gmx.de>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>	<20090906220159.150d2307@akoya>
+	<4AE1EEBA.7030904@gmx.de>
+Message-ID: <009001ca5424$ae74da90$0b5e8fb0$@de>
+
+Hallo Nils,
+
+habe den Shop getestet.
+
+Sieht doch schon ganz gut aus . 
+
+Einmal hatte ich ein komisches Ph?nomen , konnte das aber nicht reproduzieren . 
+
+Ich habe was bestellt um mit Paypal bezahlt . Dann hat sich ein neues Fenster mit Paypal aufgemacht . 
+Dort habe ich nicht bezahlt und danach stand in meinem Warenkorb : 10,60 ? Versandpauschale au?erhalb Europas ?!?
+
+Und ich konnte die Versandkosten nicht mehr ?nderen ?!?! 
+
+Wenn ich jetzt per Paypal bezahle, wir Paypal im aktuellen Fenster ge?ffnet . Die Versandkosten ?ndern sich aber nicht mehr, und mein Warenkorb ist nach Paypal leer . 
+
+Programmierst Du noch im Hintergrund daran rum ? 
+
+Gru? Martin 
+
+
+
+
+From bps_of_tbm at t-online.de  Sat Oct 24 02:06:34 2009
+From: bps_of_tbm at t-online.de (Bjoern Wieck)
+Date: Sat, 24 Oct 2009 02:06:34 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE1EEBA.7030904@gmx.de>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>	<20090906220159.150d2307@akoya>
+	<4AE1EEBA.7030904@gmx.de>
+Message-ID: <4AE2450A.9060809@t-online.de>
+
+Nils Eilers schrieb:
+> Hallo EasyFlash-Freunde,
+> 
+> Der Shop ist jetzt im Testbetrieb.
+> 
+> Ich w?rde mich ?ber m?glichst viel R?ckmeldung freuen, damit ich noch 
+> vorhandene evtl. Fehler fr?hzeitig ausmerzen kann.
+
+
+
+Hi Nils.. sieht schon gut aus.
+Ist die Batterie wirklich Bestandteil des FE Bausatzes ?
+
+Ach und die Versandoptionen konnte ich auch nicht ausw?hlen.
+Ansonsten sehr sch?n ?bersichtlich.
+
+Gr??e
+Bj?rn
+
+
+From nils.eilers at gmx.de  Sat Oct 24 07:24:17 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Sat, 24 Oct 2009 07:24:17 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE2450A.9060809@t-online.de>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>	<20090906220159.150d2307@akoya>	<4AE1EEBA.7030904@gmx.de>
+	<4AE2450A.9060809@t-online.de>
+Message-ID: <4AE28F81.2000101@gmx.de>
+
+Hallo Ihr Lieben,
+
+vielen Dank f?r all Eure R?ckmeldungen!
+
+Frage:
+
+Martin, dass sich PayPal in einem neuen Fenster ?ffnet wundert mich sehr 
+- ist das irgendwie noch reproduzierbar?
+
+Es sollte sich im gleichen Fenster ?ffnen und nach erfolgter Bezahlung 
+auch wieder in den Shop zur?ck kehren - aber das teste nur ich in der 
+PayPal-Sandbox :-)
+
+Beim Auschecken nach PayPal wird der Warenkorb in den Bestellkorb 
+gekippt, so dass Verhalten "Korb nach PayPal leer" das gew?nschte ist.
+
+Die 10,60 r?hren von diesem omin?sen Fehler 2), dazu unten mehr...
+
+Kurzfassung:
+
+ich muss ein paar Sachen flicken, was nicht vor Anfang n?chster Woche 
+fertig wird - dann w?rde ich mich sehr freuen, wenn Ihr noch mal einen 
+Blick darauf werfen k?nntet!
+
+Langfassung:
+
+Die Angebote m?chte ich noch durch St?cklisten und vergr??erbare Bilder 
+konkretisieren und verdeutlichen.
+Die Navigation passe ich noch an, damit man besser zur?ck findet.
+
+Die Batterie m?chte ich gerne mit anbieten, um ein komplettes FE3 
+anbieten zu k?nnen, wobei ich allerdings ahne, dass Batterien verkaufen 
+hier nahe an schwermetallhaltigen explosionsgef?hrlichen krebserregenden 
+Sonderm?ll an unschuldige Kinder verkaufen liegt.
+
+Am Shop habe ich gestern gegen 20:00 Uhr das letzte mal Hand angelegt, 
+danach war ich erst einmal in meinem Hauptjob arbeiten - das als Hinweis 
+zur Reproduzierbarkeit.
+
+Der Shop hat momentan zwei Baustellen, die ich erst beheben muss, 
+bevor's weiter gehen kann:
+
+1) Den Rechner der Konfiguratoren
+2) Das Versandart/Zahlweisen-Problem
+
+Zu 1) Der EF-Konfigurator war urspr?nglich wie der FE3-Konfigurator 
+aufgebaut - ich habe ihn gestern kurzfristig umgestrickt, weil das 
+derzeitige Javascript auf die Nase f?llt, wenn PHP mangels Cookies ganz 
+frech seine Session-ID in's Formular mit eintr?gt.
+
+Auch die derzeite Fassung verwendet Javascript wenn vorhanden, l?dt aber 
+ggfs. das Formular neu und ?berl?sst PHP das Rechnen.
+
+Ich werde als ?bergangsl?sung auch den FE3-Konfigurator so umstricken - 
+damit rechnet er richtig - und wieder die alte, "direkte" L?sung ohne 
+Neuladen implementieren, wenn ich meine Javascript-Unf?higkeit besiegt habe.
+
+Zu 2) Dass man evtl. nicht die Zahlweise auf ?berweisung stellen kann 
+bzw. 10,60 EUR Nicht-EU-Pauschale auch in D bezahlen soll, ist ein 
+Folgefehler, den ich noch weiter eingrenzen muss. Eine weitere 
+Auswirkung kann sein, dass man unter "Meine Daten" seine E-Mail-Adresse 
+nicht sieht und unter "Adressbuch" seine Adresse nicht sieht - das hat 
+alles ein und die selbe Ursache, die ich noch genauer eingrenzen muss.
+
+
+Viele Gr??e,
+Nils
+
+
+
+From martin at oswald24.de  Sat Oct 24 13:52:58 2009
+From: martin at oswald24.de (Martin Oswald)
+Date: Sat, 24 Oct 2009 13:52:58 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE28F81.2000101@gmx.de>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>	<20090906220159.150d2307@akoya>	<4AE1EEBA.7030904@gmx.de>	<4AE2450A.9060809@t-online.de>
+	<4AE28F81.2000101@gmx.de>
+Message-ID: <001601ca54a0$888134b0$99839e10$@de>
+
+Hallo Nils,
+
+> Martin, dass sich PayPal in einem neuen Fenster ?ffnet wundert mich
+> sehr
+> - ist das irgendwie noch reproduzierbar?
+
+
+
+From martin at oswald24.de  Sat Oct 24 13:57:06 2009
+From: martin at oswald24.de (Martin Oswald)
+Date: Sat, 24 Oct 2009 13:57:06 +0200
+Subject: [EasyFlash-devel] Webshop Testbetrieb
+In-Reply-To: <4AE28F81.2000101@gmx.de>
+References: <20090906210047.7fe27ec8@akoya>	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>	<20090906215911.276584a2@akoya>	<20090906220159.150d2307@akoya>	<4AE1EEBA.7030904@gmx.de>	<4AE2450A.9060809@t-online.de>
+	<4AE28F81.2000101@gmx.de>
+Message-ID: <001701ca54a1$1bec76b0$53c56410$@de>
+
+Hallo Nils,
+
+> Frage:
+> 
+> Martin, dass sich PayPal in einem neuen Fenster ?ffnet wundert mich
+> sehr
+> - ist das irgendwie noch reproduzierbar?
+> 
+> 
+Nein, ist zur zeit nicht Reproduzierbar .. Irgendwie spinnt mein rechner , ich kann nicht mer Return dr?cken ?!? Bye Martin 
+
+
+

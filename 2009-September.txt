@@ -1,0 +1,538 @@
+From alex at kazik.de  Wed Sep  2 19:21:33 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Wed, 2 Sep 2009 19:21:33 +0200
+Subject: [EasyFlash-devel] EasyLoader
+Message-ID: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+
+Hi,
+
+so, ich hab' es nun doch geschafft, EasyLoader zu commiten.
+
+ToDo:
+- suche verbessern
+- auch bei ocean modulen laden von prg's unterstetzen
+- ladebereich von prgs (z.Z. 0200-cfff) auf 0200-ffff erweitern
+- dies und das
+- was halt noch so zu machen ist
+
+im makefile und in tools/mk_easyflash_module.php sind div. angaben zu
+machen (jeweils oben) und benoetigt wird
+- make
+- php >= 5.?
+- KickAssembler 2.25 http://www.theweb.dk/KickAssembler/Main.php
+- noch was?
+
+mit "make" bzw. "make n" wird ein "normales modul" erstellt
+mit "make o" wird ein "ocean modul" erstellt = _ein_ ocean typ1 modul
+<=256k kann enthalten sein
+
+Ciao, ALeX.
+
+
+From skoe at directbox.com  Wed Sep  2 19:55:56 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 19:55:56 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+Message-ID: <20090902195556.4b7e0e81@akoya>
+
+
+Hi,
+
+> so, ich hab' es nun doch geschafft, EasyLoader zu commiten.
+
+\o/
+
+> mit "make" bzw. "make n" wird ein "normales modul" erstellt
+
+Na dann probier ich mich nachher mal dran. Sind ja lauter gute
+Nachrichten diese Woche.
+
+Vielen Dank nochmal an alle, die geholfen haben!
+
+Tut mir Leid, dass meine Seite immer noch nicht aktualisiert habe.
+Momentan sitze ich lieber an der Software.
+
+Gru?,
+
+Thomas
+
+
+
+From nils.eilers at gmx.de  Wed Sep  2 20:05:16 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Wed, 02 Sep 2009 20:05:16 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Geh=E4usebearbeitung?=
+Message-ID: <4A9EB3DC.8080908@gmx.de>
+
+Ich m?chte probieren, mir ein paar Bohrfassungen aus Holz zu bauen, wo 
+ich die Halbschalen nur noch einlegen muss und damit immer an 
+definierten Stellen bohren kann.
+
+Ob das was wird - schaun wir mal...
+
+Ich habe noch keine Ahnung, wie gut bzw. schnell das geht, und ob das 
+sinnvoll oder nicht sinnvoll ist, bereits bearbeitete Geh?use raus zu 
+geben oder das jeden selbst machen zu lassen bzw. die Leute w?hlen zu 
+lassen.
+
+Hat dazu jemand Tipps und praktische Erfahrung?
+
+
+
+
+From nils.eilers at gmx.de  Wed Sep  2 20:07:03 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Wed, 02 Sep 2009 20:07:03 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+Message-ID: <4A9EB447.6030407@gmx.de>
+
+> so, ich hab' es nun doch geschafft, EasyLoader zu commiten.
+
+Super!
+
+Make und php habe ich installiert, den KickAssembler gerade gezogen - 
+gibt's eine Kurzanleitung, was / wie / weiter zu machen ist und erst 
+einmal, wo ich EasyLoader ziehen kann?
+
+
+From skoe at directbox.com  Wed Sep  2 20:13:31 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 20:13:31 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Geh=C3=A4usebearbeitung?=
+In-Reply-To: <4A9EB3DC.8080908@gmx.de>
+References: <4A9EB3DC.8080908@gmx.de>
+Message-ID: <20090902201331.5984d72e@akoya>
+
+
+Hi Nils,
+
+> Ich habe noch keine Ahnung, wie gut bzw. schnell das geht, und ob das 
+> sinnvoll oder nicht sinnvoll ist, bereits bearbeitete Geh?use raus zu 
+> geben oder das jeden selbst machen zu lassen bzw. die Leute w?hlen zu 
+> lassen.
+
+Ich k?nnte mir vorstellen, dass das auch manche selbst machen wollen.
+Andererseits hast Du ja dann Erfahrung, die anderen haben nur einen
+Versuch. Mhh, schwierige Frage.
+
+/Thomas
+
+
+
+From nils.eilers at gmx.de  Wed Sep  2 20:23:06 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Wed, 02 Sep 2009 20:23:06 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Geh=C3=A4usebearbeitung?=
+In-Reply-To: <20090902201331.5984d72e@akoya>
+References: <4A9EB3DC.8080908@gmx.de> <20090902201331.5984d72e@akoya>
+Message-ID: <4A9EB80A.7010905@gmx.de>
+
+> Ich k?nnte mir vorstellen, dass das auch manche selbst machen wollen.
+> Andererseits hast Du ja dann Erfahrung, die anderen haben nur einen
+> Versuch. Mhh, schwierige Frage.
+
+Je l?nger ich dar?ber nachdenke, wie ich die Formen mache bzw. die die 
+Arbeitsg?nge aussehen, desto mehr erkenne ich, wie komplex das ist.
+Vor allem ist das gar nicht ohne, Toleranzen einzuhalten.
+Mit der LED kann man sicher noch einen Milimeter in jede Richtung, die 
+kann man ja auch einl?ten, wenn die Platine in der oberen Halbschale 
+liegt. Aber der Reset-Taster hat null Spiel nach links oder rechts - 
+wenn der nicht wirklich zentriert aus dem Bohrloch guckt, sieht das 
+bestimmt h??lich aus.
+
+Beim Schiebeschalter habe ich mit Entsetzen festgestellt, dass BEIDE 
+Halbschalen zu bearbeiten sind, weil der genau in der Nahtstelle sitzt.
+Wenn man nur die obere Halbschale bearbeitet (so wie ich das bislang 
+dachte), sitzt der Schalter schrag. Mechanisch kann man den zwar so 
+bedienen, aber der guckt dann nicht rechtwinkling, sondern schr?g nach 
+oben aus dem Geh?use.
+
+Ab Freitag habe ich ein paar Tage frei, dann werde ich mal ein bischen 
+experimentieren in Sachen Geh?usebearbeitung.
+
+
+
+From skoe at directbox.com  Wed Sep  2 20:34:39 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 20:34:39 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Geh=C3=A4usebearbeitung?=
+In-Reply-To: <4A9EB80A.7010905@gmx.de>
+References: <4A9EB3DC.8080908@gmx.de> <20090902201331.5984d72e@akoya>
+	<4A9EB80A.7010905@gmx.de>
+Message-ID: <20090902203439.0a768b75@akoya>
+
+
+> Je l?nger ich dar?ber nachdenke, 
+
+Das habe ich jetzt auch getan. Mein Vorschlag: Wenn Dir ein guter Weg
+einf?llt, wie man das Geh?use bearbeiten kann, schreib doch eine
+Anleitung mit dem Stil "empfohlenes Vorgehen" und lass die Leute die
+Geh?use selbst bearbeiten.
+
+Mit dieser Mischung k?nnen die anderen von Deinen Experimenten
+profitieren und trotzdem selbst basteln. Und niemand kann sich
+beschweren, dass er es besser gekonnt h?tte.
+
+Nur nochmal mein Hinweis: Statt schnell laufenden Werkzeugen lieber
+Handwerkzeuge einsetzen (z.B. Schl?sselfeile f?r den Schiebeschalter).
+Da hat man mehr Gef?hl und es wird nicht so hei?.
+
+Die Positionen (links/rechts) kann man vielleicht direkt mit der
+eingelegten Leiterplatte markieren?
+
+Vielleicht kannst Du mal das eine oder andere Foto von der fast-fertig
+Version machen, dasmit wir uns besser vorstellen k?nnen, wo der Taster
+liegen w?rde (H?he)? Vielleicht f?llt uns dann zusammen was ein.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Wed Sep  2 20:36:26 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 20:36:26 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+Message-ID: <20090902203626.2cfc1aa8@akoya>
+
+
+Hi Alex,
+
+bin schon ganz aufgeregt, endlich mal EasyLoader aus hg zu
+compilieren :) Danke f?r die tolle Arbeit!
+
+Bin schon ziemlich weit gekommen, schaun wir mal:
+
+Ein paar Verbesserungsvorschl?ge (keine Kritik!):
+
+Kannst Du php5 als default ohne Pfad in's Makefile schreiben? Unter
+Linux liegt es ?blicherweise, wenn aus einem Paket installiert,
+unter /usr/bin, nur wenn man es selbst kompiliert, landet es
+unter /usr/local/bin. Ohne Pfad sollte doch immer klappen, oder?
+
+Du hast wahrscheinlich gemerkt, dass man keine leeren Verzeichnisse
+einchecken kann. Das ist eine Eigenschaft von hg. ?blicherweise packt
+man eine leere Datei z.B. namens ".hidden" da rein und commited die.
+
+F?r x64 gilt das gleiche mit dem absoluten Pfad.
+
+So, das make ist jetzt eigentlich durchgelaufen. x64 will die
+entstandene Datei nicht starten. Kein Wunder, wenn ich sie im
+Texteditor starte, sind da Fehlermeldungstexte drin statt Daten. Die
+schaue ich mir nachher mal an.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Wed Sep  2 20:45:20 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 20:45:20 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <4A9EB447.6030407@gmx.de>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+	<4A9EB447.6030407@gmx.de>
+Message-ID: <20090902204520.212f03f6@akoya>
+
+
+Hi Nils,
+
+> gibt's eine Kurzanleitung, was / wie / weiter zu machen ist
+
+ganz trivial ist das nicht, die Quelltexte muss man sich erst aus der
+Versionskontrolle holen, die CRTs zusammenstellen, Pfade anpassen etc.
+
+Vielleicht m?chtest Du erstmal auf ein vorgefertigtes Image zum
+Ausprobieren warten. Wir werden hoffentlich bald ein Tool auf die Beine
+stellen, mit denen man sich die Module komfortabel zusammenstellen
+kann. Mit der GUI habe ich schon ein bisschen angefangen, kann aber
+noch nichts.
+
+Aber nat?rlich kannst Du es gern versuchen. Wollte nur verhindern, dass
+dabei Frust aufkommt.
+
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Wed Sep  2 20:47:07 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 2 Sep 2009 20:47:07 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <20090902203626.2cfc1aa8@akoya>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com>
+	<20090902203626.2cfc1aa8@akoya>
+Message-ID: <20090902204707.3f8fe19d@akoya>
+
+
+> So, das make ist jetzt eigentlich durchgelaufen. x64 will die
+> entstandene Datei nicht starten. Kein Wunder, wenn ich sie im
+> Texteditor starte, sind da Fehlermeldungstexte drin statt Daten. Die
+> schaue ich mir nachher mal an.
+
+Ja - nee, is klar: In den Fehlermeldungen steht, dass das Tool die
+einzelnen CRT- und PRG-Dateien nicht findet, die Alex aus naheliegenden
+Gr?nden nicht mit in's Open-Source-Repository gelegt hat.
+
+Schade, dass die Fehlermeldungen in der CRT-Datei landen :)
+
+/ Thomas
+
+
+
+From alex at kazik.de  Wed Sep  2 22:55:26 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Wed, 2 Sep 2009 22:55:26 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <20090902203626.2cfc1aa8@akoya>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com> 
+	<20090902203626.2cfc1aa8@akoya>
+Message-ID: <3cdcf94b0909021355g6ac8af88x15f39d46f0dd1912@mail.gmail.com>
+
+Hi ho,
+
+> bin schon ganz aufgeregt, endlich mal EasyLoader aus hg zu
+> compilieren :) Danke f?r die tolle Arbeit!
+
+ich muss ja gestehen, dass da seit einiger zeit nix mit passiert ist -
+ausser das es jetzt in hg statt (lokalem) svn ist und die verz.
+struktur etwas optimiert wurde.
+
+> Kannst Du php5 als default ohne Pfad in's Makefile schreiben? Unter
+> Linux liegt es ?blicherweise, wenn aus einem Paket installiert,
+> unter /usr/bin, nur wenn man es selbst kompiliert, landet es
+> unter /usr/local/bin. Ohne Pfad sollte doch immer klappen, oder?
+
+ja... aber nicht ueberall. z.B. hier am mac ist php4 staandatd und das
+php5 paket wird woandershin installiert - ok, ich koennte das in
+meinen pfad packen.
+
+> F?r x64 gilt das gleiche mit dem absoluten Pfad.
+
+und bei x64 ist es so, das es auf dem mac eine mac-applikation ist
+(also ein ordner in dem alle daten liegen) und deswegen wird das nie
+im pfad liegen.
+
+darum dachte ich das man das einfach selber konfigurieren sollte...
+aber ich bin fuer vorschalege offen.
+
+> Du hast wahrscheinlich gemerkt, dass man keine leeren Verzeichnisse
+> einchecken kann. Das ist eine Eigenschaft von hg. ?blicherweise packt
+> man eine leere Datei z.B. namens ".hidden" da rein und commited die.
+
+ok, muss ich die dann vor jedem commiten leeren, damit er den inhalt
+nicht mit committed oder wie?
+
+> So, das make ist jetzt eigentlich durchgelaufen. x64 will die
+> entstandene Datei nicht starten. Kein Wunder, wenn ich sie im
+> Texteditor starte, sind da Fehlermeldungstexte drin statt Daten. Die
+> schaue ich mir nachher mal an.
+
+> Ja - nee, is klar: In den Fehlermeldungen steht, dass das Tool die
+> einzelnen CRT- und PRG-Dateien nicht findet, die Alex aus naheliegenden
+> Gr?nden nicht mit in's Open-Source-Repository gelegt hat.
+>
+> Schade, dass die Fehlermeldungen in der CRT-Datei landen :)
+
+jaaa, das tool ist ja nur uebergangsweise da, bis du *das* tool
+geschrieben hast - ich brauchte ja was zum testen...
+
+soll ich den kickassembler mit in das repro legen? (ist ja nicht soo gross)
+
+und das ganze ist bis jetzt ja nur meine private umgebung...
+
+und da ist auch noch irgendein problem mit den deps - wenn build und
+.deps leer ist muss man zwei mal make machen, da er zwischendurch
+wegen fehlenden deps abbricht...
+
+in dem souce sind auch noch die teile drin, mit denen ich so was wie
+m2i's simulieren wollte - werde ich aber wohl rauskicken, da es sich
+ja als nicht soo praktisch erwiesen hat.
+
+wie kann ich hg ueber ssh einstellen? (ich will nicht immer das
+passwort eintippen - da es eins speziell fuer berlios ist, und ich mir
+es nicht merken kann) und wenn ich "hg clone
+ssh://akazik at hg.berlios.de/repos/easyflash" versuche will er trotzdem
+mein passwort, obwol ich in der zugangsverwaltung meine id hinterlegt
+habe...
+
+Ciao, ALeX.
+
+
+From alex at kazik.de  Thu Sep  3 10:44:52 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Thu, 3 Sep 2009 10:44:52 +0200
+Subject: [EasyFlash-devel] EasyLoader
+In-Reply-To: <3cdcf94b0909021355g6ac8af88x15f39d46f0dd1912@mail.gmail.com>
+References: <3cdcf94b0909021021mafb685dk336165514eb86474@mail.gmail.com> 
+	<20090902203626.2cfc1aa8@akoya>
+	<3cdcf94b0909021355g6ac8af88x15f39d46f0dd1912@mail.gmail.com>
+Message-ID: <3cdcf94b0909030144h38e8beb8n307d34fe696f43dd@mail.gmail.com>
+
+Moin,
+
+> wie kann ich hg ueber ssh einstellen?
+
+ich glaub' ich hab's geschafft:
+
+zuerst (wie in der anleitung steht) mit ssh-copy-id kopiert (einfach
+den authorized key in das text-feld da kopieren scheint nicht zu
+reichen, und der kopierte ist da auch nicht zu sehen...)
+
+und dann "hg clone ssh://akazik at hg.berlios.de//hgroot/repos/easyflash"
+
+da kam zwar "remote: Not trusting file
+/hgroot/repos/easyflash/.hg/hgrc from untrusted user tgiesel, group
+easyflash" aber mal gucken, ob's trotzdem geht.
+
+Ciao, ALeX.
+
+
+From skoe at directbox.com  Thu Sep  3 14:06:03 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 03 Sep 2009 14:06:03
+Subject: [EasyFlash-devel] EasyLoader
+Message-ID: <106C07D909030C0603308@directbox.com>
+
+Hi Alex,
+
+> ich glaub' ich hab's geschafft:
+
+Mhh, bei einem Pull oder Update muss man sein Passwort eigentlich nicht 
+eingeben. Einzig bei einem Push, was ich vielleicht einmal am Tag mache.
+Das ist doch machbar --- na gut, wenn man sich sein Passwort nicht merken
+kann, wird's schwierig ;)
+
+Deshalb versuche ich auch auf Passwort-Speicher etc. zu verzeichten. 
+Wenn dann n?mlich mal eins abhanden kommt, kann man sich garantiert 
+nicht mehr daran erinnern.
+
+> und dann "hg clone ssh://akazik at hg.berlios.de//hgroot/repos/easyflash"
+
+Ein clone macht man eigentlich nur einmal, danach pull und update 
+(ohne Passwort). Nur um sicher zu sein, dass wir nicht aneinander 
+vorbeireden.
+
+> Not trusting [...] untrusted user tgiesel, group easyflash
+
+Aha, so sieht's also aus. Man traut mir nicht.
+
+Na jedenfalls, wenn Du mit dem Zustand jetzt zufrieden arbeiten kannst,
+dann ist ja alles gut.
+
+Gru?,
+
+Thomas
+
+
+
+
+From skoe at directbox.com  Sun Sep  6 21:00:47 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 6 Sep 2009 21:00:47 +0200
+Subject: [EasyFlash-devel] In eigener Sache
+Message-ID: <20090906210047.7fe27ec8@akoya>
+
+
+Hallo Kollegen,
+
+endlich habe ich diese ?u?erst komplexe Seite fertig gestellt:
+http://skoe.de/easyflash/index.php?page=ber-uns
+
+Fehlt jemand? Stimmt alles?
+
+@Alex: Du hattest mir Deinen Wunsch geschrieben, ich finde Deine Mail
+aber nicht mehr. Stimmt das so, oder war's mit Real Name?
+
+Gru?,
+
+Thomas
+
+
+
+From martinhv at arcor.de  Sun Sep  6 21:50:19 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sun, 6 Sep 2009 21:50:19 +0200
+Subject: [EasyFlash-devel] In eigener Sache
+In-Reply-To: <20090906210047.7fe27ec8@akoya>
+Message-ID: <000001ca2f2b$440e5690$1b09a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> http://skoe.de/easyflash/index.php?page=ber-uns
+
+Schick!
+
+Aber da Du auch mit NanoCMS arbeitest, m?chtest Du die "Suchmaschinen freundliche URL's" nicht aktivieren? Oder l?uft bei Dir kein mod_rewrite? Ferner h?tte ich noch ein "German Tweak" um die Slugify einzudeutschen. Dann werden die Umlaute ?, ? bzw. ? zu ae, oe bzw. ue und ? zu ss. Damit ist ein URL besser zu lesen! Ich schick's Dir gleich mal per PM.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Sun Sep  6 21:59:11 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 6 Sep 2009 21:59:11 +0200
+Subject: [EasyFlash-devel] In eigener Sache
+In-Reply-To: <000001ca2f2b$440e5690$1b09a8c0@mhvnb10>
+References: <20090906210047.7fe27ec8@akoya>
+	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>
+Message-ID: <20090906215911.276584a2@akoya>
+
+
+Hi Martin,
+
+> Aber da Du auch mit NanoCMS arbeitest, m?chtest Du die "Suchmaschinen
+> freundliche URL's" nicht aktivieren? Oder l?uft bei Dir kein
+> mod_rewrite?
+
+Ich benutzte nichtmal Apache :) Habe dar?ber nachgedacht, meinen Server
+umzukonfigurieren. Aber da google schon nach wenigen Tagen alles
+richtig gefunden hat, hab ich's gelassen. z.B.
+http://www.google.com/search?q=easyprog+c64
+http://www.google.com/search?q=easyflash+navy+seals
+
+> Ferner h?tte ich noch ein "German Tweak" um die Slugify
+> einzudeutschen. Dann werden die Umlaute ?, ? bzw. ? zu ae, oe bzw. ue
+> und ? zu ss. Damit ist ein URL besser zu lesen! Ich schick's Dir
+> gleich mal per PM.
+
+Ich werd's mir mal ansehen. Danke. Hab sowieso auch selbst einiges an
+NanoCMS ge?ndert, weil das Original ein einziges Sicherheitsloch ist.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Sun Sep  6 22:01:59 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 6 Sep 2009 22:01:59 +0200
+Subject: [EasyFlash-devel] In eigener Sache
+In-Reply-To: <20090906215911.276584a2@akoya>
+References: <20090906210047.7fe27ec8@akoya>
+	<000001ca2f2b$440e5690$1b09a8c0@mhvnb10>
+	<20090906215911.276584a2@akoya>
+Message-ID: <20090906220159.150d2307@akoya>
+
+
+> Oder l?uft bei
+> Dir kein mod_rewrite?
+> Ich benutzte nichtmal Apache :)
+
+Ja, ?hm nein. Hei?t ja unter lighttpd so. Sorry, war lange her ;)
+
+
+

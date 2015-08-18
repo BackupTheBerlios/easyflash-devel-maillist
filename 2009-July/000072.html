@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] (Layout) Neuer Zwischenstand
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C000501ca063d%246f634970%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000070.html">
+   <LINK REL="Next"  HREF="000074.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] (Layout) Neuer Zwischenstand</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C000501ca063d%246f634970%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] (Layout) Neuer Zwischenstand">martinHV at arcor.de
+       </A><BR>
+    <I>Thu Jul 16 19:47:05 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000070.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+        <LI>Next message: <A HREF="000074.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Bj&#246;rn,
+
+&gt;<i> Die Engstelle im PLCC-Sockel ist jetzt behoben und die SIL-Netzwerke
+</I>&gt;<i> sind wieder drin.
+</I>&gt;<i> Siehe Anlage.
+</I>
+Das sieht erst mal sehr gut aus.
+
+&gt;<i> Die Blauen Leiterbahnen rechts unten werde ich mir mal heute Abend
+</I>&gt;<i> genauer ansehen.
+</I>
+Ja, da mu&#223; man etwas gro&#223;r&#228;umiger Ver&#228;nderungen machen. Dann sollten sich
+die auch aufl&#246;sen lassen.
+
+&gt;<i> @Martin: K&#246;nnen die Kondensatoren so bleiben? was meist Du dazu?
+</I>
+C1, C2 und C7 sind und waren schon okay. Auch C5 ist mit der jetzigen
+Leitungsf&#252;hrung einwandfrei.
+
+Bei C3 und C4 sehe ich Probleme. Diese sind fast parallel und nicht mit der
+n&#246;tigen N&#228;he zu den jeweiligen ICs. Gerade die FLASH-Bausteine haben keine
+Kondensatoren. Aber das hatte ich schon in meiner eMail vom Dienstag gegen
+21:07 geschrieben.
+
+Bei dieser Gelegenheit kann man min. eine Durchkontaktierung zwischen C3 und
+C4 aufl&#246;sen, wenn man die blaue GND-Leiterbahn direkt bis C3 f&#252;hrt.
+
+Auch die Durchkontaktierung von VCC oben links vom Loch kann man weg
+bekommen. Dazu mu&#223; die blaue VCC-Leiterbahn von dieser Durchkontaktierung
+bis zu C3 gel&#246;scht werden. Die Verbindung kann von C3 in rot direkt zu C4
+gelegt werden. Dann k&#246;nnte die rote GND-Leiterbahn zwischen C3 und C4 wieder
+blau werden.
+
+Wie man nun diese Kondensatoren anschlie&#223;en kann, damit sie auch eine
+Funktion haben, &#252;berlege ich mir erst, wenn die blauen Leiterbahnen unten
+rechts geordnet sind.
+
+Aber es gibt noch ein anderes Problem. Oben gibt es &#252;ber die ICs U7, U2 und
+U1 eine GND-Schleife. Das ist nicht gut. Die obere blaue Leiterbahn wird f&#252;r
+einige wenige Pins, deren Eingang auf log. Null (GND) gelegt werden soll,
+nicht weiter ben&#246;tigt. Daher w&#252;rde ich daraus eine Signalleitung (10 mil)
+machen und diese nur auf einer Seite (links oder rechts) anschlie&#223;en.
+
+Und dann sehe ich noch ein Problem. Die zwei 10 mil Leiterbahnen zwischen
+den PLCC-Fassungs-Pins sind kein Problem. Zwischen den DIL-Pins sieht das
+z.Z. sehr eng aus. Dabei lie&#223;en sich einige Leiterbahnen verschieben (z.B.
+untere der roten zwischen Pin 24 und 25 zu Pin 23 und 24).
+
+Ferner m&#246;chte ich an dieser Stelle noch einmal vorschlagen, f&#252;r das RAM zwei
+Alternativen vorzusehen. Einmal neben der 600 mil Fassung noch eine 300
+mil-Fassung mit der gleichen Belegung. Wenn ich das richtig &#252;berschlage,
+sollte das machbar sein.
+
+Au&#223;erdem k&#246;nnte man auch noch die Verwendung der 6116 (24 pol.) anstelle des
+6264 (28 pol.) vorsehen. Es gibt neben den vier &#252;bersch&#252;ssigen Pins (1, 2,
+27 und 28) nur zwei &#196;nderungen:
+
+Pin 26 (bei 24pol. ist das Pin24) wird von CS2 zu VCC. Dieser Pin sollte
+also direkt auf VCC ohne den Widerstand R1 gef&#252;hrt werden. Ist in meinen
+Augen mit dem Layout auch m&#246;gich. Und dann die letzte &#196;nderung: /WE liegt
+nicht auf Pin 27 sondern Pin 25 (bei 24Pol. ist das Pin 23), an dem sonst
+A11 &#252;ber den Widerstand R1 auf VCC liegt. S&#228;he man hier einen eigenen
+Widerstand R4 vor, k&#246;nnte man &#252;ber einen Jumper /WE optional anlegen. Dies
+schrieb ich schon einmal in einer Mail vom 5.7.2009 gegen 13:11.
+
+Diese nun drei 10 kOhm Widerst&#228;nde rechtfertigen schon fast ein vierfach
+SIL-Widerstandsnetzwerk, oder Thomas?
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000070.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+	<LI>Next message: <A HREF="000074.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015d01ca0991%247fcc8c20%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015d01ca0991%247fcc8c20%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 01:26:19 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Alex,
+
+&gt;<i> also ich hatte eigentlich vor komplett ohne kernal auzsukommen
+</I>&gt;<i> (schafft der EasyLoader ja auch).
+</I>&gt;<i> und am ende ein &quot;JMP ($FFFC)&quot;.
+</I>
+Ich w&#252;rde es begr&#252;&#223;en!
+
+&gt;<i> also bei einem 16k ultimax modul koennte der reset vector auch nach
+</I>&gt;<i> $8000-$9fff zeigen!
+</I>
+Stimmt, also k&#246;nnte man auf &gt;=$8000 abtesten. Das sollte sehr einfach mit BMI gehen.
+
+Wenn man keinen Text ausgeben m&#246;chte, k&#246;nnte man auch die LED sehr einfach blinken lassen! Vielleicht wie in der Floppy als Fehlercode? Das sollte das SDK vielleicht auch als Library zur Verf&#252;gung stellen. ;-)
+
+&gt;<i> Ah, ein problem habe ich mit dem EasyLoader (von wegen
+</I>&gt;<i> initialisierung) doch: nach manchen spielen ist der hintergrund und
+</I>&gt;<i> rahmenfarbe fix, und ich kann sie nicht aendern, obwohl ich den
+</I>&gt;<i> kompletten VIC (register) initialisiere - alles andere geht (modi,
+</I>&gt;<i> sprites, ...)
+</I>
+Was meinst Du mit &quot;nach manchen spielen&quot;? Haben diese Spiele einen Men&#252;punkt zum Beenden? Oder machst Du einen RESET?
+
+Wie initialisierst Du den VIC? Ist der Code schon einsehbar? Dann w&#252;rde ich mal einen Blick draufwerfen.
+
+&gt;<i> wenn man dann aber in's basic wechselt repariert er das
+</I>&gt;<i> auch - aber ich weiss noch nicht wie, den dann baue ich's selber ein.
+</I>
+Tja, dann m&#252;&#223;te das dort aber drin stehen. Sollte auch ein Kernal-Aufruf sein. Wenn ich das richtig sehe, wird nach der Tabelle ab $ECB9 der VIC (ab $D000) mit $2F (47) Bytes initialisiert. Aber Achtung, die Tabelle ab $ECB9 ist eigentlich nur 46 Bytes gro&#223; und geht daher nur bis $ECE6 (ist das letzte Byte). In der Schleife ab $E5A8 wird jedoch als erste Byte aus Adresse $ECE7 ($ECB8 + $2F) nach $D02E ($CFFF + $2F) geschrieben. Und bei $ECE7 steht ein $4C, das gro&#223;e &quot;L&quot; f&#252;r den Text der &quot;RUN&quot;-Taste, also &quot;LOAD&quot;+#13+&quot;RUN&quot;+#13.
+
+Das ist schon komisch. Auf jeden Fall werden die VIC-Register r&#252;ckw&#228;rts initialisiert.
+
+Was genau machst Du nun?
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

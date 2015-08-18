@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash mit RAM
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20mit%20RAM&In-Reply-To=%3C002701c9fd61%2445b366d0%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash mit RAM</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20mit%20RAM&In-Reply-To=%3C002701c9fd61%2445b366d0%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] EasyFlash mit RAM">martinHV at arcor.de
+       </A><BR>
+    <I>Sun Jul  5 13:10:56 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[EasyFlash-devel] EasyFlash mit RAM
+</A></li>
+        <LI>Next message: <A HREF="000012.html">[EasyFlash-devel] EasyFlash mit RAM
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;<i> Nanu? Jetzt dich RAM? Nun, es gibt inzwischen einen weiteren
+</I>&gt;<i> Software-Entwickler, der die Vorteile von 256 Bytes RAM betont hat.
+</I>
+Hatte ich ein Posting &#252;bersehen bzw. nicht bekommen? Oder war das eine private Vorteilsliste?
+
+&gt;<i> Also ist die Schaltung jetzt reif f&#252;r ein Layout. Wer m&#246;chte? ;-)
+</I>
+Dabei sollte noch gekl&#228;rt werden, welches RAM (Gr&#246;&#223;e: 2KB, 8KB, 32KB, ...; Bauform: DIL 300mil, DIL 600mil, PLCC, ...; Herkunft: normales SRAM - 6116, 6264, 62256, ... oder Cache-RAM) verwendet werden kann und soll. Ich denke, wir k&#246;nnten hier das Layout sehr offen f&#252;r viele verschiede Typen gestalten.
+
+D.h. einmal ein 28pol. 600 mil DIL Geh&#228;use, welches aber auch eine Lotpunktreihe f&#252;r 300 mil hat (sind einfach zu der entsprechenden 600 mil Reihe durchverbunden) und dann ein universelles Pinout f&#252;r die Best&#252;ckung von 6116 und 6264. Die n&#246;tigen Datenleitungen D0-D7 und auch Adre&#223;leitungen A0-A7 sind immer an den gleichen Pins. Die Adre&#223;leitungen A8-A10 sind auch gleich und &#252;ber Pullups auf VCC oder direkt gegen GND zu schalten. Pin 23 (A11) ist beim 6116 /WE. Hier m&#252;&#223;te also ein 2pol. Jumper hin, welcher optional das /WE-Signal an diesen Pin legen kann. Damit dieser Pin auch ohne gestreckten Jumper weiterhin beschaltet ist, bietet sich ein Pullupwiderstand gegen VCC an. Parallel kann /WE auch dauerhaft an Pin 27 f&#252;r den 6264 gef&#252;hrt werden. Zus&#228;tzlich sind dann auch die Pins 1 und 2 statisch &#252;ber Wiederstand nach VCC oder direkt nach GND zu f&#252;hren. Beim Pin 26 ist die Wahl vorgegeben, da er auch beim 6264 ein CS2 darstellt, aber beim 62256 das A13 ist. Dieser Pin mu&#223; also statisch auf VCC (&#252;ber den gleichen Wiederstand wie auch die Adre&#223;leitungen A8-A10 bzw. A14 an Pin 1 und A12 an Pin 2) zu f&#252;hren. Daher w&#252;rde ich f&#252;r VCC &#252;ber einen Widerstand auch f&#252;r die restlichen Adre&#223;leitungen tendieren.
+
+Damit w&#228;re eine Best&#252;ckung von 6116, 6264 und 62256 m&#246;glich. Dies jeweils in 300 und 600 mil DIL Geh&#228;usen.
+
+Da ich gerade keine Pinbelegung der m&#246;glichen Cache-RAMs zu Hand habe stelle ich mal die Frage in die Runde, ob es dort bez&#252;glich dem Pinout Unterschiede gibt? Ich vermute nicht, bin mir aber nicht sicher. Vielleicht kann auch noch jemand Typenbezeichnungen posten, welche dann gepr&#252;ft und als passend dokumentiert werden k&#246;nnen.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[EasyFlash-devel] EasyFlash mit RAM
+</A></li>
+	<LI>Next message: <A HREF="000012.html">[EasyFlash-devel] EasyFlash mit RAM
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

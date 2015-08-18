@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D907150A391F1D7%40directbox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000213.html">
+   <LINK REL="Next"  HREF="000188.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D907150A391F1D7%40directbox.com%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul 21 12:57:31 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000213.html">[EasyFlash-devel] Platinen Kosmetik
+</A></li>
+        <LI>Next message: <A HREF="000188.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+&gt;<i> Wenn ich's nicht vergesse,
+</I>&gt;<i> komme ich mal wieder darauf zur&#252;ck.
+</I>
+Du wirst schon recht haben, spar Dir doch die Zeit f&#252;r's raussuchen. W&#228;re 
+sowieso nur akademischer Natur.
+
+Nach den neuesten Erkenntnissen brauchen wir die Vektoren zum Starten von CRTs
+ja wirklich nicht (oder sollten sie im Falle eines simulierten POR sogar 
+meiden...)
+
+&gt;<i> Daher sollten evtl. &#196;nderungen im Bootloader auch wieder r&#252;ckg&#228;ngig gemacht
+</I>&gt;<i> werden. Also alle DDRx auf Eingang und auch die DRx der CIA wieder auf 0
+</I>&gt;<i> setzen.
+</I>
+Genau das schwebte mir jetzt auch vor. Mal sehen, vielleicht kann ich heute
+abend die erste Version des EasyProg f&#252;r die neue HW commit-en, die kann dann
+als Zwischenergebnis (Umbauten in der SW) nur 8k-Module mit Start-Up flashen.
+Die anderen Typen Pflege ich dann nach.
+
+&gt;&gt;<i> Hier sollte auf alle F&#228;lle eine
+</I>&gt;&gt;<i> semantische Code-Analyse gemacht werden. Wenn man Schleifen und
+</I>&gt;&gt;<i> Spr&#252;nge vektorisiert sollte das recht einfach sein :-P
+</I>&gt;<i>
+</I>&gt;<i>Das war auch meine erste Idee. Nach dem RESET kommen (fast) immer
+</I>&gt;<i>Kodefragmente mit TXS, CLD und SEI vor. Diese Bytes k&#246;nnte man in den ersten
+</I>&gt;<i>16 Bytes nach dem Reset-Vektor suchen.
+</I>
+Hey, das hatte ich doch sarkastisch gemeint. Jetzt hast Du meinen Witz 
+kaputgemacht ;)
+
+&gt;<i> Ich hatte es gewu&#223;t aber wiederum bewu&#223;t versucht zu verdr&#228;ngen.
+</I>
+Sch&#246;n, dass ich nicht der einzige in dieser Liste bin, der manchmal solchen
+menschlichen Schw&#228;chen unterliegt, hehe :)
+
+&gt;<i> Richtig. Der VIC hat _keinen_ RESET-Eingang.
+</I>
+Oh, das erkl&#228;rt einiges :-) Ist mir noch gar nicht aufgefallen.
+
+&gt;<i> Nein, nicht entweder oder, sondern hintereinander!
+</I>
+Da bin ich gespannt.
+
+Wenn ein normales Modul gestartet wird, werden die KERNAL-Initialisierungen
+eben nicht durchlaufen. Und wie ich eben gelernt habe, gibt es auch h&#246;chstens
+einen internen POR des VIC. Bei einem externen Reset-Taster bekommt das Modul
+also einen vollkommen uninitialisierten VIC vorgesetzt.
+
+Trotzdem sollten wir nicht die Sache mit den CIAs vergessen. Zumindest die
+VIC-Bank beeinflussen die.
+
+&gt;<i> Und die Initialisierung f&#252;r ein PRG-Modul machen sowieso die Aufrufe
+</I>&gt;<i> des Kernals!
+</I>
+Du meinst die Initialisierungen, die der Kernel macht? Bist Du Dir sicher? Ich 
+dachte Alex benutzt den Kernal nur f&#252;r Tastaturpuffer-Sache.
+
+Gru&#223;,
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000213.html">[EasyFlash-devel] Platinen Kosmetik
+</A></li>
+	<LI>Next message: <A HREF="000188.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

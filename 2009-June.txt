@@ -1,0 +1,368 @@
+From skoe at directbox.com  Thu Jun 18 22:12:38 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 18 Jun 2009 22:12:38 +0200
+Subject: [Easyflash-devel] C128 unter Kontrolle
+Message-ID: <20090618221238.39a4177f@akoya>
+
+
+Hallo,
+
+wie soll man denn eine Mailing-Liste besser einweihen, als mit einer
+guten Nachricht: Das C128 ist gel?st.
+
+F?r's Archiv schreibe ich nochmal eine kurze Zusammenfassung:
+
+Meine Messergebnisse, HofMar's Vorahnung und die Datenbl?tter von VIC
+und 6510 zusammengenommen bringen alle ein Ergebnis: Bei der
+High-Flanke von Phi2 sind Daten- und Adressbus sowie R/W noch nicht
+stabil. Aus dem Datenblatt des 6510 alleine kann man das nicht ablesen.
+
+Letztendlich ist es der VIC, der AEC erst so sp?t losl?sst, dass der
+6510 seine Ausg?nge auch erst sehr sp?t wieder aktivieren kann. Das ist
+also kein reines C128-Problem, beim C64 und beim C128-Low kamen
+wahrscheinlich ein paar beg?nstigende Faktoren hinzu, so dass es
+zuf?llig stabil geklappt hat. (Bei der Gelegenheit muss man dran
+denken, dass der Flash seine Adressen an der ersten Flanke latched.)
+
+Und wenn man nach den richtigen Dingen googelt (und zwar nicht C128 ),
+sieht man auch, dass das Problem schon vor fast 15 Jahren im Internet
+beschrieben wurde:
+http://groups.google.de/group/comp.sys.c?83944b72f?hl=de
+
+Gru?,
+
+Thomas
+
+
+
+
+
+From martinhv at arcor.de  Thu Jun 18 22:45:58 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Thu, 18 Jun 2009 22:45:58 +0200
+Subject: [Easyflash-devel] C128 unter Kontrolle
+In-Reply-To: <20090618221238.39a4177f@akoya>
+Message-ID: <000301c9f055$c9614010$1909a8c0@mhvnb10>
+
+Hallo,
+
+> Das
+> ist also kein reines C128-Problem, beim C64 und beim C128-Low kamen
+> wahrscheinlich ein paar beg?nstigende Faktoren hinzu, so dass es
+> zuf?llig stabil geklappt hat. (Bei der Gelegenheit muss man dran
+> denken, dass der Flash seine Adressen an der ersten Flanke latched.)
+
+Dann hat es doch etwas Gutes, da? ich so darauf bestanden hatte, dieses Problem zu suchen und zu l?sen und nicht nur zu umschiffen.
+
+Es freut mich, da? nun beide Flash-Bausteine beschrieben werden k?nnen.
+
+Wie soll es nun weitergehen?
+
+Wenn ich das richtig mitbekommen habe, gibt es div. M?glichkeiten:
+
+a) Wir bleiben beim jetzigen Design mit zwei Flash-Bausteine f?r ROML und ROMH. (Insgesamt 1MB)
+b) Wir reduzieren die Kapazit?t auf die H?lfte (512kB), also ein Flash-Baustein f?r ROML und ROMH. Dies kostet ein wenig zus?tzliche Logik.
+c) Wir legen wie unter b) angedacht die Speicherbereiche ROML und ROMH zusammen, erlauben aber neben dem einen Flash-Baustein auch die Best?ckung eines zweiten Bausteines.
+d) Wie machen das wie unter b), nur verwenden wir andere Flash-Bausteine, welche eine gr??ere Kapazit?t haben. Diese bekommen wir aber nicht mehr im DIL- bzw. PLCC-Geh?use sondern nur als SMD.
+
+Wie sind die Meinungen dazu? Ich tendiere in der Version 1 zu a). In einer sp?teren Version 2 k?nnte man ?ber c) oder d) nachdenken. Gerade c) w?rde sicherlich einiges an Logik ben?tigen, welches in PLD besser aufgehoben w?re. Jedoch w?re es auch ein wenig unorthogonal.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Thu Jun 18 22:55:21 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 18 Jun 2009 22:55:21 +0200
+Subject: [Easyflash-devel] C128 unter Kontrolle
+In-Reply-To: <000301c9f055$c9614010$1909a8c0@mhvnb10>
+References: <20090618221238.39a4177f@akoya>
+	<000301c9f055$c9614010$1909a8c0@mhvnb10>
+Message-ID: <20090618225521.420ca0a6@akoya>
+
+
+> Dann hat es doch etwas Gutes, da? ich so darauf bestanden hatte,
+> dieses Problem zu suchen und zu l?sen und nicht nur zu umschiffen.
+
+Ja, hast ja Recht... Kriegst am Wochenende eine Grillwurst, wenn's
+Wetter passt :-)
+
+Ich hatte halt langsam die Schn**** voll, weil es tagelang nicht
+vorw?rts ging.
+
+> Wie sind die Meinungen dazu? Ich tendiere in der Version 1 zu a).
+
+Da wir keine weiteren ?nderungen gegen?ber Draft 3 brauchen als den
+zus?tzlichen 74HCT74 (*), bin ich auch ganz klar f?r a)
+
+Sp?ter kann man sich immernoch Gedanken machen, was man in einer
+High-Tech-Variante alles toller machen kann. Mit Kompatibilit?t,
+versteht sich. Im Gegensatz zu Version 1 h?tte ich dann auch Lust, wie
+bereits angedeutet, alles in SMD zu machen. So ganz w?rde da auch kein
+Weg vorbeif?hren.
+
+(*) Ich schreibe jetzt aus psycho-technischen Gr?nden immer HCT und
+nicht LS, damit nicht alles bei uns so 80's ist ;-) Auch wenn ich im
+Moment viel LS drauf hab, weil Conrad hier nur LS als DIL hat :-)
+
+/Thomas
+
+
+
+From skoe at directbox.com  Thu Jun 18 23:30:45 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 18 Jun 2009 23:30:45 +0200
+Subject: [Easyflash-devel] RAM haben oder nicht
+In-Reply-To: <20090618225521.420ca0a6@akoya>
+References: <20090618221238.39a4177f@akoya>
+	<000301c9f055$c9614010$1909a8c0@mhvnb10>
+	<20090618225521.420ca0a6@akoya>
+Message-ID: <20090618233045.3493b9a2@akoya>
+
+
+Alex,
+
+nun sag bitte mal abschlie?end, wie doll Du RAM m?chtest. W?rde es f?r
+das "normale" Men? wesentliche Vorteile haben, oder nur f?r
+M2I/d64-Mounter?
+
+Es w?ren 256 Byte, nicht gebankter (sch?nes Wort) Speicher an $DF00.
+
+Nat?rlich k?nnen auch alle anderen in der Liste ihre Meinung bekunden.
+
+Wenn wir noch einen relativ leicht auftreibbaren (also nicht single
+source) 300 mil Typen finden k?nnten, der vielleicht noch ein paar
+Pin-kompatible Austauschtypen h?tte, w?re die Entscheidung etwas
+leichter.
+
+/Thomas
+
+
+
+From martinhv at arcor.de  Thu Jun 18 23:39:44 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Thu, 18 Jun 2009 23:39:44 +0200
+Subject: [Easyflash-devel] C128 unter Kontrolle
+Message-ID: <000a01c9f05d$4c275280$1909a8c0@mhvnb10>
+
+Hallo,
+
+> oh noch 'ne idee fuer spaeter: wenn wir mit "intelligenten" bauteilen
+> spielen dann koennte man fuer lo+hi gertrennt ein bank-offset
+> einstellbar machen (erlaubt es 64-256k oceans' platzsparender zu
+> packen) - aber wie gesagt: spaeter!!
+
+Da h?tte ich auch schon eine ?hnliche und noch weitergehende Idee.
+Hinter dem Banking Register gibt es RAM oder FLASH, welches wie eine
+Verweistabelle programmiert werden kann. Dann kann man sehr gut
+mehrere Module mit verschiedenen Kapazit?ten speicheroptimiert im
+Flash ablegen und die Bl?cke ?ber dieses RAM bzw. FLASH entsprechend
+zusammensetzen. Genau diese kleine MMU w?rde nat?rlich f?r ROML und
+ROMH getrennt programmiert werden k?nnen.      
+
+Gru? Martin
+
+
+
+From alex at kazik.de  Fri Jun 19 09:37:56 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Fri, 19 Jun 2009 09:37:56 +0200
+Subject: [Easyflash-devel] C128 unter Kontrolle
+In-Reply-To: <000301c9f055$c9614010$1909a8c0@mhvnb10>
+References: <20090618221238.39a4177f@akoya>
+	<000301c9f055$c9614010$1909a8c0@mhvnb10>
+Message-ID: <3cdcf94b0906190037r354e0744vc56e4dddba190f3a@mail.gmail.com>
+
+(nochmal an alle)
+
+Moin,
+
+> Wie soll es nun weitergehen?
+
+auch wenn ich nur staune, was fuer probleme es gab (ich glaub ich
+hab's nun verstanden) und ich deswegen software mache, moechte ich dch
+gerne was zu hardware sagen.
+
+> a) Wir bleiben beim jetzigen Design mit zwei Flash-Bausteine f?r ROML und ROMH. (Insgesamt 1MB)
+> b) Wir reduzieren die Kapazit?t auf die H?lfte (512kB), also ein Flash-Baustein f?r ROML und ROMH. Dies kostet ein wenig zus?tzliche Logik.
+> c) Wir legen wie unter b) angedacht die Speicherbereiche ROML und ROMH zusammen, erlauben aber neben dem einen Flash-Baustein auch die Best?ckung eines zweiten Bausteines.
+> d) Wie machen das wie unter b), nur verwenden wir andere Flash-Bausteine, welche eine gr??ere Kapazit?t haben. Diese bekommen wir aber nicht mehr im DIL- bzw. PLCC-Geh?use sondern nur als SMD.
+
+grundsaetzlich finde ich, das 512 kb wirklich recht wenig sind (ca. 12
+one-filer oder 32 16k module oder ein 256k ocean modul (das 512k t2
+modul geht in der aktuell angedachten bauweise "b)" nicht.))
+
+zudem finde ich es wichtig, kompatibel zu evtl. kommenden zu sein -
+aber da sehe ich kein problem.
+
+deswegen sag ich mal ganz einfach a) - spaeter wuerde ich dann d)
+vorziehen (wegen mehr speicher und so)
+
+oh noch 'ne idee fuer spaeter: wenn wir mit "intelligenten" bauteilen
+spielen dann koennte man fuer lo+hi gertrennt ein bank-offset
+einstellbar machen (erlaubt es 64-256k oceans' platzsparender zu
+packen) - aber wie gesagt: spaeter!!
+
+Ciao, ALeX.
+
+
+From alex at kazik.de  Fri Jun 19 09:33:06 2009
+From: alex at kazik.de (ALeX Kazik)
+Date: Fri, 19 Jun 2009 09:33:06 +0200
+Subject: [EasyFlash-devel] [Easyflash-devel] RAM haben oder nicht
+In-Reply-To: <20090618233045.3493b9a2@akoya>
+References: <20090618221238.39a4177f@akoya>
+	<000301c9f055$c9614010$1909a8c0@mhvnb10> 
+	<20090618225521.420ca0a6@akoya> <20090618233045.3493b9a2@akoya>
+Message-ID: <3cdcf94b0906190033m685e66a3k8eb3855a0d7d7bc5@mail.gmail.com>
+
+Moin,
+
+> nun sag bitte mal abschlie?end, wie doll Du RAM m?chtest. W?rde es f?r
+> das "normale" Men? wesentliche Vorteile haben
+
+also das mormale menu haette keine vorteile.
+na ja, ausser, z.Z. speichere ich im ram unterm kernal die aktuelle
+position im menu und wenn du ein reset machst, und das ram noch lebt,
+so stehst du softrt wieder an der stelle -> eigenes ram = keiner
+loescht es. aber ist kein wesentlicher vorteil.
+
+> oder nur f?r M2I/d64-Mounter?
+
+ja, bei solchen "spielereien" - oder evtl. auch bei einem diagnose
+modul - weare es nuetzlich bis unverzichtbar.
+aber ich habe ja schon kundgetan, das man damit noch lange nicht alles
+spielen kann.
+
+> Es w?ren 256 Byte, nicht gebankter (sch?nes Wort) Speicher an $DF00.
+
+das waere fuer die oben beschriebenen ausreichend (ungepuffert).
+
+> Nat?rlich k?nnen auch alle anderen in der Liste ihre Meinung bekunden.
+
+Joa, macht ruhig, dann muss nicht nur ich schreiben ;-)
+
+> Wenn wir noch einen relativ leicht auftreibbaren (also nicht single
+> source) 300 mil Typen finden k?nnten, der vielleicht noch ein paar
+> Pin-kompatible Austauschtypen h?tte, w?re die Entscheidung etwas
+> leichter.
+
+ich wuerde es auch nur als optional ansehen - also so das man es nicht
+kaufen/loeten muss (ausser es gibt noch graniose andere anwendungen).
+
+Ciao, ALeX.
+
+
+From skoe at directbox.com  Mon Jun 22 00:12:31 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 22 Jun 2009 00:12:31 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Fast_alle_HW-Probleme_gel=C3=B6st_=28?=
+	=?utf-8?b?Pyk=?=
+In-Reply-To: <000c01c9f208$611fe470$0202fea9@mhv.webmade.com>
+References: <000c01c9f208$611fe470$0202fea9@mhv.webmade.com>
+Message-ID: <20090622001231.269e1981@akoya>
+
+
+Hallo Martin, hallo alle,
+
+Also, gestern haben Martin und ich Messungen am C128 und am C64
+vorgenommen, um ein klares Bild ?ber Signale und Timing zu bekommen und
+die Schaltung anzupassen.
+
+Wir dachten schon, alle Probleme gel?st und gefunden zu haben, da trat
+ein neues auf - diesmal ging wieder was am C64 nicht.
+
+Martin hat dann letzte Nacht noch ?nderungsvorschl?ge per Mail
+geschickt. Die sind auf alle F?lle richtig und sinnvoll.
+
+Den ganzen Abend hab ich mir einen Wolf nach einem Fehler gesucht, mehr
+dazu weiter unten.
+
+Eine klitzekleine ?nderung hab ich im Rahmen der Fehlersuche noch
+eingebaut, die hat zwar den Fehler nicht gel?st, aber mir trotzdem
+Sinnvoll erscheint:
+Bei zweiten Flipflop habe ich doch Phi2 auf Reset gelegt. Es kann
+nicht schaden, /WE m?glichst schnell nach Phi2=>low abzuschalten.
+Vielleicht h?tte R/W daf?r gesorgt, aber so sind wir auf der sicheren
+Seite. (Schaltplan:
+https://developer.berlios.de/docman/display_doc.php?docid=1938&group_id=10970)
+
+Also, erstmal das Fehlerbild am C64:
+- Die Flash-IDs lie?en sich immer problemlos auslesen
+- Software lie? sich scheinbar flashen
+aber:
+- Ganz einfaches Lesen vom Flash ging nur zu ca. 50%
+- Bytes wurden entweder vollkommen richtig oder als $ff gelesen
+- Andere Abstufungen (z.B. ein paar Bits gekippt) gab es nicht
+
+Der Fehler verschwand, wenn ich /WE von den Flashs (nicht von den
+Registern) von 02 entfernt und mit einem Pullup versehen habe.
+Nat?rlich konnte ich dann nur noch lesen.
+
+Die Schreibzugriffe auf die Register (naja, das sind nicht viele)
+funktionierten anscheinend immer.
+
+Ich hab die Schaltung 100 mal durchdacht, gemessen u.s.w.
+
+Ganz zum Schluss: Mal den 02er getauscht. Und jetzt geht's! Am C64 habe
+ich ein kleines Modul geflashed (WoW), am C128 ein
+gro?es von Alex, ca. 400 kByte. Geht.
+
+Lesen geht jetzt auch auf beiden Maschinen, auch WoW mit korrekter
+Grafik.
+
+Ich habe keine Ahnung, ob der Fehler damit zu tun hat, dass der alte IC
+ein HCT02 war und der neue ein LS02. Aber das sollte nicht sein, die
+sind eigentlich vollkommen kompatibel.
+
+Also einen HC rein (nicht voll kompatibel, aber ich hatte keinen LS
+mehr), geht auch nicht. Einen anderen LS rein, geht. HCT
+wieder rein - geht?!! St?tzkondensator dazu. HCT geht nicht mehr.
+Grrrrr???!!! Ich messe jetzt nochmal alles durch, um sicher zu sein,
+dass kein Eingang in der Luft h?ngt. Habt ihr eine Idee?
+
+Martin: Es kann sein, dass das Problem gestern abend auch schon mit dem
+02 zu tun hatte. Das war der gleiche.
+
+Wenn dieses kleine Problemchen nicht w?re, w?rde ich
+vollkommen zufrieden sein.
+
+Gru?,
+
+Thomas
+
+P.S.: Heute habe ich mir im Wohnzimmer barfu? eine 14-polige
+Schaltkreisfassung eingetreten. Das war wohl die, die uns in der K?che
+runtergefallen ist und die wir nicht wiedergefunden haben. Riss im
+Raum-Zeit-Kontinuum?
+
+
+
+From skoe at directbox.com  Thu Jun 25 23:50:51 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 25 Jun 2009 23:50:51 +0200
+Subject: [EasyFlash-devel] Testerei
+Message-ID: <20090625235051.6ae5c971@akoya>
+
+Hallo Ihr,
+
+nicht dass ihr denkt, hier passiert nichts mehr.
+
+momentan testen wir die letzte Hardwareversion und haben wieder eine
+Timing-L?cke gefunden. Man, das C64/C128-Timing ist wirklich nicht ganz
+ohne.
+
+Vielleicht haben wir jetzt die richtige Spur, um das Problem zu l?sen.
+Hoffentlich war es das letzte. Aber das Gute daran: Wir haben sehr viel
+dazugelernt und bei der Hardware funktioniert nichts "zuf?llig".
+
+Auch bei der Software und Artwork gibt's Fortschritte. Mehr dazu, wenn
+ich das Hardware-Geraffel los bin. Oder wenn Alex mal ein Update
+schreibt.
+
+Gru?,
+
+Thomas
+
+
+

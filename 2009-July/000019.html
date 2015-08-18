@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Software-Notausstieg
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Software-Notausstieg&In-Reply-To=%3C20090707210855.341a392e%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000020.html">
+   <LINK REL="Next"  HREF="000022.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Software-Notausstieg</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Software-Notausstieg&In-Reply-To=%3C20090707210855.341a392e%40akoya%3E"
+       TITLE="[EasyFlash-devel] Software-Notausstieg">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul  7 21:08:55 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000020.html">[EasyFlash-devel] Software Spielereien
+</A></li>
+        <LI>Next message: <A HREF="000022.html">[EasyFlash-devel] Software-Notausstieg
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo nochmal,
+
+Nun noch was zur Software:
+
+Der Vorschlag kommt von HofMar, glaub ich. Aber bis jetzt ist er nicht
+im Forum oder hier aufgetaucht:
+
+Wir sollten in unsere Startup-Routinen im Reset-Vektor immer auf
+eine gedr&#252;ckte Taste testen und wenn ja, das Modul sofort verlassen.
+Das k&#246;nnte der Notausstieg sein und w&#252;rde &#252;berall funktionieren au&#223;er
+bei fehlerhaften oder ungeflashten Modulen.
+
+Bei puren 8k/16k/Ultimax-Modulen kann/muss ich im EasyProg auf Page 0
+die Startup-Routine schreiben und auf Page 1 das eigentliche Modul.
+
+Bei puren Ocean-Modulen kommt auch die Startup-Routine auf Page 0 High.
+Die ist bei denen immer frei.
+
+Bei Multi-Modulen/echten EasyFlash-Modulen sorgt das
+Modulzusammenbauprogramm daf&#252;r.
+
+Ich w&#228;re f&#252;r die Stop-Taste. Jede Taste d&#252;rfen wir nicht nehmen, damit
+nicht Caps-Lock oder ein Joystick mit Dauerfeuer das Modul stoppt und
+keiner drauf kommt, warum.
+
+Alex, kannst Du mir bitte mal deinen Startup-Code als Vorlage schicken?
+Ach so: Von den 256 Bytes RAM kannst Du sicher ausgehen.
+
+Noch was: hab inzwischen &#252;ber einen CPLD nachgedacht und auch schon
+eine paar XC 9572XL PLCC-44 im Warenkorb und das ISE Webpack auf der
+Platte. Der Haken: die externen 256 Bytes RAM sind mir ein Dorn im Auge.
+Also bin ich auf eine andere, abstruse Idee gekommen: Die gesamte Logik
+und den RAM durch einen PIC 18F4420 mit 40 MHz ersetzen. Gibt's als
+DIL-40 und als TQFP-44. Ein Atmega mit 20 MHz reicht nach meinen ersten
+Berechnungen nicht aus. Ein PIC w&#228;re sogar billiger als ein CPLD + RAM.
+
+Aber das fange ich jetzt nicht an, jedenfalls nicht, wenn das Layout von
+Bj&#246;rn klappt. Software ist erstmal wichtiger, sonst ist's nur
+Sonderm&#252;ll :-)
+
+Gru&#223;,
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000020.html">[EasyFlash-devel] Software Spielereien
+</A></li>
+	<LI>Next message: <A HREF="000022.html">[EasyFlash-devel] Software-Notausstieg
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

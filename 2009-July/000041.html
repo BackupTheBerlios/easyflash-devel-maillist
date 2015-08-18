@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-15%3Fq%3FLayout%3F%3D&In-Reply-To=%3C1MQbz4-0bZ6FE0%40fwd01.aul.t-online.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000038.html">
+   <LINK REL="Next"  HREF="000042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Layout</H1>
+    <B>Bps_of_Tbm at t-online.de</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-15%3Fq%3FLayout%3F%3D&In-Reply-To=%3C1MQbz4-0bZ6FE0%40fwd01.aul.t-online.de%3E"
+       TITLE="[EasyFlash-devel] Layout">Bps_of_Tbm at t-online.de
+       </A><BR>
+    <I>Tue Jul 14 08:59:26 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000038.html">[EasyFlash-devel] Layout
+</A></li>
+        <LI>Next message: <A HREF="000042.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Ich habe den einen Sockel jetzt gedreht und die beiden PLCC miteinander
+verbunden.
+Das ist allerdings nichts mehr f&#252;r den Bastelkeller, ich muss mit 2
+Leiterbahnen durch den Sockel
+und zwar oben und unten. Das heist: Leiterbahnbreite 6mil und Abstand
+genauso.
+
+Siehe Bild.
+
+Das mit den Kondensatoren gef&#228;llt mir auch nicht wirklich, mal sehen ob
+ich die
+w&#228;rend der Layouterei noch besser platzieren kann.
+Das mit dem Gattertausch ist mir bekannt.
+
+Gibt es die DIL-Widerstand Netzwerke &#252;berhaupt noch zu kaufen?
+Ich habe welche von recht alten Platinen...
+
+Man k&#246;nnte ja auch einfach 8 Widerst&#228;nde stehend nebeneinander einl&#246;ten,
+braucht weniger Platz als DIL
+
+Gr&#252;&#223;e
+Bj&#246;rn
+
+
+
+-----Original Message-----
+Date: Tue, 14 Jul 2009 00:32:24 +0200
+Subject: Re: [EasyFlash-devel] Layout
+From: &quot;Hoffmann-Vetter, Martin&quot; 
+To: 
+
+Hallo Bj&#246;rn, hallo Thomas,
+
+&gt;<i> Die Bauteile sind jetzt so positioniert das ich glaube das es so gut
+</I>&gt;<i> passen wird.
+</I>
+Bist Du Dir dabei wirklich sicher? Klar, meistens bemerkt man die
+Probleme
+erst beim Routen. Ich bef&#252;rchte, mit dieser Anordnung wird das ganz
+schwierig.
+
+Erstens w&#252;rde ich die PLCC-Sockel so wie ich das in meiner eMail vom
+Freitag
+skizzierte anordnen. Bei der Drehung, welche Du jetzt drin hast, d&#252;rfte
+es
+nur so an Durchkontaktierungen hageln oder Du ben&#246;tigst mehr als zwei
+Leiterbahnen zwischen den Pins. (Man ahnt es jetzt bereits bei den
+Datenleitungen!)
+
+Ferner w&#252;rde ich die Logik-ICs weiter vom Connector entfernt setzen und
+die
+Fl&#228;che davor zum Entwirren der Adre&#223;- und Datenleitungen zu der etwas
+ungew&#246;hnlichen Anordnung mit den PLCC-Sockeln nutzen.
+
+Des weiteren haben die Kondensatoren C3, C4 und C8 (fast) keine
+Funktion.
+&#196;hnlich verh&#228;lt es sich mit C7.
+
+Au&#223;erdem noch der Hinweis, das die einzelnen Gatter des 74LS02 bzw. die
+FlipFlop des 74LS74 oder die Dekoder des 74LS139 untereinander getauscht
+werden k&#246;nnen.
+
+Sollten die Widerst&#228;nde R1 und R3 zu viel Platz wegnehmen, kann man auch
+ein
+kleines Widerstandsnetzwerk (ich meine das k&#252;rzeste k&#228;ufliche w&#228;ren vier
+Widerst&#228;nde) nehmen. Evtl. k&#246;nnen die &#252;bersch&#252;ssigen Widerst&#228;nde
+abgetrennt
+werden. (Oder man l&#246;tet dieses aus zwei Widerst&#228;nden selbst zusammen.)
+
+F&#252;r RN1 und RN2 gab es fr&#252;her mal Widerstandsnetzwerke in DIL-Form.
+(Evtl.
+gibt's die heute auch noch?) Diese ben&#246;tigen zwar etwas mehr Platz,
+k&#246;nnten
+aber evtl. das Layout vereinfachen, da Eing&#228;nge gegen&#252;ber den Ausg&#228;ngen
+liegen!
+
+&gt;<i> Ich habe auch ein paar alte Module aufgemacht (Spiele, FC3) und
+</I>&gt;<i> festgestellt, dass dort das Loch nicht nur einen anderen Durchmesser
+</I>&gt;<i> hat, sondern sogar an einer anderen Stelle ist (!). Ich glaube, bei
+</I>&gt;<i> den Spielmodulen von Commodore war es ca. 3 mm dichter am Slot und D
+</I>&gt;<i> 5 mm, wie Du schon schriebst. Es ist auch bei unterschiedlichen
+</I>&gt;<i> Modulen anders, es gibt wohl keine Loch-Norm.
+</I>
+Ich meine mich zu erinnern, da&#223; auch Leerplatinen f&#252;r Cartridges fr&#252;her
+mit
+zwei L&#246;chern ausgestattet waren. Ich m&#252;&#223;te die Tage mal suchen und
+nachmessen. Ich werde berichten.
+
+&gt;<i> Habe ich mir &#252;brigens ein Gesichtsbr&#228;uner bei ebay ersteigert, 16
+</I>&gt;<i> Euro inkl. Versand. Zum besseren Belichten der Leiterplatten 8-)
+</I>
+Wenn dort UV-A (um 400 nm) R&#246;hren drin sind, sollte das klappen. Und das
+wiederum ist sehr wahrscheinlich! Was man damit nicht machen kann, sind
+EPROMs l&#246;schen. Daf&#252;r braucht man UV-C (um 200 nm).
+
+Gru&#223; Martin
+
+_______________________________________________
+EasyFlash-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">EasyFlash-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">https://lists.berlios.de/mailman/listinfo/easyflash-devel</A>
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: plcc.png
+Type: image/png
+Size: 25768 bytes
+Desc: 
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090714/9b3c7548/attachment.png">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090714/9b3c7548/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000038.html">[EasyFlash-devel] Layout
+</A></li>
+	<LI>Next message: <A HREF="000042.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

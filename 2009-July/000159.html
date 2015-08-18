@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C3cdcf94b0907210258sc851ce5gcae2a83afe395119%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000158.html">
+   <LINK REL="Next"  HREF="000164.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>ALeX Kazik</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C3cdcf94b0907210258sc851ce5gcae2a83afe395119%40mail.gmail.com%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">alex at kazik.de
+       </A><BR>
+    <I>Tue Jul 21 11:58:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000158.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000164.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#159">[ date ]</a>
+              <a href="thread.html#159">[ thread ]</a>
+              <a href="subject.html#159">[ subject ]</a>
+              <a href="author.html#159">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Moin,
+
+&gt;&gt;<i> Mich w&#252;rde das auf einem VC10 (oder MAX) schon mal interessieren. Nur leider
+</I>&gt;&gt;<i> habe ich keine.
+</I>
+reicht es nicht alles roms aus dem C64 rauszunehmen? ich meine das das
+(fast) die einzige aenreung ist - also vom um 60k geguerzten ram mal
+abgesehen.
+
+&gt;&gt;<i> Ah, ein problem habe ich mit dem EasyLoader [...]
+</I>&gt;<i> Wir haben uns ja fr&#252;her schon dar&#252;ber unterhalten. Ist mir immernoch
+</I>&gt;<i> r&#228;tselhaft. Kann es sein, dass zu dem Zeitpunkt der I/O-Bereich
+</I>&gt;<i> ausgeblendet ist? Unwahrscheinlich, wenn der Rest der Initialisierung
+</I>&gt;<i> funktioniert.
+</I>
+I/O ist eingeblendet (ich init. vorher u.a. $00,$01)
+
+und was ich ganz vergessen hatte: auch wenn ich noch einen reset mache
+aendert das nichts (also ein dopeltes ueberschreiben)
+
+&gt;&gt;<i> aber die spiele gehen ja auch alle davon aus, auf einem &quot;leeren&quot;
+</I>&gt;&gt;<i> rechner gestartet zu werden, brauchen also solche init. nicht.
+</I>&gt;<i>
+</I>&gt;<i> Das hei&#223;t:
+</I>&gt;<i> - RAM hat zuf&#228;lligen Inhalt (d.h. Du brauchst ihn gar nicht zu initialisieren)
+</I>mach ich auch nicht mehr.
+&gt;<i> - Chips haben ihren Reset-Zustand!
+</I>&gt;<i> &#160;- z.B. CIA DDR auf input, DPx auf 0. Schaltet ein Modul nur DDR um, ist
+</I>&gt;<i> &#160; &#160;wahrscheinlich dir h&#246;chste VIC-Bank eingeschaltet!
+</I>&gt;<i> &#160;- VIC, SID stehen sicher auch anders (z.B. alles 0) als nach einem KERNAL-
+</I>&gt;<i> &#160; &#160;Reset
+</I>wiso merkt sich der VIC sachen nach einem reset? (also z.B.
+hintergrundfarbe) wird der gar nicht von der reset-leitung getroffen?
+oder ist das ein VICE problem?
+die chips lasse ich (bis jetzt) so wie ich sie genuztt habe.
+&gt;<i> - CPU $00/$01?
+</I>wichtig: $00 ist #$00 (oder fast) ich hatte da schon mal das problem,
+das ich da $2f/$37 hingeschieben hatte, aber ein modul (weiss nicht
+mehr ob ult. oder nicht) hat $01 ueberschreiben und ist dann
+abgestuetzt.
+
+&gt;<i> &#220;ber den genauen Reset-Zustand der Chips k&#246;nnten die Datenbl&#228;tter informieren
+</I>&gt;<i> oder evtl. der Vice-Emulator. [...] M&#252;sste man &#252;berpr&#252;fen.
+</I>
+ja, das steht auf der to-do liste...
+
+&gt;<i> Nur f&#252;r PRGs m&#252;sstest Du die Initialisierung genau so vornehmen, wie der
+</I>&gt;<i> KERNAL. Oder idealerweise die KERNAL-Routinen in der Sprungtabelle aufrufen [...]
+</I>
+ich rufe ein paar kernal-routinen von hand auf, aendere dann den CHRIN
+vektor zu einer eigenen routine ($0100+). danach springe ich direkt in
+den kernal. und bei der ersten eingabe wird mein prog. wieder
+aktiviert. ich kopiere das programm in den speicher und schreibe
+&quot;RUN&lt;CR&gt;&quot; in den key-buffer und springe das echte CHRIN an -&gt; also
+fast wie original. (grobe zusammenfassung)
+
+wie der laoder (nicht) funktioniert koennt ihr ja auch alle probieren.
+ich hatte ja ein beispiel crt gemailt, welches mit einem gepatchten
+vice laeuft.
+
+Heute abend werde ich den ultimax-startupcode-mit-quittaste nochmal
+genau ueberpruefen und dann posten - damit jeder was dazu sagen kann.
+
+Ciao, ALeX.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000158.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000164.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#159">[ date ]</a>
+              <a href="thread.html#159">[ thread ]</a>
+              <a href="subject.html#159">[ subject ]</a>
+              <a href="author.html#159">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

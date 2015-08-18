@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] (Layout) Neuer Zwischenstand
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C4A61F38B.2030801%40t-online.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000090.html">
+   <LINK REL="Next"  HREF="000098.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] (Layout) Neuer Zwischenstand</H1>
+    <B>Bjoern Wieck</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C4A61F38B.2030801%40t-online.de%3E"
+       TITLE="[EasyFlash-devel] (Layout) Neuer Zwischenstand">bps_of_tbm at t-online.de
+       </A><BR>
+    <I>Sat Jul 18 18:08:43 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000090.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+        <LI>Next message: <A HREF="000098.html">[EasyFlash-devel] Alternatives RAM im Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo Martin,
+
+das Mit der Drahtbr&#252;cke ist glaube ich die beste Option.
+Das ist echt MIST das ich nur 2 Layer habe...
+
+Der Reset-Taster ist der von Reichelt TASTER 3305B (stehend gewinkelt)
+
+In der Zwischenzeit habe ich mich mal der RAM Sache
+angenommen und die M&#246;glichkeit zwischen 6264 und 6116 w&#228;hlen zu k&#246;nnen
+implementiert.
+
+File im Anhang.
+
+Ich mach dann mal weiter ;)
+
+Gr&#252;&#223;e
+Bj&#246;rn
+
+
+
+Hoffmann-Vetter, Martin schrieb:
+&gt;<i> Hallo Bj&#246;rn,
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i>Ich habe die Problematik mit den 2 Leiterbahnen durch die IC-Pins
+</I>&gt;&gt;<i>etwas entsch&#228;rft.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Das sieht schon viel besser aus.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i>Mit den Kondensatoren habe ich mir auch nochmal was neues einfallen
+</I>&gt;&gt;<i>lassen: C6 ist jetzt wieder da und C3 ist unter U6 gewandert
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hmm, leider haben diese Kondensatoren nach dem Layout immer noch keine Aufgabe. Die Aufgabe der Kondensatoren besteht im Normalfall darin, f&#252;r die jeweiligen ICs, welche unter Umst&#228;nden f&#252;r einen Moment (z.B. des Umschaltens) einen gr&#246;&#223;eren Strombedarf haben, diesen mit genau diesen Kondensatoren zu gl&#228;tten. Evtl. Spitzen fallen damit weg. Das funktioniert aber nur so gut, wie die Kondensatoren m&#246;glichst dicht an der Last, also den Versorgungspins der jeweiligen ICs liegen.
+</I>&gt;<i> 
+</I>&gt;<i> Das wiederum kann ich bei den Kondensatoren C4 und C8 auf keinen Fall erkennen. Selbst bei C3 und C6 f&#228;llt es schwer das zu sehen. Du hast zwar die Kondensatoren mit dem VCC-Anschlu&#223; sch&#246;n dicht darangelegt, aber der GND-Anschlu&#223; ist teilweise dezimeterlang.
+</I>&gt;<i> 
+</I>&gt;<i> Wenn wir das nicht besser hinbekommen (gerade bei den beiden PLCC-Fassungen sehe ich auch keine L&#246;sung), dann m&#252;ssen wir auch einen &quot;dritten Layer&quot;, eine Drahtbr&#252;cke ausweichen. Diese k&#246;nnte zwischen den PLCC-Fassungen liegen und damit die GND-Verbindung auf kurzen Wege zum C4 bringen. Diese GND-Verbindung k&#246;nnte man dann auch f&#252;r C3 nutzen.
+</I>&gt;<i> 
+</I>&gt;<i> F&#252;r C8 m&#252;&#223;te man sich &#228;hnliches &#252;berlegen. Evtl. kann man hier noch versuchen eine Leiterbahn zu legen.
+</I>&gt;<i> 
+</I>&gt;<i> Bei C6 wird's schon etwas schwierig. Evtl. kann man diesen oberhalb von U6 ansiedeln. Die GND-Verbindung w&#228;re dort schon und VCC l&#228;&#223;t sich sicherlich noch durch die Pins 11 und 12 durchf&#252;hren. Die roten Leiterbahnen (von Pin 11 und die zwischen Pin 11 und 12) kann man bestimmt noch etwas nach rechts verlegen. Vielleicht kann man dann auch die am rechten Rand verlaufende blaue GND-Leiterbahn zwischen Pin 8 des U6 und dem Abzweig zum Pin 8 des U5 m&#246;glichst weit nach links verschieben, damit eben die Verbindung zwischen Pin 8 des U6 und dem C6 m&#246;glichst kurz wird.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i>Desweiteren einige Durchkontaktierungen wegoptimiert.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Das wird doch immer besser. Gleich wohl mir drei Regionen nicht so ganz gefallen:
+</I>&gt;<i> * Oben links gibt es ein Anh&#228;ufung von Durchkontaktierungen. Auch sind dort einige blaue Leiterbahnen, welche nur kurze Br&#252;cken darstellen. Ich hatte eben schon einmal &#252;berlegt, was passieren w&#252;rde, wenn die rote VCC-Verbindung zu R1 wegfallen w&#252;rde. Man k&#246;nnte die VCC-Verbindung f&#252;r die Widerst&#228;nde R1 und R3 auch von rechts herstellen. Auch w&#252;rden sich die beiden Widerst&#228;nde besser nebeneinander machen. Aber das w&#228;re rein kosmetischer Natur!
+</I>&gt;<i> * Die drei &quot;roten Br&#252;cken&quot; unter U3 wird man wohl nicht wegbekommen, oder?
+</I>&gt;<i> * F&#252;r das kleine Caos im rechten Teil des U6 sehe ich auf die Schnelle auch keine L&#246;sung. Ich habe auch schon versucht mittels Farbwechsel etwas Licht zu bekommen, aber so richtig klappt das nicht.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i>Der Reset-Taster ist jetzt drin,
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> F&#252;r welchen hast Du nun das Layout vorgesehen?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i>f&#252;r den Schalter w&#252;rde ich
+</I>&gt;&gt;<i>vorschlagen einfach nur die L&#246;tpads zu lassen, dann kann jeder selbst
+</I>&gt;&gt;<i>entscheiden was f&#252;r ein Schalter oder Jumper oder Reed-Kontakt
+</I>&gt;&gt;<i>angeschlossen wird.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Evtl. sollte man noch einen weiteren Pin 300 mil entfernt vorsehen. Dann k&#246;nnte man auch einen DIP-Schalter einbauen. (Obwohl, gibt es einfache DIP-Switches? Ich glaube das kleinest sind Zweifache, oder? Dann vielleicht noch zwei Dummy-PINs?)
+</I>&gt;<i> 
+</I>&gt;<i> Gru&#223; Martin
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> EasyFlash-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">EasyFlash-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">https://lists.berlios.de/mailman/listinfo/easyflash-devel</A>
+</I>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: EF.png
+Type: image/png
+Size: 148808 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090718/980b308c/attachment.png">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090718/980b308c/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000090.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+	<LI>Next message: <A HREF="000098.html">[EasyFlash-devel] Alternatives RAM im Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

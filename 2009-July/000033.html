@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C001101ca0159%24059505d0%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   <LINK REL="Next"  HREF="000034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Layout</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C001101ca0159%24059505d0%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Layout">martinhv at arcor.de
+       </A><BR>
+    <I>Fri Jul 10 14:21:57 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[EasyFlash-devel] Layout
+</A></li>
+        <LI>Next message: <A HREF="000034.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+ein neuer Ansatz, mal sehen ob er auch Bj&#246;rn weiterhilft.
+
+|<i> |&gt;0|&gt;0|&gt;0|&gt;0|&gt;0|| |  | ||o||o||o||o||o|| |
+</I>|<i>0&lt;|0&lt;|0&lt;|0&lt;|0&lt;|0&lt;&gt;0|  |o||o||o||o||o||o||o|
+</I>&gt;<i>0||o|| || || ||o||0&lt;  |o||o|| || || ||o||o|
+</I>|<i>o||o|| || || ||o||o|  &gt;0||o|| || || ||o||0&lt;
+</I>|<i>o||o||o||o||o||o||o|  |0&lt;|0&lt;|0&lt;|0&lt;|0&lt;|0&lt;&gt;0|
+</I>|<i> ||o||o||o||o||o|| |  | |&gt;0|&gt;0|&gt;0|&gt;0|&gt;0|| |
+</I>        oben                   unten
+
+o: Pin nicht angeschossen
+0: Pin angeschlossen
+|:<i> vertikale Leiterbahn
+</I>&lt;: vertikale Leiterbahn mit Abzweig nach links (zum Pin)
+&gt;:<i> vertikale Leiterbahn mit Abzweig nach rechts (zum Pin)
+</I>
+Damit sind folgende Pins angeschlossen:
+
+    t  t  t  t  t
+ t  t  t  t  t  t  t
+ t  o           o  t
+ b  o           o  b
+ b  b  b  b  b  b  b
+    b  b  b  b  b
+
+o: Pin nicht angeschlossen
+t: Pin oben angeschlossen
+b: Pin unten angeschlossen
+
+Es bleiben also 4 Pins &#252;brig, welche durch verschwenken der vertikalen
+Leiterbahnen nach innen (jeweils eine oben und eine unten), von au&#223;en
+angeschlossen werden m&#252;ssen. Dazu haben wir in der Mitte des PLCC-Sockels
+Platz, die Leiterbahnen etwas zu konzentrieren, da hier die Pins fehlen. Die
+fehlenden vier Leiterbahne werden dann au&#223;en (auf jeder Seite zwei, eine
+oben und eine unten) vorbei gef&#252;hrt!
+
+Gru&#223; Martin &lt;- denkt, dieses Problem m&#252;&#223;te (fast) gel&#246;st sein.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[EasyFlash-devel] Layout
+</A></li>
+	<LI>Next message: <A HREF="000034.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

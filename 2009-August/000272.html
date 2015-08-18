@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C001e01ca1e9f%2466f24ff0%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000263.html">
+   <LINK REL="Next"  HREF="000273.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C001e01ca1e9f%2466f24ff0%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">martinhv at arcor.de
+       </A><BR>
+    <I>Sun Aug 16 20:28:45 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000263.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000273.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Bj&#246;rn, hallo Thomas, hallo Nils,
+
+&gt;<i> Das neue Layout ist fertig. Platine hat jetzt REV B
+</I>&gt;<i>
+</I>&gt;<i> @Martin: ich schicke die die Eagle-Files zu.
+</I>
+Diese waren bereits am Dienstag angekommen.
+
+&gt;<i> Wenn Martin das Layout abgesegnet hat, sollte also den ersten
+</I>&gt;<i> Leiterplatten nichts mehr im Wege stehen.
+</I>
+Und ich habe es dann letzte Nacht auch geschafft, die PCB-Datei zu
+kontrollieren:
+
+&gt;<i> gerade habe ich den Schaltplan von Bj&#246;rn hinsichtlich Steuerleitungen
+</I>&gt;<i> genau mit meinem verglichen. Es ist alles korrekt.
+</I>&gt;<i>
+</I>&gt;<i> Also aus meiner Sicht kann die Platinenbestellung anrollen, Nils.
+</I>
+Genau zu diesem Ergebnis komme ich auch. Alle Leitungen sind korrekt
+verbunden. Dabei sind mir zwei Sachen aufgefallen:
+
+@Bj&#246;rn: Du hast zwei Eingang-Pins eines Gatters vom 74LS02 vertauscht. Das
+ist zwar richtig, jedoch macht das in meinen Augen das Layout ein wenig
+komplizierter. &#220;berhaupt h&#228;tte man bestimmt noch etwas Feinschliff (meist
+nur f&#252;r's Auge) machen k&#246;nnen. Aber das wiederum ist ein anderes Thema.
+Alles in allem ist es doch gut gelungen. Auch dadurch, da&#223; der 16pol. nun
+gegen einen 14pol. getauscht wurde, ist auf der rechten Seite etwas Platz
+entstanden, was das ganze auch aufgelockerte wirken l&#228;&#223;t.
+
+@Thomas: Ich hatte Deinen Schaltplan als Referenz in Verbindung mit meinem
+Posting (Netzliste) und den zwei Fehlern nehmen wollen. Dabei fiel mir erst
+sehr sp&#228;t auf, da&#223; Du diesen im Listen-Archiv manipuliert hattest. Das
+gef&#228;llt mir so eigentlich nicht, da der gesamte Tread nicht mehr richtig
+nachvollziehbar wird.
+
+@All: Auch w&#252;rde ich es begr&#252;&#223;en, wenn wir bei der Entwicklung ordentlich
+die Versionen und Daten anpassen. Ich meine, da&#223; der Schaltplan von Thomas
+noch ein Datum vom Juli tr&#228;gt. Das macht die Suche nach dem &quot;Richtigen&quot;
+etwas schwierig. Auch Bj&#246;rns Eagle-Dateien beinhalten in der Regel keine
+Versionen (okay die letzte hatte zumindest eine Revision) oder Daten.
+Vielleicht k&#246;nnten wir uns hier zuk&#252;nftig auf einen Standard einigen.
+
+Ich w&#228;re daf&#252;r, da&#223; jede &#196;nderung, die gravierend ist oder den Schreibtisch
+von einem Entwickler verl&#228;&#223;t, eine neue Versionsnummer bekommt. Versionen,
+welche produktiv werden bekommen Revisionsbuchstaben, und au&#223;erdem werden
+immer die aktuellen Daten angepa&#223;t. Bei der Software macht man das doch auch
+so, oder?
+
+&gt;<i> Eine Kleinigkeit ist mir da noch aufgefallen: Du hast ja die Vias
+</I>&gt;<i> extra gro&#223; gemacht, damit ich sie bei einem Selbst&#228;tzprototypen auch
+</I>&gt;<i> bohren kann (0,6 mm). Wollen wir die so lassen oder noch auf 0,3
+</I>&gt;<i> schrumpfen lassen, was denkt ihr? Ist ja eher eine optische Sache und
+</I>&gt;<i> daher nicht so wichtig.
+</I>
+Ich w&#252;rde, wenn's machbar ist, und das zeigt das aktuelle Layout, die Werte
+auf 0,6 mm belassen. Dann hat man auch noch eine Chance eine defekte Platine
+zu reparieren oder gar &#196;nderungen durchzuf&#252;hren. Ich sehe das also nicht als
+Bug sondern als Feature!
+
+&gt;&gt;<i> BTW was ist denn eigentlich mit dem Martin?
+</I>&gt;<i>
+</I>&gt;<i> Im Forum hat er zwischenzeitlich mal irgendwo was gepostet, also war
+</I>&gt;<i> er prinzipiell mal online. Aber er ist oft ziemlich busy.
+</I>
+Sehr gut erkannt und kombiniert. Leider war's bei mir eine Verkettung von
+ungl&#252;cklichen Zust&#228;nden. Dienstag abend hatte ich einen beruflichen Einsatz.
+Diese Arbeiten mu&#223;ten dann auch bis zum Vormittag des Mittwochs erledigt
+sein. Das brachte dann meinen Ablauf f&#252;r die vergangene Woche etwas
+durcheinander. Tja, und dann war da noch der Freitag, wo ich versuchte
+wieder einen geordneten Tagesablauf hinzubekommen. Aber auch da machte mir
+jemand einen Strich durch die Rechnung. Ich war &#252;ber Nacht erkrankt und
+konnte kaum aus dem Bett. Aber auch davon hatte ich mich gestern abend gut
+erholt - war selber dar&#252;ber &#252;berrascht. Und dann eine der n&#228;chsten
+Katastrophen, ich hatte Probleme mit meinen Mails. Lesen war m&#246;glich, aber
+senden nicht. Okay, das habe ich (hoffentlich) nun auch wieder im Griff und
+kann den obigen Erfolg vermelden. Den restlichen kleinen Katastrophen
+versuche ich noch in den folgenden Tagen Herr zu werden.
+
+Tja, manchmal geht's eben anders als mal's denkt.
+
+Ich hoffe, Ihr seid mir nicht b&#246;se. Ich gelobe auch Besserung.
+
+@Nils in Kurzform: Auch von mir eine Freigabe f&#252;r die Platinen zur REV B!
+
+Sonnt&#228;gliche Gr&#252;&#223;e
+
+Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000263.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000273.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

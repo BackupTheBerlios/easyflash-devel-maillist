@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D90715082E3A10E%40directbox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000156.html">
+   <LINK REL="Next"  HREF="000159.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D90715082E3A10E%40directbox.com%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul 21 10:46:58 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000156.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000159.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Tach,
+
+&gt;<i> Wenn ich mich richtig erinnere waren beim PET wesentlich weniger 
+</I>&gt;<i> Sprungvektoren
+</I>
+Das stimmt, die Tabelle wurde mit sp&#228;teren Rechnern immer gr&#246;&#223;er.
+
+&gt;<i> Mich w&#252;rde das auf einem VC10 (oder MAX) schon mal interessieren. Nur leider
+</I>&gt;<i> habe ich keine.
+</I>
+Du wei&#223;t doch jetzt, wie man Eagle bedient :-) Die Chips sollten leicht
+aufzutreiben/nachzubilden sein :-)
+
+&gt;<i> Anschlie&#223;end wird &#252;ber die normale Reset-Routine wieder alles so gesetzt, 
+</I>&gt;<i> wie es sein sollte.
+</I>
+Ahhh, ich glaube, jetzt hab ich eine Idee, s.u.: &quot;Wie es sein sollte&quot; ist
+bei Modulen eben nicht &quot;wie es sein sollte&quot;.
+
+&gt;<i> Bitte Thomas, &#252;berdenke das in der kommenden Nacht noch einmal!
+</I>
+Ach Martin, Du kannst einen mit Deinen Einw&#252;rfen manchmal echt fertig machen.
+Aber man kann's Dir eigentlich nicht vorwerfen, oft sind sie ja berechtigt.
+
+&gt;<i> @Thomas: in zeile 103 sollte es bestimmt &quot;lda #$7f&quot; (statt &quot;lda $7f&quot;) 
+</I>&gt;<i> heissen.
+</I>
+Stimmt, danke. Verbl&#252;ffend, dass es trotzdem funktioniert hat :-)
+
+&gt;<i> @Thomas: ich werde &quot;cmp #$ff&quot; anstelle von &quot;tax,inx&quot; nehmen, ist
+</I>&gt;<i> klarer ersichtlich, gleich lang und sogar einen cycle schneller.
+</I>
+Tja, sowas passiert manchmal, wenn man Code umbaut. Ich &#228;ndere das im Sinne
+einer kleineren Code-Verschleierung.
+
+&gt;<i> Ah, ein problem habe ich mit dem EasyLoader (von wegen
+</I>&gt;<i> initialisierung) doch: nach manchen spielen ist der hintergrund und
+</I>&gt;<i> rahmenfarbe fix, und ich kann sie nicht aendern, obwohl ich den
+</I>&gt;<i> kompletten VIC (register) initialisiere - alles andere geht (modi,
+</I>&gt;<i> sprites, ...)
+</I>
+Wir haben uns ja fr&#252;her schon dar&#252;ber unterhalten. Ist mir immernoch
+r&#228;tselhaft. Kann es sein, dass zu dem Zeitpunkt der I/O-Bereich
+ausgeblendet ist? Unwahrscheinlich, wenn der Rest der Initialisierung
+funktioniert.
+
+Allerdings hat mich Matins Anmerkung mit der Reset-Routine
+und folgender Satz von Dir wieder auf eine Idee gebracht, die ich Dir
+damals auch schon schreiben wollte:
+
+&gt;<i> aber die spiele gehen ja auch alle davon aus, auf einem &quot;leeren&quot;
+</I>&gt;<i> rechner gestartet zu werden, brauchen also solche init. nicht.
+</I>
+Genau das wird das Problem sein, was ich auch in meinen Start-Up-Code
+f&#252;r normale Module beachten muss: Der KERNAL initialisiert eben das System
+*anders*, als es ein Hardware-Reset tut. Und das ist das gleiche mit Deinem
+init-Code.
+
+Bei Modulen befindet sich der Rechner in seinem Hardware-Reset-Zustand!
+Bei Ultimax-Modulen 100%ig und bei 8k/16k-Modulen zu 99% (siehe ROM-Listing)
+
+Das hei&#223;t:
+- RAM hat zuf&#228;lligen Inhalt (d.h. Du brauchst ihn gar nicht zu initialisieren)
+- Chips haben ihren Reset-Zustand!
+  - z.B. CIA DDR auf input, DPx auf 0. Schaltet ein Modul nur DDR um, ist
+    wahrscheinlich dir h&#246;chste VIC-Bank eingeschaltet!
+  - VIC, SID stehen sicher auch anders (z.B. alles 0) als nach einem KERNAL-
+    Reset
+- CPU $00/$01?
+
+&#220;ber den genauen Reset-Zustand der Chips k&#246;nnten die Datenbl&#228;tter informieren
+oder evtl. der Vice-Emulator. Das mit dem DDR/DPx ist eine Vermutung von mir,
+weil das die &#252;bliche Reset-Belegung von I/O Chips ist. M&#252;sste man &#252;berpr&#252;fen.
+
+Ich sollte also in meinem Start-Up-Code m&#246;glichst gar nichts machen. Damit
+wird auch der Aufruf der KERNAL-Routinen hinf&#228;llig. Und Du solltest vielleicht
+f&#252;r eine beste Kompatibilit&#228;t alles wieder &quot;r&#252;ckg&#228;ngig&quot; machen, was Du
+ge&#228;ndert hast.
+
+Nur f&#252;r PRGs m&#252;sstest Du die Initialisierung genau so vornehmen, wie der
+KERNAL. Oder idealerweise die KERNAL-Routinen in der Sprungtabelle aufrufen,
+die dann z.B. auch auf einem SX-64 die Farben anders setzt als bei einem
+C64 oder die auch bei diversen anderen KERNALs (Jiffy und Co.) evtl.
+anders initialisiert. Denn das entspr&#228;che genau dem, was auf dem jeweiligen
+Rechner passieren w&#252;rde, wenn man das Programm von Disk l&#252;de.
+
+&gt;&gt;<i> Stimmt, also k&#246;nnte man auf &gt;=$8000 abtesten. Das sollte sehr einfach mit
+</I>&gt;&gt;<i> BMI gehen.
+</I>&gt;<i>
+</I>&gt;<i> Ja, versuch ich spaeter mal.
+</I>
+Ich finde das unzureichend. Hier sollte auf alle F&#228;lle eine semantische
+Code-Analyse gemacht werden. Wenn man Schleifen und Spr&#252;nge vektorisiert
+sollte das recht einfach sein :-P Martin, hier schie&#223;t Du ein bisschen
+&#252;ber's Ziel hinaus, oder? Schonmal daran gedacht, dass beim Lesen eines
+defekten oder nicht vorhandenen ROMs die Wahrscheinlichkeit, dort einen
+Vektor zw. $8000 und $ffff zu lesen 50% oder sogar h&#246;her ist?
+
+Gru&#223;,
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000156.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000159.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

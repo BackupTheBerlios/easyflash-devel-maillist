@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015b01ca097d%242db6d800%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000143.html">
+   <LINK REL="Next"  HREF="000149.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015b01ca097d%242db6d800%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">martinhv at arcor.de
+       </A><BR>
+    <I>Mon Jul 20 23:00:56 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000143.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000149.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+&gt;<i> willkommen zur&#252;ck, Alex.
+</I>
+Auch von mir ein herzliches Willkommen!
+
+&gt;<i> Kannst Du bei Gelegenheit man in EasySDK/examples/banking-test
+</I>&gt;<i> reinschauen? Kannst Du bitte diese bzw. eine &#228;quivalente
+</I>&gt;<i> Tastaturabfrage auch in Deinen Starter einbauen? Das soll jetzt
+</I>&gt;<i> &quot;Standard&quot; f&#252;r alle EasyFlash-Module werden, damit man m&#246;glichst
+</I>&gt;<i> immer aus dem Modul rauskommt.
+</I>
+Da h&#228;tte ich noch einen kleinen Einwand. In Thomas seiner Beispiel-Routine aus dem SDK verwendet er direkte Einspr&#252;nge z.B. f&#252;r die Initialisierung der IO-Bausteine im Kernal. Zu guter Letzt springt er noch zum Ausf&#252;hren des Resets direkt an eine Adresse ($FCE2). Generell wird das sicherlich in 99,9% der F&#228;llen auch funktionieren. Was ist jedoch, wenn im C64 oder auch C128 ein anderes Kernal verbaut ist? Oder gar das Kernal defekt ist? (z.B. f&#252;r Nicolas sein Diagnose-Modul) Dann k&#246;nnte es Probleme geben. Daher w&#252;rde ich gerne solche &quot;Mitnutzung&quot; von Ressourcen versuchen zu vermeiden. Die IO-Initialisierung nachzuprogrammieren sollte nicht das Problem sein, um die Tastatur abzufragen. Und den Reset-Sprung k&#246;nnte man auch ordentlich von Adresse $FFFC lesen. Damit w&#252;rde das Modul auch auf nicht 100% kompatiblen customisierten Rechnern laufen. Klar, ist etwas mehr Aufwand, aber noch h&#228;ndelbar und bringt einiges! ;-)
+
+Evtl. sollte man sogar noch abfragen, ob der Reset-Vektor an Adresse $FFFC wirklich sinnvoll ist (sollte im Kernal selbst E000-FFFF liegen und High- bzw. Low-Byte verschieden sein, evtl. sogar auf sinnvolle OP-Codes 78-SEI, 9A-TXS und D8-CLD n Bytes ab dem Vektor suchen). Im MAX gibt es kein Kernal. Dort wurde es einen Absturz geben, wenn man eine Taste dr&#252;ckt. Besser w&#228;re eine Fehlermeldung:
+
+No BASIC ROMs found, System halted!
+
+Das kennen wir doch vom Original IBM PC noch, oder?
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000143.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000149.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

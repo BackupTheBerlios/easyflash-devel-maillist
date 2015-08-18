@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyLoader
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyLoader&In-Reply-To=%3C3cdcf94b0909021355g6ac8af88x15f39d46f0dd1912%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000302.html">
+   <LINK REL="Next"  HREF="000304.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyLoader</H1>
+    <B>ALeX Kazik</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyLoader&In-Reply-To=%3C3cdcf94b0909021355g6ac8af88x15f39d46f0dd1912%40mail.gmail.com%3E"
+       TITLE="[EasyFlash-devel] EasyLoader">alex at kazik.de
+       </A><BR>
+    <I>Wed Sep  2 22:55:26 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000302.html">[EasyFlash-devel] EasyLoader
+</A></li>
+        <LI>Next message: <A HREF="000304.html">[EasyFlash-devel] EasyLoader
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi ho,
+
+&gt;<i> bin schon ganz aufgeregt, endlich mal EasyLoader aus hg zu
+</I>&gt;<i> compilieren :) Danke f&#252;r die tolle Arbeit!
+</I>
+ich muss ja gestehen, dass da seit einiger zeit nix mit passiert ist -
+ausser das es jetzt in hg statt (lokalem) svn ist und die verz.
+struktur etwas optimiert wurde.
+
+&gt;<i> Kannst Du php5 als default ohne Pfad in's Makefile schreiben? Unter
+</I>&gt;<i> Linux liegt es &#252;blicherweise, wenn aus einem Paket installiert,
+</I>&gt;<i> unter /usr/bin, nur wenn man es selbst kompiliert, landet es
+</I>&gt;<i> unter /usr/local/bin. Ohne Pfad sollte doch immer klappen, oder?
+</I>
+ja... aber nicht ueberall. z.B. hier am mac ist php4 staandatd und das
+php5 paket wird woandershin installiert - ok, ich koennte das in
+meinen pfad packen.
+
+&gt;<i> F&#252;r x64 gilt das gleiche mit dem absoluten Pfad.
+</I>
+und bei x64 ist es so, das es auf dem mac eine mac-applikation ist
+(also ein ordner in dem alle daten liegen) und deswegen wird das nie
+im pfad liegen.
+
+darum dachte ich das man das einfach selber konfigurieren sollte...
+aber ich bin fuer vorschalege offen.
+
+&gt;<i> Du hast wahrscheinlich gemerkt, dass man keine leeren Verzeichnisse
+</I>&gt;<i> einchecken kann. Das ist eine Eigenschaft von hg. &#220;blicherweise packt
+</I>&gt;<i> man eine leere Datei z.B. namens &quot;.hidden&quot; da rein und commited die.
+</I>
+ok, muss ich die dann vor jedem commiten leeren, damit er den inhalt
+nicht mit committed oder wie?
+
+&gt;<i> So, das make ist jetzt eigentlich durchgelaufen. x64 will die
+</I>&gt;<i> entstandene Datei nicht starten. Kein Wunder, wenn ich sie im
+</I>&gt;<i> Texteditor starte, sind da Fehlermeldungstexte drin statt Daten. Die
+</I>&gt;<i> schaue ich mir nachher mal an.
+</I>
+&gt;<i> Ja - nee, is klar: In den Fehlermeldungen steht, dass das Tool die
+</I>&gt;<i> einzelnen CRT- und PRG-Dateien nicht findet, die Alex aus naheliegenden
+</I>&gt;<i> Gr&#252;nden nicht mit in's Open-Source-Repository gelegt hat.
+</I>&gt;<i>
+</I>&gt;<i> Schade, dass die Fehlermeldungen in der CRT-Datei landen :)
+</I>
+jaaa, das tool ist ja nur uebergangsweise da, bis du *das* tool
+geschrieben hast - ich brauchte ja was zum testen...
+
+soll ich den kickassembler mit in das repro legen? (ist ja nicht soo gross)
+
+und das ganze ist bis jetzt ja nur meine private umgebung...
+
+und da ist auch noch irgendein problem mit den deps - wenn build und
+.deps leer ist muss man zwei mal make machen, da er zwischendurch
+wegen fehlenden deps abbricht...
+
+in dem souce sind auch noch die teile drin, mit denen ich so was wie
+m2i's simulieren wollte - werde ich aber wohl rauskicken, da es sich
+ja als nicht soo praktisch erwiesen hat.
+
+wie kann ich hg ueber ssh einstellen? (ich will nicht immer das
+passwort eintippen - da es eins speziell fuer berlios ist, und ich mir
+es nicht merken kann) und wenn ich &quot;hg clone
+<A HREF="ssh://akazik@hg.berlios.de/repos/easyflash">ssh://akazik@hg.berlios.de/repos/easyflash</A>&quot; versuche will er trotzdem
+mein passwort, obwol ich in der zugangsverwaltung meine id hinterlegt
+habe...
+
+Ciao, ALeX.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000302.html">[EasyFlash-devel] EasyLoader
+</A></li>
+	<LI>Next message: <A HREF="000304.html">[EasyFlash-devel] EasyLoader
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

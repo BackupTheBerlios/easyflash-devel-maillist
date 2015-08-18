@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-15%3Fq%3FLayout%3F%3D&In-Reply-To=%3C1MQgzg-1QVXzk0%40fwd09.aul.t-online.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000042.html">
+   <LINK REL="Next"  HREF="000044.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Layout</H1>
+    <B>Bps_of_Tbm at t-online.de</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-15%3Fq%3FLayout%3F%3D&In-Reply-To=%3C1MQgzg-1QVXzk0%40fwd09.aul.t-online.de%3E"
+       TITLE="[EasyFlash-devel] Layout">Bps_of_Tbm at t-online.de
+       </A><BR>
+    <I>Tue Jul 14 14:20:24 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000042.html">[EasyFlash-devel] Layout
+</A></li>
+        <LI>Next message: <A HREF="000044.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Neuer Zwischenstand. Siehe Anlage.
+
+Ich will mal versuchen die Pads von den PLCC-Sockeln etwas weniger breit
+zu machen.
+Dann sollten auch 2 St&#252;ck 10mil Leiterbahnen durchpassen.
+Da muss ich erst mal in der Libary rumfummeln.
+
+Aber 6 mil sollte eigentlich f&#252;r professionelle Platinenfertiger auch
+kein Problem sein.
+Ich habe fr&#252;her immer bei Beta-Layout (PCB-Pool) bestellt, und die
+hatten damit nie Probleme.
+
+Mit SMD ist uns &#252;brigens auch nicht viel geholfen, das gr&#246;&#223;te Problem
+sind die 2-Layer.
+
+Gr&#252;&#223;e
+Bj&#246;rn
+
+
+
+-----Original Message-----
+Date: Tue, 14 Jul 2009 10:48:47 +0200
+Subject: Re: [EasyFlash-devel] Layout
+From: &quot;Thomas Giesel&quot; 
+To: 
+
+
+Hi,
+
+&gt;<i> Ich habe den einen Sockel jetzt gedreht und die beiden PLCC
+</I>miteinander
+&gt;<i> verbunden.
+</I>
+Sieht irgendwie aufger&#228;umter aus, sch&#246;n.
+
+&gt;<i> Das ist allerdings nichts mehr f&#252;r den Bastelkeller, ich muss mit 2
+</I>&gt;<i> Leiterbahnen durch den Sockel und zwar oben und unten. Das heist: 
+</I>&gt;<i> Leiterbahnbreite 6mil und Abstand genauso.
+</I>
+Auf diese Art ist das nichtmal was f&#252;r diverse professionelle
+Leiterplattenhersteller:
+
+Design Rules bei PCB-Cart:
+<A HREF="http://www.pcbcart.com/cart.php?page=capability___standard_pcb">http://www.pcbcart.com/cart.php?page=capability___standard_pcb</A>
+Die haben noch eine &quot;Special PCB&quot;, die vermutlich teurer werden w&#252;rde.
+
+Design Rules bei MME-PCB (g&#252;nstig bei sehr kleinen St&#252;ckzahlen):
+<A HREF="http://www.mme-pcb.de/kauf/kategorie13/index.html">http://www.mme-pcb.de/kauf/kategorie13/index.html</A>
+
+Bei Fischer scheinen tats&#228;chlich 6 mil die untere Grenze zu sein.
+<A HREF="http://www.fischer-leiterplatten.de/preise/leiterplatten-prototypen.php">http://www.fischer-leiterplatten.de/preise/leiterplatten-prototypen.php</A>
+Aber da kann man als Privatperson nicht bestellen.
+
+Aber wenn Du nochmal meine Fotos von neulich anschaust, wirst Du sehen,
+dass das mit den 2 Leiterbahnen auch mit 10 mil klappt: L&#246;taugen nicht
+rund,
+sondern oval bzw. rechteckig.
+
+ Pin &#160; &#160;Leiterbahnen &#160;Pin
+ &#160;O &#160; &#160; &#160;| &#160; &#160; &#160;| &#160; &#160; &#160;O
+25+25 10 10 10 10 10 25+25 &lt;= Abstand/Breite
+
+Die Pads k&#246;nnen also 50 mil breit sein (1,27 mm, da passt sogar ein 0,8
+mm
+Loch rein). Dann k&#246;nnen dazwischen 2 Leiterbahnen mit 10 mil sein und
+&#252;berall
+sind 10 mil Abstand. Wie gesagt, schau nochmal auf die Fotos.
+
+Diese design rules reichen normalerweise sogar f&#252;r 0,4 mm LQFP...
+
+&gt;<i> Gibt es die DIL-Widerstand Netzwerke &#252;berhaupt noch zu kaufen?
+</I>
+Vereinzelt. W&#252;rde ich aber nicht damit planen. Die verbinden auch die 
+Nachteile von SIL und einzelnen Widerst&#228;nden :-)
+
+&gt;<i> Man k&#246;nnte ja auch einfach 8 Widerst&#228;nde stehend nebeneinander
+</I>einl&#246;ten,
+&gt;<i> braucht weniger Platz als DIL
+</I>
+Das ginge. Zu beachten ist, dass wir nur auf 9 mm Bauh&#246;he kommen d&#252;rfen.
+Ist denn das mit den SIL-Netzwerken wirklich ein Problem? Naja, durch
+die THT
+verbraten sie auch Platz auf der anderen Leiterplattenseite.
+
+Mhh, was denkt ihr &#252;ber 1206 SMD-Widerst&#228;nde? W&#228;ren f&#252;r diesen Zweck
+perfekt
+geeignet. Daf&#252;r braucht man schon eine Pinzette.
+
+Geht es nur mir so, dass ich die Leiterplatte irgendwie zu voll finde?
+Ist das
+noch im Rahmen des Normalen und Machbaren? Ich will ja niemanden zu SMD
+&#252;berreden, aber das sd2iec hat wesentlich kleinere Bauteile als der 6264
+als
+SMD :-)
+
+Gru&#223;,
+Thomas
+
+
+_______________________________________________
+EasyFlash-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">EasyFlash-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/easyflash-devel">https://lists.berlios.de/mailman/listinfo/easyflash-devel</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: EF.png
+Type: image/png
+Size: 88951 bytes
+Desc: 
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090714/1a96e42f/attachment.png">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090714/1a96e42f/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000042.html">[EasyFlash-devel] Layout
+</A></li>
+	<LI>Next message: <A HREF="000044.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

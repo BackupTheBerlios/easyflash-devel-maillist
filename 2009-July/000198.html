@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyProg kann wieder 8k-CRTs
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyProg%20kann%20wieder%208k-CRTs&In-Reply-To=%3C20090721225945.6b15a8e1%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000181.html">
+   <LINK REL="Next"  HREF="000203.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyProg kann wieder 8k-CRTs</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyProg%20kann%20wieder%208k-CRTs&In-Reply-To=%3C20090721225945.6b15a8e1%40akoya%3E"
+       TITLE="[EasyFlash-devel] EasyProg kann wieder 8k-CRTs">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul 21 22:59:45 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000181.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000203.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#198">[ date ]</a>
+              <a href="thread.html#198">[ thread ]</a>
+              <a href="subject.html#198">[ subject ]</a>
+              <a href="author.html#198">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo Leute,
+
+so, EasyProg kann jetzt mit der aktuellen Hardware 8k-Module standalone
+flashen. Allerdings momentan als Zwischenschritt auch nur diese :-)
+
+Getestet habe ich bis jetzt nur eins. Wenn ich auch 16k und Ultimax
+wieder drin habe, teste ich einfach mal ein paar dutzend durch. 
+
+Dort ist der verwendete Startup-Code zu sehen. Ein paar Sachen habe ich
+von Alex &#252;bernommen, einige Dinge aus dem heutigen Mailverkehr sind
+eingeflossen und noch ein bisschen umgebaut. Im Sample-Code werde
+ich die &#196;nderungen sp&#228;ter nachpflegen.
+<A HREF="http://hg.berlios.de/repos/easyflash/file/5a59772b4da5/EasyProg/src/startup..s">http://hg.berlios.de/repos/easyflash/file/5a59772b4da5/EasyProg/src/startup..s</A>
+
+Ich glaube, Zeile 65 und folgende werden gut bei Martin ankommen :-) 
+
+Weil ich nicht wei&#223;, ob sich alle in dieser Liste mit der
+Funktionsweise einer Versionskontrolle auskennen, ein Tip:
+
+Wenn man in
+dieser Ansicht: <A HREF="http://hg.berlios.de/repos/easyflash">http://hg.berlios.de/repos/easyflash</A>
+
+Auf einen &quot;changeset&quot; klickt, sieht man alle &#196;nderungen.
+
+Klickt man dort bei einer Datei auf &quot;diff&quot;, sieht man die &#196;nderungen
+der jeweiligen Datei markiert.
+
+Gru&#223;,
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000181.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000203.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#198">[ date ]</a>
+              <a href="thread.html#198">[ thread ]</a>
+              <a href="subject.html#198">[ subject ]</a>
+              <a href="author.html#198">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C003501ca1686%2426785710%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000240.html">
+   <LINK REL="Next"  HREF="000243.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C003501ca1686%2426785710%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">martinHV at arcor.de
+       </A><BR>
+    <I>Thu Aug  6 13:07:54 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000240.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000243.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;<i> nach einem l&#228;ngeren Test und einem Gegentest wieder ohne Zusatz-C: Das
+</I>&gt;<i> war's nicht. Der Fehler tritt nur sehr unregelm&#228;&#223;ig auf. Vielleicht
+</I>&gt;<i> ist er temperaturabh&#228;ngig, mehr dazu weiter unten.
+</I>&gt;<i> 
+</I>&gt;<i> Also das Testprogramm fand den Fehler manchmal nach wenigen 1000
+</I>&gt;<i> Bankwechseln, manchmal nach mehreren Millionen.
+</I>
+Das ist nicht so gut. Jedoch schreibst zu selbst zuvor, da&#223; der Fehler offensichtlich mit dem Abblockkondensator seltener (also erst nach einigen Millionen) auftritt. Daher w&#252;rde ich bitte noch einmal nachschauen, ob wirklich der Abblockkondensator auch korrekt im Speisezweig sitzt. Dieser Abblockkondensator sollte auf jeden Falle direkt auf dem Weg der Spannungsquelle (Einspeisung) und der Spannungssenke (U6) sitzen. Hinter dem Kondensator darf nur noch die Leitung zum IC U6 verlaufen. Keine Abzweigung zu einem anderen IC! Ich hatte die Diskussion schon mit Bj&#246;rn bez&#252;glich dem Layout.
+
+* <A HREF="http://server.ibfriedrich.com/wiki/ibfwikide/index.php?title=Verwendung_von_Abblockkondensatoren">http://server.ibfriedrich.com/wiki/ibfwikide/index.php?title=Verwendung_von_Abblockkondensatoren</A>
+* <A HREF="http://www.netco.de/cms/index.php?area=2&amp;p=news&amp;newsid=78">http://www.netco.de/cms/index.php?area=2&amp;p=news&amp;newsid=78</A>
+
+&gt;<i> Beim Blick auf den Schaltplan ist mir wieder was in den Sinn gekommen,
+</I>&gt;<i> was mir irgendwann mal nicht supersch&#246;n vorkam: Der 139er hat, sowohl
+</I>&gt;<i> als HCT als auch als LS eine Durchlaufzeit von mehreren 10 ns
+</I>&gt;<i> (Gr&#246;&#223;enordnung von 30 ns je Dekoder). Jens schrieb mal, dass er
+</I>&gt;<i> Dotclock nicht mehr als Timing-Grundlage f&#252;r /WE benutzt, weil es eine
+</I>&gt;<i> temperaturabh&#228;ngige Verschiebung gibt.
+</I>&gt;<i> 
+</I>&gt;<i> Das alles lie&#223; mich vermuten, dass die End-Flanke von /WE vielleicht
+</I>&gt;<i> schon an der Kante ist.
+</I>
+Das kann's eigentlich nicht sein. Wir haben mit dem 74LS74 ein Timing-Signal f&#252;r /WE generiert, welches ca. 1,5 Takte nach DotClk aktiv wird und nach weiteren 2 Takten inaktiv. D.h. 187,5 ns nach der steigenden Flanke von Phi2 wird /WE aktiv (low) und nach weiteren 250 ns wieder inaktiv. Das wiederum ist 62,5 ns _vor_ der fallenden Flanke von Phi2, bis zu der die Daten auf jeden Fall anliegen! Selbst wenn die beiden 74LS139 wirklich 30ns f&#252;r jeden Dekoder ben&#246;tigen (ich meine mich an etwas im 20er Bereich zu erinnern), haben wir noch eine (kleine) Sicherheit.
+
+So noch einmal in das Datenblatt des 74LS139 von TI geguckt: Die tPLH-Zeit (also von Low nach High) betr&#228;gt f&#252;r eine &#196;nderung am Enable (und das gilt f&#252;r den zweiten Dekoder, welcher die Takt-Signale f&#252;r die Register generiert) typ. 16 ns, max. 24 ns! Bei dem ersten Dekoder haben wir nur eine &#196;nderung bei den &quot;Binary Select&quot;-Eing&#228;ngen und daher im schlechtesten Fall f&#252;r 3 Gatter (auch hier wieder tPLH) typ. 18 ns, max. 29 ns. Das macht in der Summe max. 53 ns (typ. 34 ns)!
+
+&gt;<i> Deshalb habe ich testweise mal den LS139, der
+</I>&gt;<i> momentan draufsteckte (hatte damals dummerweise kein HCT mitbestellt)
+</I>&gt;<i> gegen einen ACT gewechselt, den ich aus fr&#252;heren Versionen noch da
+</I>&gt;<i> hatte. Und siehe da: mittlerweise 200 Millionen Bankwechsel ohne
+</I>&gt;<i> Fehler. Momentan lasse ich den Rechner abk&#252;hlen, um mit kaltem
+</I>&gt;<i> Rechner neu zu beginnen. Danach mache ich wieder einen LS139
+</I>&gt;<i> rauf, dann einen anderen, als erneuten Gegentest.
+</I>
+Ich erinnere mich noch an eine andere Unsicherheit. Wir haben auf A1 der ersten Dekoder (Pin 3) das selbstgeneriert /OE Signal (aus R/W und Phi2) angelegt. Normalerweise geh&#246;rte dort nur das R/W-Signal hin. Dein berechtigter Einwand war damals, die R/W-Leitung wenig belasten zu wollen. Evtl. gibt es hier Spikes. Das R/W-Signal wird in der CPU aus dem Phi2-Signal generiert. Und auch genau hier liegt der Unterschied zwischen dem C64 und dem C128. Dabei stellt sich dann auch die Frage, in welchem System Du getestet hast?
+
+Ich w&#252;rde also mal versuchen an A1 (Pin 3) das R/W-Signal vom Cartridge-Port Pin 5 anzulegen. Da dieses Signal jedoch in seiner Funktion invertiert ist, mu&#223; der Ausgang nun nicht Q3 (Pin 7) sein, sondern Q1 (Pin 5) werden.
+
+&gt;<i> Zwei M&#246;glichkeiten:
+</I>&gt;<i> - ACT139 benutzen, um das Timing ca. 20 ns auf die sichere Seite zu
+</I>&gt;<i>   ziehen, keine Layout-&#196;nderung
+</I>
+Hmm, das hat wieder so einen bitteren Beigeschmack!
+
+&gt;<i> - Schaltung so &#228;ndern, dass /WE beginnt wie jetzt, aber schon nach
+</I>&gt;<i>   einem Dotcklock-Zyklus endet. Hab ich noch nicht durchdacht, z&#246;ge
+</I>&gt;<i>   eine (vielleicht minimale) Layout-&#196;nderung nach sich. Martin, f&#228;llt
+</I>&gt;<i>   Dir die passende &#196;nderung ein? Du bist doch schnell mit sowas :-)
+</I>
+Ja, das k&#246;nnte man sicherlich auch machen. Wir haben am ersten Dekoder noch einen Eingang (Enable an Pin 1) frei. Den k&#246;nnte man noch mit dem invertieren Ausgang des zweiten FlipFlop (Pin 8) verbinden. Da die FlopFlops im Gray-Code z&#228;hlen, gibt es nur an einem Ausgang (FlipFlop 1 oder 2) eine &#196;nderung, ist es m&#246;glich ohne Spikes eine solche Ausdekodierung zu machen.
+
+Jedoch verk&#252;rzt das unser /WE generell, also auch f&#252;r die Flash-Bausteine.
+
+&gt;<i>   Laut Datenbl&#228;ttern w&#252;rden die 125 ns Write-Puls bei allen
+</I>&gt;<i>   beteiligten Chips dicke reichen.
+</I>
+Okay, dann sollte das reichen.
+
+Aber vielleicht kann man noch eine andere kleine &#196;nderung machen. Der erste Dekoder wird fast ausschlie&#223;lich als NAND verwendet (das war er fr&#252;her auch mal). In dieser Betriebsart sind jedoch die internen Gatterlaufzeiten maximal. Wir k&#246;nnen aber auch den Eingang A0 (Pin 2) von Q (Pin 5) des ersten FlipFlops gegen den Eingang E (Enable an Pin 1) mit /Q (Pin 6) tauschen. Dann w&#228;re A0 auf VCC (bzw. &#252;ber den Widerstand R1) zu legen. Nun sinkt die Gatterlaufzeit von typ 18 ns, max 29 ns auf typ 16 ns, max. 24 ns! Gleichzeitig w&#252;rde sich bei kleiner kapazitiver Last am Ausgang des 74LS74 die Gatterlaufzeit um weitere 5 ns verk&#252;rzen. Die tPLH betr&#228;gt bei CL = 15 pF nur 25 ns im Gegensatz zur tPHL von 30ns.
+
+Und genau hier k&#246;nnte evtl. noch der weitere Zeitfaktor liegen. Die FlipFlops ben&#246;tigen auch um die 30 ns zum Schalten. Daher ist unser Timing noch weiter verz&#246;gert!
+
+Das wiederum bringt mich auf eine weitere sehr gravierend eingreifende aber wie ich finde auch sehr sch&#246;ne, gattersparende &#196;nderung:
+
+Z.Z. erzeugen wir mit den FlipFlops ein &quot;Timing-Fenster&quot; f&#252;r das /WE-Signal und verkn&#252;pfen das dann &#252;ber dem ersten Dekoder mit dem R/W- und Phi2-Signal zum /WE-Signal. F&#252;r die Synchronisierung des Timing-Fenster zum Timing der CPU nutzen wir ebenfalls und alleinig das Phi2-Signal am /Reset-Eingang der FlipFlops. D.h. die FlipFlops werden auf log. Null gehalten, wenn kein Schreibzugriff m&#246;glich ist, weil der VIC zugreift. Nun k&#246;nnte man diese Verkn&#252;pfung (Gatter U2C und U2D) auch in die Synchronisation der FlipFlops einfliessen lassen. D.h. man mu&#223; nur die beiden /Reset-Eing&#228;nge der FlipFlops (Pin 1 und 13) nicht direkt an Phi2 (Cartridge Port E) sondern an den Ausgang der Gatters U2D (Pin 13) verbinden.
+
+Nun steht am invertierten Ausgang des ersten FlipFlops (Pin 6) bereits das korrekt (und nicht nur das &quot;Timing-Fenster&quot;) /WE-Signal an. Wir k&#246;nnen damit den ersten Dekoder U1A ersatzlos streichen und f&#252;hren das Signal direkt auf die /WE-Eing&#228;nge der Flashbausteine (Pin 31) und auf den /E-Eingang des zweiten Dekoder.
+
+Damit sollten sich die Gatterlaufzeiten drastisch reduzieren.
+
+Bitte Thomas, probiere diese kleine aber nette &#196;nderung mal aus:
+
+* Pin 1 und 13 von IC7 nicht zu Pin E des Cartridge Port f&#252;hren, sondern auftrennen und zu Pin 13 des IC2 legen.
+* Draht von Pin 7 des IC1 abl&#246;ten und nach Pin 6 von IC7 anl&#246;ten.
+* erster Test
+* wenn erfolgreich, Br&#252;cken von Pin 2 und 3 des IC 1 abl&#246;ten und diese Pins (2 und 3) auf GND (wie Pin 1) legen.
+
+Jetzt k&#246;nnte nur noch passieren, da&#223; R/W &#252;ber 62,5 ns nach der steigenden Flanke von Phi2 aktiv wird. Dann w&#252;rde sich das Timing verschieden und uns einen Strich durch diese Idee machen. Da R/W jedoch intern in der CPU bereits w&#228;hrend der Phase Phi1 (Phi2 ist log. Null) erzeugt wird, ist nur die Abh&#228;ngigkeit zu AEC zu ber&#252;cksichtigen. Diese war jedoch, so ich mich richtig erinnere, sehr kurz. Vielleicht hat Thomas hier sogar die korrekten Werte noch im Kopf oder auf Papier! ;-)
+
+&gt;<i> Ich werde jedenfalls erstmal weiterhin mit der ACT-Variante am C64 und
+</I>&gt;<i> C128 dauertesten.
+</I>
+Wo trat bis jetzt der Fehler auf? C64 oder C128? Bei Beiden? Wo war die Fehlerrate h&#246;her?
+
+Wie verh&#228;lt sich das mit dem anderen Register U5? Hier k&#246;nnte man zwischen normalem 16k Modul und Ultimax umschalten und nachsehen, ob das Flash ROMH immer im richtig dem entsprechenden Adressbereich liegt ($E000 oder $A000). Wenn's an den Dekodern bzw. Gatterlaufzeiten liegt, sollte hier auch ein Fehler auftreten.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000240.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000243.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

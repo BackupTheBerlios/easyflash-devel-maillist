@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Webshop Testbetrieb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Webshop%20Testbetrieb&In-Reply-To=%3C4AE28F81.2000101%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000315.html">
+   <LINK REL="Next"  HREF="000317.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Webshop Testbetrieb</H1>
+    <B>Nils Eilers</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Webshop%20Testbetrieb&In-Reply-To=%3C4AE28F81.2000101%40gmx.de%3E"
+       TITLE="[EasyFlash-devel] Webshop Testbetrieb">nils.eilers at gmx.de
+       </A><BR>
+    <I>Sat Oct 24 07:24:17 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000315.html">[EasyFlash-devel] Webshop Testbetrieb
+</A></li>
+        <LI>Next message: <A HREF="000317.html">[EasyFlash-devel] Webshop Testbetrieb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#316">[ date ]</a>
+              <a href="thread.html#316">[ thread ]</a>
+              <a href="subject.html#316">[ subject ]</a>
+              <a href="author.html#316">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ihr Lieben,
+
+vielen Dank f&#252;r all Eure R&#252;ckmeldungen!
+
+Frage:
+
+Martin, dass sich PayPal in einem neuen Fenster &#246;ffnet wundert mich sehr 
+- ist das irgendwie noch reproduzierbar?
+
+Es sollte sich im gleichen Fenster &#246;ffnen und nach erfolgter Bezahlung 
+auch wieder in den Shop zur&#252;ck kehren - aber das teste nur ich in der 
+PayPal-Sandbox :-)
+
+Beim Auschecken nach PayPal wird der Warenkorb in den Bestellkorb 
+gekippt, so dass Verhalten &quot;Korb nach PayPal leer&quot; das gew&#252;nschte ist.
+
+Die 10,60 r&#252;hren von diesem omin&#246;sen Fehler 2), dazu unten mehr...
+
+Kurzfassung:
+
+ich muss ein paar Sachen flicken, was nicht vor Anfang n&#228;chster Woche 
+fertig wird - dann w&#252;rde ich mich sehr freuen, wenn Ihr noch mal einen 
+Blick darauf werfen k&#246;nntet!
+
+Langfassung:
+
+Die Angebote m&#246;chte ich noch durch St&#252;cklisten und vergr&#246;&#223;erbare Bilder 
+konkretisieren und verdeutlichen.
+Die Navigation passe ich noch an, damit man besser zur&#252;ck findet.
+
+Die Batterie m&#246;chte ich gerne mit anbieten, um ein komplettes FE3 
+anbieten zu k&#246;nnen, wobei ich allerdings ahne, dass Batterien verkaufen 
+hier nahe an schwermetallhaltigen explosionsgef&#228;hrlichen krebserregenden 
+Sonderm&#252;ll an unschuldige Kinder verkaufen liegt.
+
+Am Shop habe ich gestern gegen 20:00 Uhr das letzte mal Hand angelegt, 
+danach war ich erst einmal in meinem Hauptjob arbeiten - das als Hinweis 
+zur Reproduzierbarkeit.
+
+Der Shop hat momentan zwei Baustellen, die ich erst beheben muss, 
+bevor's weiter gehen kann:
+
+1) Den Rechner der Konfiguratoren
+2) Das Versandart/Zahlweisen-Problem
+
+Zu 1) Der EF-Konfigurator war urspr&#252;nglich wie der FE3-Konfigurator 
+aufgebaut - ich habe ihn gestern kurzfristig umgestrickt, weil das 
+derzeitige Javascript auf die Nase f&#228;llt, wenn PHP mangels Cookies ganz 
+frech seine Session-ID in's Formular mit eintr&#228;gt.
+
+Auch die derzeite Fassung verwendet Javascript wenn vorhanden, l&#228;dt aber 
+ggfs. das Formular neu und &#252;berl&#228;sst PHP das Rechnen.
+
+Ich werde als &#220;bergangsl&#246;sung auch den FE3-Konfigurator so umstricken - 
+damit rechnet er richtig - und wieder die alte, &quot;direkte&quot; L&#246;sung ohne 
+Neuladen implementieren, wenn ich meine Javascript-Unf&#228;higkeit besiegt habe.
+
+Zu 2) Dass man evtl. nicht die Zahlweise auf &#220;berweisung stellen kann 
+bzw. 10,60 EUR Nicht-EU-Pauschale auch in D bezahlen soll, ist ein 
+Folgefehler, den ich noch weiter eingrenzen muss. Eine weitere 
+Auswirkung kann sein, dass man unter &quot;Meine Daten&quot; seine E-Mail-Adresse 
+nicht sieht und unter &quot;Adressbuch&quot; seine Adresse nicht sieht - das hat 
+alles ein und die selbe Ursache, die ich noch genauer eingrenzen muss.
+
+
+Viele Gr&#252;&#223;e,
+Nils
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000315.html">[EasyFlash-devel] Webshop Testbetrieb
+</A></li>
+	<LI>Next message: <A HREF="000317.html">[EasyFlash-devel] Webshop Testbetrieb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#316">[ date ]</a>
+              <a href="thread.html#316">[ thread ]</a>
+              <a href="subject.html#316">[ subject ]</a>
+              <a href="author.html#316">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

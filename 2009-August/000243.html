@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C20090806231343.368a254b%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000242.html">
+   <LINK REL="Next"  HREF="000244.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C20090806231343.368a254b%40akoya%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">skoe at directbox.com
+       </A><BR>
+    <I>Thu Aug  6 23:13:43 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000242.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000244.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#243">[ date ]</a>
+              <a href="thread.html#243">[ thread ]</a>
+              <a href="subject.html#243">[ subject ]</a>
+              <a href="author.html#243">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Martin und alle anderen,
+
+&gt;<i> &gt; nach einem l&#228;ngeren Test und einem Gegentest wieder ohne Zusatz-C:
+</I>&gt;<i> &gt; Das war's nicht. Der Fehler tritt nur sehr unregelm&#228;&#223;ig auf.
+</I>&gt;<i> &gt; Vielleicht ist er temperaturabh&#228;ngig, mehr dazu weiter unten.
+</I>[...]
+&gt;<i> Das ist nicht so gut. Jedoch schreibst zu selbst zuvor, da&#223; der
+</I>&gt;<i> Fehler offensichtlich mit dem Abblockkondensator seltener (also erst
+</I>&gt;<i> nach einigen Millionen) auftritt.
+</I>
+So meinte ich das nicht, sowohl mit also auch ohne C tritt der Fehler
+unregelm&#228;&#223;ig auf. Ich meine erkannt zu haben, dass bei kaltem Rechner
+der Fehler seltener auftritt als bei warmen. Bin mir aber nicht sicher,
+vielleicht spielen noch andere Faktoren mit rein. So sporadisch, wie der
+Fehler auftritt, k&#246;nnte es durchaus sein, dass auf einem
+MW-Radiosender Obituary laufen muss, was die Flanke etwas unsauberer
+macht und damit das Timing verschiebt...
+
+Es ist auch so, dass mit einem meiner 139er der Fehler wesentlich
+h&#228;ufiger vorkommt als mit anderen (alles LS von der Firma ST, der eine
+ist aus einem anderen Jahr). Selbst mit diesem Problemb&#228;r ist der
+Fehler beim C128 &#252;brigens noch nicht aufgetreten. Naja, wenn wirklich
+nur ein paar ns den Unterschied machen und wir nichts unternehmen
+w&#252;rden, k&#246;nnte es auf jedem Rechner anders aussehen.
+
+&gt;<i> Das kann's eigentlich nicht sein. Wir haben mit dem 74LS74 ein
+</I>&gt;<i> Timing-Signal f&#252;r /WE generiert, welches ca. 1,5 Takte nach DotClk
+</I>&gt;<i> aktiv wird und nach weiteren 2 Takten inaktiv. D.h. 187,5 ns nach der
+</I>&gt;<i> steigenden Flanke von Phi2 wird /WE aktiv (low) und nach weiteren 250
+</I>&gt;<i> ns wieder inaktiv. Das wiederum ist 62,5 ns _vor_ der fallenden
+</I>&gt;<i> Flanke von Phi2, bis zu der die Daten auf jeden Fall anliegen!
+</I>
+Wir haben damals geglaubt (der groben Messung vertraut), dass die
+fallende Flanke von Dotclock und die steigende von Phi2 _gleichzeitig_
+kommen. Das war vielleicht etwas naiv. Du erinnerst Dich vielleicht,
+dass Phi0 aus Dotclock entsteht, wo schon mindestens eine
+(temperaturabh&#228;ngige) Gatterlaufzeit drin steckt und daraus dann unser
+Phi2, wo wieder mehrere (temperaturabh&#228;ngige) Gatterlaufzeiten
+drinstecken. Die fallende Dotclock-Flanke liegt also eher &quot;zuf&#228;llig&quot;
+auf der steigenden von Phi2. Vor der Temperaturabh&#228;ngigkeit hat uns
+Jens Sch&#246;nfeld ja auch schon gewarnt.
+
+&gt;<i> wenn die beiden 74LS139 wirklich 30ns f&#252;r jeden Dekoder ben&#246;tigen
+</I>&gt;<i> (ich meine mich an etwas im 20er Bereich zu erinnern), haben wir noch
+</I>&gt;<i> eine (kleine) Sicherheit.
+</I>
+Die vielleicht aus oben genannten Gr&#252;nden nicht so sicher ist, wie
+gedacht.
+
+Das alles best&#228;tigt, was Jens damals (bei Verwendung von FPGAs)
+empfohlen hat: Aus einem eigenen, h&#246;heren Takt die Signale &quot;Address
+Valid&quot; und &quot;Data Valid&quot; selbst erzeugen. Aber das haben wir ja auch so
+schon fast perfekt geschaft, und ich glaube mit Deinen
+empfohlenen &#196;nderungen wird's ganz perfekt.
+
+&gt;<i> Das macht in der Summe max. 53 ns (typ. 34 ns)!
+</I>
+Da wir hier einen ziemlich sporadischen Fehler suchen, w&#252;rde ich eher
+vom worst case ausgehen, nicht vom typischen. Sollte ein Ingenieur
+wahrscheinlich immer so machen.
+
+Ach so, ich muss noch erw&#228;hnen: Mit dem ACT lief es &#252;ber Nacht
+(vielleicht 1 Milliarde Bankwechsel) auf dem C64 verl&#228;sslich. Auf dem
+C128 habe ich's auch einen halben Tag ohne Fehler laufen lassen.
+
+&gt;<i> Hmm, das hat wieder so einen bitteren Beigeschmack!
+</I>
+Da wir hier von Zeitfenstern reden, die ohnehin nur wenige 10 ns gro&#223;
+sind, finde ich ein Delta von 20 ns schon ziemlich fett. 20 ns von
+z.B. 60 ns sind eine ganze Menge. Aber ich wei&#223;, was Du meinst: Es ist
+nicht das supervorbildliche Timing, was z.B. auch Jens meinte.
+
+&gt;<i> Und genau hier k&#246;nnte evtl. noch der weitere Zeitfaktor liegen. Die
+</I>&gt;<i> FlipFlops ben&#246;tigen auch um die 30 ns zum Schalten. Daher ist unser
+</I>&gt;<i> Timing noch weiter verz&#246;gert!
+</I>
+Siehste, da ist das dicke Ende ;-)
+
+[...]
+&gt;<i> Damit sollten sich die Gatterlaufzeiten drastisch reduzieren.
+</I>
+Ja, klingt gut. Dass wir diese sch&#246;ne L&#246;sung nicht schon fr&#252;her gesehen
+haben...
+
+&gt;<i> Bitte Thomas, probiere diese kleine aber nette &#196;nderung mal aus:
+</I>&gt;<i> 
+</I>&gt;<i> * Pin 1 und 13 von IC7 nicht zu Pin E des Cartridge Port f&#252;hren,
+</I>&gt;<i> sondern auftrennen und zu Pin 13 des IC2 legen.
+</I>&gt;<i> * Draht von Pin 7 des IC1 abl&#246;ten und nach Pin 6 von IC7 anl&#246;ten.
+</I>&gt;<i> * erster Test
+</I>&gt;<i> * wenn erfolgreich, Br&#252;cken von Pin 2 und 3 des IC 1 abl&#246;ten und
+</I>&gt;<i> diese Pins (2 und 3) auf GND (wie Pin 1) legen.
+</I>
+Okay, hab ich. Nach einer halben Stunde noch kein Fehler. Mit
+Problemb&#228;r best&#252;ckt.
+
+&gt;<i> Jetzt k&#246;nnte nur noch passieren, da&#223; R/W &#252;ber 62,5 ns nach der
+</I>&gt;<i> steigenden Flanke von Phi2 aktiv wird. Dann w&#252;rde sich das Timing
+</I>&gt;<i> verschieden und uns einen Strich durch diese Idee machen. Da R/W
+</I>&gt;<i> jedoch intern in der CPU bereits w&#228;hrend der Phase Phi1 (Phi2 ist
+</I>&gt;<i> log. Null) erzeugt wird, ist nur die Abh&#228;ngigkeit zu AEC zu
+</I>&gt;<i> ber&#252;cksichtigen. Diese war jedoch, so ich mich richtig erinnere, sehr
+</I>&gt;<i> kurz. Vielleicht hat Thomas hier sogar die korrekten Werte noch im
+</I>&gt;<i> Kopf oder auf Papier! ;-)
+</I>
+Ich meine mich erinnern zu k&#246;nnen, dass diese Verz&#246;gerung fast
+unglaublich gro&#223; war. Du hattest damals noch gesagt, dass Du erwartet
+h&#228;ttest, dass sie nur eine Gatterlaufzeit sein sollte, weil Du
+angenommen hattest, dass nur die Ausgangstreiber eingeschaltet werden
+w&#252;rden. Oder verwechsle ich jetzt was?
+
+Wie auch immer, ich glaube, auch noch das i-T&#252;pfelchen f&#252;r Deine
+Verbesserung gefunden zu haben:
+
+Wenn man Reset des ersten Flipflops auf Phi2 l&#228;sst, Reset des zweiten
+aber wie von Die empfohlen mit /OE beschaltet, passiert das: Das erste
+Flipflop kann garantiert nach Phi2 die erste Dotclock-Flanke mitz&#228;hlen.
+Egal ob dann /WR in diesem Moment schon geschaltet ist oder nicht,
+bleibt /WE inaktiv. Entweder durch Reset oder durch Durchschalten von D
+= low.
+
+Bis zur zweiten Dotclock-High-Flanke ist dann /WR garantiert im
+richtigen Zustand und alles l&#228;uft weiter wie gehabt.
+
+Das habe ich auch gleich mal so eingebaut und teste jetzt damit. Was
+denkst Du? Sind damit unsere letzten potentiellen Bauchschmerzen
+beseitigt?
+
+&gt;<i> Wie verh&#228;lt sich das mit dem anderen Register U5? Hier k&#246;nnte man
+</I>&gt;<i> zwischen normalem 16k Modul und Ultimax umschalten und nachsehen, ob
+</I>&gt;<i> das Flash ROMH immer im richtig dem entsprechenden Adressbereich
+</I>&gt;<i> liegt ($E000 oder $A000). Wenn's an den Dekodern bzw.
+</I>&gt;<i> Gatterlaufzeiten liegt, sollte hier auch ein Fehler auftreten.
+</I>
+Es sei denn, mein 175er hat wieder ein Hauch anderes Timing als mein
+174er. Ich glaube, der Fehler ist dort noch nicht aufgetreten. Beim
+174er ist es ja nach meinen Beobachtungen auch nur mit D0 passiert.
+Nein, da steht was so knapp an der Kante, dass das nicht aussagekr&#228;ftig
+ist.
+
+So, dann teste ich mal kr&#228;ftig. Sch&#246;n, dass endlich der Stresstest
+fertig implementiert ist. Der war schon lange f&#228;llig. Aber die
+manuellen Tests mache ich auch noch.
+
+Jedenfalls gef&#228;llt mir das auch besser, als das Timing nur mit einem
+schnelleren HCT-IC aufzupolieren. Wenn die Tests bis zum Wochenende
+fehlerlos sind und Bj&#246;rn so nett ist, die &#196;nderungen einzubauen,
+k&#246;nnten wir am Montag die Leiterplatten bestellen. Ich bin gespannt.
+
+Gru&#223;,
+
+Thomas
+
+
+Gru&#223;,
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000242.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000244.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#243">[ date ]</a>
+              <a href="thread.html#243">[ thread ]</a>
+              <a href="subject.html#243">[ subject ]</a>
+              <a href="author.html#243">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

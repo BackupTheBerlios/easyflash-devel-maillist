@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D907150A190234E%40directbox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000157.html">
+   <LINK REL="Next"  HREF="000162.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C0F8C07D907150A190234E%40directbox.com%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul 21 12:25:02 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000157.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000162.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#161">[ date ]</a>
+              <a href="thread.html#161">[ thread ]</a>
+              <a href="subject.html#161">[ subject ]</a>
+              <a href="author.html#161">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mahlzeit,
+
+&gt;<i> wie der laoder (nicht) funktioniert koennt ihr ja auch alle probieren.
+</I>&gt;<i> ich hatte ja ein beispiel crt gemailt, welches mit einem gepatchten
+</I>&gt;<i> vice laeuft.
+</I>
+Diese Art Kompatibilit&#228;tstests werden eine Aufgabe des Beta-Tests sein.
+Die k&#246;nnte dann auch jemand machen, der nicht direkt mit der Entwicklung
+besch&#228;ftigt ist, das w&#252;rde uns entlasten.
+
+&gt;<i> wichtig: $00 ist #$00 (oder fast) ich hatte da schon mal das problem,
+</I>&gt;<i> das ich da $2f/$37 hingeschieben hatte, aber ein modul (weiss nicht
+</I>&gt;<i> mehr ob ult. oder nicht) hat $01 ueberschreiben und ist dann
+</I>&gt;<i> abgestuetzt.
+</I>
+Das ist input. Genauso h&#228;tte ich es auch erwartet, denn das ist wie bei CIAs
+bei I/Os eine sinnvolle Vorkehrung, damit beim Einschalteten nichts gegrillt 
+wird. Das best&#228;tigt meine Theorie der &quot;falschen&quot; Initialisierung durch KERNAL
+o.&#228;. Implementierungen.
+
+&gt;<i> und was ich ganz vergessen hatte: auch wenn ich noch einen reset mache
+</I>&gt;<i> aendert das nichts (also ein dopeltes ueberschreiben)
+</I>
+Hardware oder soft? Wahrscheinlich soft. Allerdings muss ich sagen, dass
+mir jetzt der &#220;berblick fehlt. Ich hatte gedacht, dass du geschrieben hattest,
+das ein Reset das behebt. Ach nein, so war das:
+
+&gt;<i> wenn man dann aber in's basic wechselt repariert er das
+</I>&gt;<i> auch
+</I>
+Vielleich w&#252;rde es wirklich helfen, wenn Du auch die unfertigen Sachen 
+schonmal ins &#246;ffentliche Repository stellst. Brauchst Dich nicht zu sch&#228;men,
+aufr&#228;umen kann man ja immernoch. Und eine genaue Beschreibung, was man tun
+muss, um den Fehler zu sehen und wie er geheilt wird. Vielleicht kannst Du
+damit einen neuen Thread aufmachen.
+
+&gt;<i> wiso merkt sich der VIC sachen nach einem reset?
+</I>
+Wenn Du ein Soft-Reset meinst (JMP ($FFFC)), ist das f&#252;r den VIC gar kein 
+richtiger Reset. Seine Reset-Leitung (=&gt; Hardware-Defaults) wird nicht 
+gezogen, sondern es werden h&#246;chstens von der Reset-Routine die Register
+gesetzt.
+
+Wenn Du ein Hard-Reset meinst, w&#252;rde es bedeuten, dass er seine Register
+bei einem Reset nicht zur&#252;cksetzt. Das w&#228;re schwach...
+
+Alex, zwei Dinge schulde ich Dir noch:
+
+Ich hatte Dir gesagt, dass ich im Moment nur einen funktionierenden
+Aufbau habe. Das ist so richtig, der andere hat keinen RAM und ist auch 
+sowieso nicht auf den aktuellen Zustand umgebaut. 
+
+Und dann h&#228;nge ich an diese Mail auch mal den vergessenen Screenshot wegen der
+Suche ran. Unten rechts siehst Du ein aufpoppendes Feld mit den getippten 
+Zeichen. W&#252;rde ich Backspace dr&#252;cken, w&#252;rde die Liste wieder k&#252;rzer werden und
+die Auswahl springt ggfs. auf den ersten Match zur&#252;ck. Dr&#252;cke ich gar keine
+Taste mehr, verschwindet das Feld nach 3 Sekunden und die Auswahl bleibt an 
+der Stelle stehen (z.B. hier auf fstab). Jef&#228;llt ma.
+
+Guten Appetit,
+
+Thomas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: suche.png
+Type: application/octet-stream
+Size: 59610 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090721/056c20c8/attachment.obj">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090721/056c20c8/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000157.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000162.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#161">[ date ]</a>
+              <a href="thread.html#161">[ thread ]</a>
+              <a href="subject.html#161">[ subject ]</a>
+              <a href="author.html#161">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

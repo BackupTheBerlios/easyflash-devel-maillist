@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] (Layout) Neuer Zwischenstand
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C00ca01ca0598%24d48b0950%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000063.html">
+   <LINK REL="Next"  HREF="000067.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] (Layout) Neuer Zwischenstand</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C00ca01ca0598%24d48b0950%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] (Layout) Neuer Zwischenstand">martinHV at arcor.de
+       </A><BR>
+    <I>Thu Jul 16 00:08:48 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000063.html">[EasyFlash-devel] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="000067.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Bj&#246;rn,
+
+&gt;<i> Layout jetzt in 10mil.
+</I>
+Sehr sch&#246;n!
+
+&gt;<i> Einen Wermutstropfen gibt es allerdings, ich
+</I>&gt;<i> muss bei U4 oben links mit 4 Leiterbahnen raus.
+</I>
+Warum? Das bekommt man sehr gut aufgel&#246;st. Dazu mu&#223; die Leiterbahn f&#252;r A8
+nur rechts (anstelle links) neben dem Pin f&#252;r A12 am U4 gelegt werden. Den
+Restlichen Weg findest Du bestimmt selbst.
+
+&gt;<i> Die musste ich auf kurzer Strecke &#160;auf 8mil
+</I>&gt;<i> verkleinern.
+</I>
+Da sollten auch 10 mil machbar sein!
+
+&gt;<i> Die guten Vorschl&#228;ge von Martin sind jetzt auch drin und ich habe auch
+</I>&gt;<i> C6 fristlos gek&#252;ndigt.
+</I>
+Hmm, leider nicht ganz...
+
+&gt;<i> Auf der rechten Seite der Platine sind viele blaue Leiterbahnen, ich
+</I>&gt;<i> h&#228;tte gerne welche rot gemacht.
+</I>&gt;<i> Bringt aber nicht viel dann komme mehr Durchkontaktierungen
+</I>
+Da hatte ich schon einen Vorschlag gemacht:
+
+Der 74LS174 hat sechs untereinander vertauschbare D-FlipFlops:
+FlipFlop 1 mit D1 an Pin  3 und Q1 an Pin  2
+FlipFlop 2 mit D2 an Pin  4 und Q2 an Pin  5
+FlipFlop 3 mit D3 an Pin  6 und Q3 an Pin  7
+FlipFlop 4 mit D4 an Pin 11 und Q4 an Pin 10
+FlipFlop 5 mit D5 an Pin 13 und Q5 an Pin 12
+FlipFlop 6 mit D6 an Pin 14 und Q6 an Pin 15
+
+Wenn ich das richtig gesehen habe, sind diese FlipFlops nicht austauschbar
+definiert. Ich empfehle daher folgenden Tausch:
+
+3 -&gt; 1
+6 -&gt; 2
+1 -&gt; 3
+2 -&gt; 4
+5 bleibt
+4 -&gt; 6
+
+Also tauschen Pin 3 und 6 sowie Pin 2 und 7.
+Ferner ein Ringtausch von Pin 4, 11 und 14 sowie 5, 10 und 15.
+
+Dann sind nur noch einige wenige Leiterbahnen auf der blauen Seite &quot;quer&quot;
+und die meisten Leitungen k&#246;nnen direkt nach oben durch die Pins der
+PLCC-Fassung zum 74LS174 geroutet werden.
+
+&gt;<i> Im Anhang wie &#252;blich ein Bild und jetzt auch die Eagle-Files damit
+</I>&gt;<i> Martin sich das mal genauer anschauen kann ;)
+</I>
+Tja, erst wollte mein Eagle die Dateien nicht &#246;ffen, war zu alt. Nun kann
+ich mir das zwar ansehen, will aber nichts ver&#228;ndern. Zu viele K&#246;che
+verderben bekanntlich den Brei. Ich wei&#223; auch gar nicht, welche Library Du
+verwendet hast.
+
+Wenn Thomas unbedingt die SIL-Widerst&#228;nde haben m&#246;chte, geht das auch ohne
+weitere Durchkontaktierung:
+
+---o    o---   -\ o-\  o---
+                 \   \--
+                  --\   \
+---o    o---   ---o  \-o \-
+
+
+---o    o---   -\ o-\  o---
+                 \   \--
+                  --\   \
+---o    o---   ---o  \-o \-
+
+
+---o    o---   -\ o-\  o---
+                 \   \--
+                  --\   \
+---o    o---   ---o  \-o \-
+
+
+---o    o---   -\ o-\  o---
+                 \   \--
+                  --\   \
+---o    o---   ---o  \-o \-
+
+    DIL            SIL
+
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000063.html">[EasyFlash-devel] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="000067.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

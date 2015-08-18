@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C005401ca186b%245d6afb60%240202fea9%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000246.html">
+   <LINK REL="Next"  HREF="000250.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C005401ca186b%245d6afb60%240202fea9%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">martinHV at arcor.de
+       </A><BR>
+    <I>Sat Aug  8 23:01:13 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000246.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000250.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#249">[ date ]</a>
+              <a href="thread.html#249">[ thread ]</a>
+              <a href="subject.html#249">[ subject ]</a>
+              <a href="author.html#249">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;<i> Wie auch immer, ich glaube, auch noch das i-T&#252;pfelchen f&#252;r Deine
+</I>&gt;<i> Verbesserung gefunden zu haben:
+</I>&gt;<i> 
+</I>&gt;<i> Wenn man Reset des ersten Flipflops auf Phi2 l&#228;sst, Reset des zweiten
+</I>&gt;<i> aber wie von Die empfohlen mit /OE beschaltet, passiert das: Das erste
+</I>&gt;<i> Flipflop kann garantiert nach Phi2 die erste Dotclock-Flanke
+</I>&gt;<i> mitz&#228;hlen. Egal ob dann /WR in diesem Moment schon geschaltet ist
+</I>&gt;<i> oder nicht, bleibt /WE inaktiv. Entweder durch Reset oder durch
+</I>&gt;<i> Durchschalten von D = low.
+</I>&gt;<i> 
+</I>&gt;<i> Bis zur zweiten Dotclock-High-Flanke ist dann /WR garantiert im
+</I>&gt;<i> richtigen Zustand und alles l&#228;uft weiter wie gehabt.
+</I>&gt;<i> 
+</I>&gt;<i> Das habe ich auch gleich mal so eingebaut und teste jetzt damit. Was
+</I>&gt;<i> denkst Du? Sind damit unsere letzten potentiellen Bauchschmerzen
+</I>&gt;<i> beseitigt?
+</I>
+So ich habe nun mehrmals dar&#252;ber nachgedacht und fand die Idee zu beginn nicht so gelungen. Meine Bef&#252;rchtungen waren, da&#223; dieser D-FlipFlop-Verbund zu asynchron wird. Wir verwenden es als 2-Bit-Gray-Code-Z&#228;hler, welcher die Phase 2 (Phi2 ist log. eins) in kleine 125ns-Schritten abz&#228;hlt. Damit sind diese beiden FlopFlops als eine Einheit zu sehen: Beide haben den gleichen Takt, und eben auch das gleiche Reset.
+
+Du trennst nun den Reset der beiden FlipFlops. Daher k&#246;nnte es vorkommen, da&#223; die Z&#228;hler nicht mehr richtig das z&#228;hlen, was sie sollten: Gray-Code. Jedoch ist diese Trennung eben nur die zus&#228;tzliche R/W-Leitung f&#252;r das erste (?) FlipFlop.
+
+Zustand Gray-Code /WE
+   0      0 0      1   &lt;- RESET beider FlipFlops wenn Phi2=0
+   1      1 0      1
+   2      1 1      0
+   3      0 1      0
+
+Zus&#228;tzlich gibt es einen Sprung von Zust&#228;nden 0 und 3 zu 0 bzw. von 1 und 2 zu 1, vereinfacht von 2 zu 1 und 3 zu 0. Betrachte ich mal beide F&#228;lle getrennt:
+
+Von 2 zu 1: Hei&#223;t, der Z&#228;hler mind. w&#252;rde einen Takt auslassen. Damit w&#228;re das Zeitfenster f&#252;r das gerade aktive /WE-Signal etwas l&#228;nger. N&#246;tig w&#228;re dazu ein R/W-Signal, welches zu diesem Zeitpunkt _wieder_ high wird, da sonst der Z&#228;hler im Zustand 1 verharren w&#252;rde. Ich denke, dies kann man ausschlie&#223;en. Wenn R/W f&#252;r Schreibzugriffe aktiv wird, sollte das immer bis zum Ende der Phase 2 anliegen.
+
+Von 3 zu 0: Dies entspricht eigentlich dem normalen Umlauf bzw. einem normalen Reset. Der aktive Schreibzugriff (Zustand 2 und 3) wird damit beendet. Da der vorherige Zustand 2 vollst&#228;ndig durchlaufen wurde, ist die min. /WE-Zeit mit 125 ns definiert und okay. Diese Situation sollte eigentlich auch nicht eintreffen. Es gibt die gleiche Begr&#252;ndung wie unter &quot;Von 2 zu 1:&quot;.
+
+So kann man also sagen, da&#223; das I-T&#252;pfelchen von Thomas so schon okay ist. Und das haben seine Tests auch bewiesen.
+
+Ich denke daher, meine anf&#228;nglichen Bauchschmerzen dazu sind wiederlegt. Ich habe also nichts gegen diese Schaltung einzuwenden.
+
+Aber etwas anderes ist mit eingefallen:
+
+Der 74LS139 wird nun nur zur H&#228;lfte genutzt. Da sehe ich zwei m&#246;gliche Ver&#228;nderungen:
+
+1) Wir tauschen den gegen einen 74LS138. Dann k&#246;nnen wir auch A0 zur Ausdekodierung nutzen und haben eine h&#246;here Kompatibilit&#228;t bez&#252;glich der sp&#228;teren Erweiterung des Banking-Register zu 16-Bit.
+2) Wir k&#246;nnen jetzt auch wieder den 74LS139 (U1) gegen einen 74LS00 tauschen. Dann m&#252;&#223;te U2C (Inverter) ein Gatter aus dem 74LS00 werden und wir k&#246;nnen mit den restlichen drei 74LS00 (einmal Inverter f&#252;r A1 und zweimal als Gatter f&#252;r die Takt-Leitungen der Register) und dem einen 74LS02 (zur Verkn&#252;pfung des /WE-Signal mit dem /IO1-Signal) die Takt-Signale f&#252;r die Register mit einzelnen Gattern erzeugen. Das w&#252;rde auch zwei Pins freiwerden lassen, da von 16 pol. auf 14 pol. ge&#228;ndert wird. Damit haben wir auch etwas mehr Platz auf der Platine. Auch w&#252;rden sich vermutlich die Gatterlaufzeiten noch einmal reduzieren!
+
+Ich pers&#246;nlich tendiere generell zu 2).
+
+Beiden &#196;nderungen sind in meinen Augen nicht so umfangreich und daher leicht im Layout machbar.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000246.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000250.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#249">[ date ]</a>
+              <a href="thread.html#249">[ thread ]</a>
+              <a href="subject.html#249">[ subject ]</a>
+              <a href="author.html#249">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

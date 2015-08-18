@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C20090721000447.77fe9cad%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000148.html">
+   <LINK REL="Next"  HREF="000150.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C20090721000447.77fe9cad%40akoya%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">skoe at directbox.com
+       </A><BR>
+    <I>Tue Jul 21 00:04:47 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000148.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000150.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo Martin und die anderen :-)
+
+&gt;<i> Da h&#228;tte ich noch einen kleinen Einwand. In Thomas seiner
+</I>&gt;<i> Beispiel-Routine aus dem SDK verwendet er direkte Einspr&#252;nge z.B. f&#252;r
+</I>&gt;<i> die Initialisierung der IO-Bausteine im Kernal.
+</I>
+Das ist die offizielle Sprungtabelle des Commodore-Kernals. Das ist der
+vorgesehene und vollkommen richtige Weg das zu tun.
+
+Allerdings werde ich hier evtl. noch abspecken, damit der Start noch
+eine halbe Sekunde schneller geht.
+
+&gt;<i> Oder gar das Kernal defekt ist? (z.B. f&#252;r Nicolas sein Diagnose-Modul)
+</I>
+Das Diagnosemodul ist die einzige Ausnahme, die mir da einf&#228;llt. Dort
+sollte man den Startup weglassen. Im EasyProg sollte ich also noch eine
+Option vorsehen, Ultimax-CRTs pur zu brennen. Das w&#252;rde auch das
+MAX-Thema l&#246;sen, was Du unten angesprochen hast.
+
+Solange es die noch nicht gibt, kann man einfach im Header eines
+MAX-Moduls den Typ auf EasyFlash (momentan 42) &#228;ndern und schon
+geht's.
+
+&gt;<i> Was ist jedoch, wenn im C64 oder auch C128 ein anderes
+</I>&gt;<i> Kernal verbaut ist?
+</I>
+Genau f&#252;r diese Zwecke ist diese Sprungtabelle gedacht. Die ist IIRC
+sogar &#252;ber verschiedene Commodore-Rechner (PET, VC20 u.a.) gleich
+geblieben. Aber das habe ich noch nicht selbst &#252;berpr&#252;ft.
+
+&gt;<i> Die IO-Initialisierung nachzuprogrammieren sollte nicht das Problem
+</I>&gt;<i> sein
+</I>
+Genau das ist (eigentlich) der falsche Weg. Durch Umgehen der
+Standardvektoren sind schon so manche inkompatibilit&#228;ten in Software
+gekommen. Bei den Vektoren kannst Du Dir sicher sein, dass andere
+Kernals, die bestimmte Hardware anders initialisieren (SX64, C128) auch
+korrekt aufgerufen werden.
+
+&gt;<i> Und den Reset-Sprung k&#246;nnte man auch ordentlich von Adresse $FFFC
+</I>&gt;<i> lesen
+</I>
+Das ist der Hardware-Reset Vektor. Ich hab die offizielle
+Reset-Funktion des Kernals aufgerufen. Eigentlich okay, oder?
+
+&gt;<i> Im MAX gibt es kein Kernal.
+</I>
+W&#228;re mir eigentlich egal, bei den 0,04 Personen, die EasyFlash auf
+einer MAX benutzen. Allerdings l&#228;sst sich das Thema auch leicht l&#246;sen,
+s.o.
+
+Trotzdem danke f&#252;r Deine Gedanken. Manchmal &#252;bersieht man ja was und
+dann ist Hinterfragen immer n&#252;tzlich :-)
+
+Gru&#223;,
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000148.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000150.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

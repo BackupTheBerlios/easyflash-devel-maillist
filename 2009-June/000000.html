@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Easyflash-devel] C128 unter Kontrolle
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyflash-devel%5D%20C128%20unter%20Kontrolle&In-Reply-To=%3C20090618221238.39a4177f%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Easyflash-devel] C128 unter Kontrolle</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyflash-devel%5D%20C128%20unter%20Kontrolle&In-Reply-To=%3C20090618221238.39a4177f%40akoya%3E"
+       TITLE="[Easyflash-devel] C128 unter Kontrolle">skoe at directbox.com
+       </A><BR>
+    <I>Thu Jun 18 22:12:38 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo,
+
+wie soll man denn eine Mailing-Liste besser einweihen, als mit einer
+guten Nachricht: Das C128 ist gel&#246;st.
+
+F&#252;r's Archiv schreibe ich nochmal eine kurze Zusammenfassung:
+
+Meine Messergebnisse, HofMar's Vorahnung und die Datenbl&#228;tter von VIC
+und 6510 zusammengenommen bringen alle ein Ergebnis: Bei der
+High-Flanke von Phi2 sind Daten- und Adressbus sowie R/W noch nicht
+stabil. Aus dem Datenblatt des 6510 alleine kann man das nicht ablesen.
+
+Letztendlich ist es der VIC, der AEC erst so sp&#228;t losl&#228;sst, dass der
+6510 seine Ausg&#228;nge auch erst sehr sp&#228;t wieder aktivieren kann. Das ist
+also kein reines C128-Problem, beim C64 und beim C128-Low kamen
+wahrscheinlich ein paar beg&#252;nstigende Faktoren hinzu, so dass es
+zuf&#228;llig stabil geklappt hat. (Bei der Gelegenheit muss man dran
+denken, dass der Flash seine Adressen an der ersten Flanke latched.)
+
+Und wenn man nach den richtigen Dingen googelt (und zwar nicht C128 ),
+sieht man auch, dass das Problem schon vor fast 15 Jahren im Internet
+beschrieben wurde:
+<A HREF="http://groups.google.de/group/comp.sys.c&#8230;83944b72f?hl=de">http://groups.google.de/group/comp.sys.c&#8230;83944b72f?hl=de</A>
+
+Gru&#223;,
+
+Thomas
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

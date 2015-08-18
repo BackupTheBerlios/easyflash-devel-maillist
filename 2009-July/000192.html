@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Ultimax-Starter
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Ultimax-Starter&In-Reply-To=%3C003201ca0a3c%24c371a180%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000190.html">
+   <LINK REL="Next"  HREF="000178.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Ultimax-Starter</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Ultimax-Starter&In-Reply-To=%3C003201ca0a3c%24c371a180%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Ultimax-Starter">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 21:52:21 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000190.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+        <LI>Next message: <A HREF="000178.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Alex,
+
+&gt;&gt;&gt;<i>               // swapped lda/sta to load but not save the first
+</I>&gt;&gt;&gt;<i>               byte (last byte processed)               sta $02-1, x
+</I>&gt;&gt;&gt;<i> lda jump_start-1+[$fff0 - start], x 
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Das kann ich leider auch nicht ganz nachvollziehen. Ich meine, Du
+</I>&gt;&gt;<i> kopiertst das letzte Byte vom JMP (indirekt oder direkt) nicht. 
+</I>&gt;<i> 
+</I>&gt;<i> nein, das &quot;.byte BANK&quot; (1. byte - laeuft ja rueckwaerts) lese ich,
+</I>&gt;<i> aber schreibe nicht -&gt; ergo &quot;BANK&quot; ist im A register.
+</I>
+Das habe ich schon verstanden. Das ist aber das letzte Byte, welches kopiert wird und damit das erste, welches im Speicher steht. Ich meine das letzte Byte, welches im Speicher steht und daher als erstes kopiert werden m&#252;&#223;te. Da Du nur ein STA machst, wird damit nur eine Null geschrieben und nicht korrekt das letzte Byte aus dem Speicher gelesen.
+
+Ich hoffe, ich habe mich jetzt verst&#228;ndlich genug ausgedr&#252;ckt.
+
+&gt;&gt;<i> Warum eigentlich diese Sonderstellung f&#252;r Bank 0?
+</I>&gt;<i> 
+</I>&gt;<i> weil ich dadurch ein byte spare (war interessanter als der code nicht
+</I>&gt;<i> mal 30 bytes war - ist jetzt wohl auch egal)
+</I>
+Dann w&#252;rde ich jetzt davon Abstand nehmen.
+
+&gt;&gt;<i> Ohh, das ist aber ein sehr gewagter Teil. Du verwendest hier einen
+</I>&gt;&gt;<i> &quot;illegalen Opcode&quot;. Besser w&#228;re auch hier nicht $0c zu verwenden,
+</I>&gt;&gt;<i> sondern $2c. Das macht zwar eine Verundung (aber ohne es im Register
+</I>&gt;&gt;<i> zu speichern) und setzt dabei die Statusbits Minus, Overflow und
+</I>&gt;&gt;<i> Zero.    
+</I>&gt;<i> 
+</I>&gt;<i> ja, kann ich auch - aber was ist eigentlich an _stabilen_ illegalen
+</I>&gt;<i> op's soooo gefaehlich - ich meine NOP ist einfach klarer in der
+</I>&gt;<i> aussage als BIT.
+</I>
+Wenn wir einen Rechner haben, welcher mit einer Adapterplatine eine 65802 drin hat oder gar die CMOS-Version (war das 65SC02) dann k&#246;nnte es Probleme geben. Ich w&#252;rde an solchen Stellen niemals illegale Opcodes verwenden! Das macht die Sache sehr Inkompatibel.
+
+&gt;&gt;<i> Aber ich habe da trotzdem noch Bauchweh. Du definierst hier keine
+</I>&gt;&gt;<i> Vektoren f&#252;r NMI bzw. IRQ. Okay IRQ hast Du abgeschaltet. NMI kann
+</I>&gt;&gt;<i> aber kommen. Ich w&#252;rde das schon auf ein RTI zeigen lassen.  
+</I>&gt;<i> 
+</I>&gt;<i> ich dachte das MNI nur bei der restore-taste kommt? selbst schuld wer
+</I>&gt;<i> die und nicht run/stop drueckt.
+</I>
+Generell schon. Ich schmecke trotzdem einen bitteren Beigeschmack. Ich halte es nicht f&#252;r sauber programmiert.
+
+&gt;&gt;<i> Und warum eigentlich so kompliziert? Warum kein JMP auf $0002?
+</I>&gt;<i> 
+</I>&gt;<i> weil es platz spart. wie gesagt hatte ich damit das prog verkuertzt,
+</I>&gt;<i> als es noch keine taste kannte und ca. 26 bytes lang war.
+</I>
+Hmm, warum diese Anforderung bez&#252;glich der Gr&#246;&#223;e? Wir haben 1MB Flash zur Verf&#252;gung. Da fallen die paar Bytes auch nicht auf.
+
+&gt;<i> also ich kann MNI reinnehmen, aber dann kommt ein JMP 0002 / oder geht
+</I>&gt;<i> auch BNE (ca. 20).
+</I>
+BNE/BEQ geht doch auch.
+
+&gt;<i> - tasten-loslass-erkennung raus?
+</I>
+Ich w&#228;re f&#252;r die Erkennung des loslassen der Taste mit Signalisierung mittels LED.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000190.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+	<LI>Next message: <A HREF="000178.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

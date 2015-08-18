@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015c01ca098a%24139b4480%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000150.html">
+   <LINK REL="Next"  HREF="000152.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C015c01ca098a%24139b4480%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 00:33:16 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000150.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000152.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#151">[ date ]</a>
+              <a href="thread.html#151">[ thread ]</a>
+              <a href="subject.html#151">[ subject ]</a>
+              <a href="author.html#151">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;<i> Genau f&#252;r diese Zwecke ist diese Sprungtabelle gedacht. Die ist IIRC
+</I>&gt;<i> sogar &#252;ber verschiedene Commodore-Rechner (PET, VC20 u.a.) gleich
+</I>&gt;<i> geblieben. Aber das habe ich noch nicht selbst &#252;berpr&#252;ft.
+</I>
+Wenn ich mich richtig erinnere waren beim PET wesentlich weniger Sprungvektoren. Da gab es eigentlich nur die IO-Routinen. Die von Dir verwendeten wurde erst mit &quot;neueren&quot; Rechnern eingef&#252;hrt. Es gab dabei sogar einige Inkompatibilit&#228;ten.
+
+Ich f&#228;nde es schon sch&#246;n, da&#223; EasyFlash mit einem oder mehreren geflashten Modulen auch auf einem C64 l&#228;uft, bei dem das Kernal defekt ist. Man liest gerade auch im Forum-64 immer wieder die Frage und den Tip, im Falle eines Defektes dies mit einem Modul auszuprobieren. Warum soll dann EasyFlash nicht auch in dieser Situation weiterhelfen? Nur weil wir einen Bootloader davor setzen, welcher wieder auf etwas anderes aufsetzt, als ein (MAX-)Modul? Bitte Thomas, &#252;berdenke das in der kommenden Nacht noch einmal!
+
+&gt;&gt;<i> Die IO-Initialisierung nachzuprogrammieren sollte nicht das Problem
+</I>&gt;&gt;<i> sein
+</I>&gt;<i> 
+</I>&gt;<i> Genau das ist (eigentlich) der falsche Weg. Durch Umgehen der
+</I>&gt;<i> Standardvektoren sind schon so manche inkompatibilit&#228;ten in Software
+</I>&gt;<i> gekommen.
+</I>
+Welche Inkompatibilit&#228;ten sollen entstehen? Du m&#246;chtest eine Taste abfragen. Das machst Du, wie Du es gerne m&#246;chtest. Zu diesem Zeitpunkt l&#228;uft die Maschine noch nicht. Daher kannst Du alles machen, was Du m&#246;chtest. Anschlie&#223;end wird &#252;ber die normale Reset-Routine wieder alles so gesetzt, wie es sein sollte. Da kann eigentlich keine Inkompatibilit&#228;t entstehen. Ansonsten ist die Reset-Routine im Kernal mangelhaft.
+
+Und die IO-Initialisierung ist zum Abfragen einer einzelnen Taste wirklich sehr einfach: beide DDRx setzen, ein DR? setzen und das andere DR? auslesen. Den Rest k&#246;nnen wir uns sparen und der wird dann initialisiert, wenn's n&#246;tig ist, nach dem Aufruf der Cold-RESET-Routing &#252;ber in indirekten Sprung nach $FFFC.
+
+&gt;<i> Bei den Vektoren kannst Du Dir sicher sein, dass andere
+</I>&gt;<i> Kernals, die bestimmte Hardware anders initialisieren (SX64, C128)
+</I>&gt;<i> auch korrekt aufgerufen werden.
+</I>
+Das passiert sp&#228;ter. Oder m&#246;chtest Du noch mehr nutzen als nur die Tastaturabfrage? Doch bestimmt nicht im Bootloader, oder?
+
+&gt;&gt;<i> Im MAX gibt es kein Kernal.
+</I>&gt;<i> 
+</I>&gt;<i> W&#228;re mir eigentlich egal, bei den 0,04 Personen, die EasyFlash auf
+</I>&gt;<i> einer MAX benutzen.
+</I>
+Mich w&#252;rde das auf einem VC10 (oder MAX) schon mal interessieren. Nur leider habe ich keine. Interessant finde ich die Maschine auf jeden Fall.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000150.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000152.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#151">[ date ]</a>
+              <a href="thread.html#151">[ thread ]</a>
+              <a href="subject.html#151">[ subject ]</a>
+              <a href="author.html#151">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

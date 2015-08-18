@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C000e01ca18ee%246eacc560%246800a8c0%40mhv.webmade.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000252.html">
+   <LINK REL="Next"  HREF="000254.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C000e01ca18ee%246eacc560%246800a8c0%40mhv.webmade.com%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">martinHV at arcor.de
+       </A><BR>
+    <I>Sun Aug  9 14:39:25 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000252.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000254.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;<i> Nun gut, auf dem langen Weg zur Perfektion habe ich mal die
+</I>&gt;<i> Optimierungen in den Schaltplan eingebaut.
+</I>
+Prima, so in etwa hatte ich mir das gedacht.
+
+&gt;<i> Martin: Kannst Du bitte mal drauf schauen, ob alles stimmt?
+</I>
+Leider nicht ganz:
+* Der Ausgang der Gatters U2C ist high-aktiv. Daher ist das nur WEIO1 und nicht /WEIO1.
+* Das Gatter U1B verkn&#252;pft das WEIO1-Signal mit A1. Daher ist der Ausgang nicht /DE00, sondern /DE02.
+* Das Gatter U1C verkn&#252;pft das WEIO1-Signal mit dem invertierten A1 (/A1). Daher ist der Ausgang das obige /DE00 und nicht /DE02.
+
+&gt;<i> Bj&#246;rn: Schonmal vorab zur Info: Die &#196;nderungen Leiterbahn f&#252;r
+</I>&gt;<i> Leiterbahn zu beschreiben, wird jetzt etwas viel, lass es mich so
+</I>&gt;<i> zusammenfassen: - Das zweite Flipflip vom 74HCT74 ist jetzt anders
+</I>&gt;<i>   beschaltet, wie bereits zuvor beschrieben (Ausg&#228;nge und Reset)
+</I>&gt;<i> - 74HCT139 (U1) ist rausgeflogen
+</I>&gt;<i> - Neuer U1: 74HCT00
+</I>&gt;<i> - Alter U2C wurde durch U1A ersetzt (Pullup statt GND!)
+</I>&gt;<i> - Die Funktion des 139ers &#252;bernehmen der freigewordene U2C und U1B/C/D
+</I>
+Ich versuche das trotzdem mal:
+
+Phi2:
+  J1 Pin E
+  U7 Pin 13
+  U1 Pin 1
+
+_Phi2:
+  U1 Pin 3
+  U2 Pin 11
+
+DotClk:
+  J1 Pin 6
+  U7 Pin 3
+  U7 Pin 11
+
+R/W:
+  J1 Pin 5
+  U2 Pin 12
+
+_OE:
+  U2 Pin 13
+  U7 Pin 1
+  U3 Pin 24
+  U4 Pin 24
+  U8 Pin 22
+
+GC_Q0:
+  U7 Pin 9
+  U7 Pin 2
+
+_WE:
+  U7 Pin 6
+  U7 Pin 12
+  U2 Pin 8
+  U3 Pin 31
+  U4 Pin 31
+  U8 Pin 27
+
+_IO1:
+  J1 Pin 7
+  U2 Pin 9
+
+WEIO1:
+  U2 Pin 10
+  U1 Pin 4
+  U1 Pin 9
+
+_A1:
+  U1 Pin 11
+  U1 Pin 10
+
+_DE00:
+  U1 Pin 8
+  U6 Pin 9
+
+_DE02:
+  U1 Pin 6
+  U5 Pin 9
+
+A1:
+  J1 Pin X
+  U1 Pin 5
+  U1 Pin 12
+  U3 Pin 11
+  U4 Pin 11
+  U8 Pin 9
+
+VCCR
+  R1 ???
+  U1 Pin 2
+  U1 Pin 13
+  U7 Pin 4
+  U7 Pin 10
+
+Ich hoffe, ich habe nun nichts &#252;bersehen. Aufgelistet habe ich nur die ge&#228;nderten Netze!
+
+&gt;<i> Morgen Abend werde ich das zusammenbruzeln und in den Test schicken.
+</I>
+Ich hoffe, Du vermeldest Erfolg, oder?
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000252.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000254.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

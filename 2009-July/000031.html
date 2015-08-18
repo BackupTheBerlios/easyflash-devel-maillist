@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C0F8C07D9070A0B2F0E60%40directbox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000034.html">
+   <LINK REL="Next"  HREF="000032.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Layout</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C0F8C07D9070A0B2F0E60%40directbox.com%3E"
+       TITLE="[EasyFlash-devel] Layout">skoe at directbox.com
+       </A><BR>
+    <I>Fri Jul 10 13:47:12 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000034.html">[EasyFlash-devel] Layout
+</A></li>
+        <LI>Next message: <A HREF="000032.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo alle,
+
+Was Martin erkl&#228;rt hat, k&#246;nnte so funktionieren. Trotzdem eine Bemerkung:
+sollten wir tats&#228;chlich dazu kommen, mehr als zwei Leiterbahnen durch zwei
+Pins ziehen zu m&#252;ssen, w&#252;rde ich ein anderes als das kleinere &#220;bel sehen:
+W&#252;rde man den SRAM und den einen oder anderen 74er als SMD machen, h&#228;tte man
+genug Platz, die Busse an den PLCCs vorbeizuziehen, dort durchzukontaktieren
+und dann zum ersten PLCC abzuzweigen.
+
+Beim manuellen Herstellen einer Leiterplatte w&#252;rde ich lieber 50
+Durchkontaktierungen auf freier Fl&#228;che machen als 30 unter einem PLCC-Sockel.
+Bei professionell gefertigten Leiterplatten tun Durchkontaktierungen auch
+nicht weh. Wenn ich mir hier die Leiterplatte eines Handies aus meiner Firma 
+ansehe sind das wahrscheinlich mehrere hundert Durchkontaktierungen :-) 
+Naja, bei BGA wohl kaum anders m&#246;glich.
+
+Wie neulich schon angedeutet finde ich 1,27 mm SMD durchaus f&#252;r alle zumutbar.
+Das ein guter Einstieg, um eine SMD-Phobie loszuwerden.
+Bei Diddls letztem Projekt haben die Leute sogar den RS232/USB-Chip mit 0,8 
+oder 0,5 mm (wei&#223; nicht mehr) verl&#246;tet.
+
+&gt;<i> Ist also eher ungeeignet um die Platine mit Hausmitteln herzustellen.
+</I>
+Mein kleinster Bohrer ist 0,6 mm (jedenfalls solange ich ihn nicht abbreche).
+Kleine Durchkontaktierungen k&#246;nnte ich mit dem bohren und dann mit
+Drahtst&#252;ckchen verl&#246;ten. Die DIL-Schaltkreise lie&#223;en sich je von
+unten und oben l&#246;ten. Nur Durchkontaktierungen unter dem PLCC-Sockel sind
+schwierig. Da muss ich mir entweder auch solche Hohlnieten besorgen (die
+ich dann vielleicht ebenfalls l&#246;ten statt nieten w&#252;rde) oder die Beinchen 
+von gedrehten IC-Fassungen ausschlachten und beidseitig verl&#246;ten. Und da dann
+die PLCC-Fassung rein.
+
+Mhhh, mme-pcb verlangt 25 Euro pro dm&#178; ohne L&#246;tstop. Das sind etwa 2
+Leiterplatten. Die w&#252;rde ich vielleicht auch ausgeben, um mir Arbeit zu
+sparen. Aber w&#228;ren wieder zwei Wochen weg. Eine probiere ich erstmal selbst.
+
+&gt;<i> Und es braucht mehr Zeit das zu layouten, ich hoffe Ihr habt es nicht
+</I>&gt;<i> extrem eilig ;)
+</I>
+N&#246;. das gibt mir Zeit f&#252;r die Software :-) Ich m&#246;chte n&#228;mlich nicht, dass es
+software-m&#228;&#223;ig ein Bananenprodukt wird.
+
+Auch ich w&#228;re sehr gespannt auf Zwischenergebnisse. Keine Angst, unsere gut 
+gemeinten Ratschl&#228;ge kannst Du ja notfalls ignorieren :-)
+
+Thomas
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000034.html">[EasyFlash-devel] Layout
+</A></li>
+	<LI>Next message: <A HREF="000032.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

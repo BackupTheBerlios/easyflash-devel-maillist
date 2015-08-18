@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Ultimax-Starter
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Ultimax-Starter&In-Reply-To=%3C002c01ca0a36%24b4e97170%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000201.html">
+   <LINK REL="Next"  HREF="000187.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Ultimax-Starter</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Ultimax-Starter&In-Reply-To=%3C002c01ca0a36%24b4e97170%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Ultimax-Starter">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 21:08:59 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000201.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+        <LI>Next message: <A HREF="000187.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#184">[ date ]</a>
+              <a href="thread.html#184">[ thread ]</a>
+              <a href="subject.html#184">[ subject ]</a>
+              <a href="author.html#184">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Alex,
+
+&gt;<i> anbei mein erster versuch eines minimalen startup-codes, welcher im
+</I>&gt;<i> ultimax-modus gestartet wird, und endweder das 1. modul (z.B.
+</I>&gt;<i> EasyLoader) oder RAM aktiviert und dann &quot;JMP ($FFFC)&quot; macht.
+</I>&gt;<i> vieles laesst sich in den ersten paar zeilen konfigurieren.
+</I>
+Ich versuche das mal etwas genauer anzusehen.
+
+&gt;<i>		// init CIA1
+</I>&gt;<i>		dex // X is $00, dex -&gt; $ff
+</I>&gt;<i>		stx $dc02
+</I>&gt;<i>		inx // X is now $00
+</I>&gt;<i>		stx $dc03
+</I>&gt;<i>
+</I>&gt;<i>		// select row 7
+</I>&gt;<i>		lda #$7f
+</I>&gt;<i>		sta $dc00
+</I>
+Generell w&#252;rde ich es besser finden, wenn erst der Datenwert ($FF) geschrieben werden und dann das Datenrichtungsregister A auf Ausgang programmiert wird. Ansonsten wird bereits beim Schreiben des DDRA der Inhalt von PRA (und das ist nach dem Reset eben $00) ausgegeben.
+
+Ferner vermisse ich das anschlie&#223;ende Zur&#252;cksetzen der obigen Aktivit&#228;ten nach dem Warten auf das Loslassen der Tasten.
+
+&gt;<i>		lda #KILL
+</I>&gt;<i>.if(KILL == 0){
+</I>&gt;<i>		beq store_mode
+</I>&gt;<i>}else{
+</I>&gt;<i>		bne store_mode
+</I>&gt;<i>}
+</I>&gt;<i>
+</I>&gt;<i>	boot_module:
+</I>&gt;<i>		lda #MODE
+</I>
+Das kann man gut ein Byte k&#252;rzer mit dem Opcode f&#252;r den absoluten BIT-Befehl machen:
+
+	lda #KILL
+	.byte $2C
+boot_module:
+	lda #MODE
+
+So war das fr&#252;her Standard!
+
+&gt;<i>		// swapped lda/sta to load but not save the first byte (last byte processed)
+</I>&gt;<i>		sta $02-1, x
+</I>&gt;<i>		lda jump_start-1+[$fff0 - start], x
+</I>
+Das kann ich leider auch nicht ganz nachvollziehen. Ich meine, Du kopiertst das letzte Byte vom JMP (indirekt oder direkt) nicht.
+
+Warum eigentlich diese Sonderstellung f&#252;r Bank 0?
+
+&gt;<i>	.pc = * &quot;vector + nop&quot;
+</I>&gt;<i>		.byte $0c // NOP $xxxx - skips over $fffc/$fffd (the reset vector)
+</I>&gt;<i>		.word $fff0 // @fffc -&gt; address of reset routine
+</I>&gt;<i>		.byte $ea // NOP - just skip this byte
+</I>&gt;<i>		.byte $0c // NOP $xxxx - skips over $0000/$0001
+</I>
+Ohh, das ist aber ein sehr gewagter Teil. Du verwendest hier einen &quot;illegalen Opcode&quot;. Besser w&#228;re auch hier nicht $0c zu verwenden, sondern $2c. Das macht zwar eine Verundung (aber ohne es im Register zu speichern) und setzt dabei die Statusbits Minus, Overflow und Zero.
+
+Aber ich habe da trotzdem noch Bauchweh. Du definierst hier keine Vektoren f&#252;r NMI bzw. IRQ. Okay IRQ hast Du abgeschaltet. NMI kann aber kommen. Ich w&#252;rde das schon auf ein RTI zeigen lassen.
+
+Und warum eigentlich so kompliziert? Warum kein JMP auf $0002?
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000201.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+	<LI>Next message: <A HREF="000187.html">[EasyFlash-devel] Ultimax-Starter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#184">[ date ]</a>
+              <a href="thread.html#184">[ thread ]</a>
+              <a href="subject.html#184">[ subject ]</a>
+              <a href="author.html#184">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

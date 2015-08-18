@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Leiterplattenbastelei
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Leiterplattenbastelei&In-Reply-To=%3C20090712235208.3d05866b%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000035.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Leiterplattenbastelei</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Leiterplattenbastelei&In-Reply-To=%3C20090712235208.3d05866b%40akoya%3E"
+       TITLE="[EasyFlash-devel] Leiterplattenbastelei">skoe at directbox.com
+       </A><BR>
+    <I>Sun Jul 12 23:52:08 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000035.html">[EasyFlash-devel] Leiterplattenbastelei
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Freunde des leichten Blitzes,
+
+So, dieses Wochenende habe ich mal ein bisschen gebastelt. F&#252;r eine
+Schaltung, die ich aus k&#252;rzlich gegebenem Anlass auf meinem Steckbrett
+aufgebaut hatte. Es ist ein Logik-Tester mit Glitch-Erkennung.
+
+Aber was die Schaltung macht ist eigentlich nebens&#228;chlich.
+
+Was im Vordergrund stand: Zwei Leiterbahnen zwischen 2,54er Pins
+durchzuziehen und ein Bauteil mit 1,27 mm Pinabstand drauf zu haben.
+Und das dann selbst &#228;tzen, was ich seit Jahren nicht mehr gemacht habe.
+
+Auf Bild p1.jpg sieht man unten links in der N&#228;he des &quot;A&quot; zwei
+Leiterbahnen zwischen zwei Pins. Die L&#246;taugen habe ich 50 mil (1,27
+mm) breit gemacht. Dazwischen sind zwei Dummy-Leiterbahnen mit je 10 mil
+(254 &#181;m) im Abstand von 10 mil. Durch die Unter&#228;tzung (die Belichtung
+war nicht sehr gut) sind es wahrscheinlich eher 8/12/8 geworden. 
+Immerhin haben die beiden Leiterplatten keine Unterbrechung. Aber einen
+Kurzschluss an zwei stellen (in dem 
+
+Am einen Ende der Leiterplatte war das Basismaterial bzw. dessen Folie
+ziemlich besch&#228;digt, deshalb fehlt da einiges.
+
+Auf der rechten H&#228;lfte habe ich einen 74HCT123 als SMD vorgesehen. Man
+sieht, dass die L&#246;tpads exakt den haben Abstand wie der DIL daneben hat.
+Die normalen d&#252;nnen Leiterbahnen sind &#252;brigens 17 mil.
+
+(Wer sich &#252;ber die hauchd&#252;nnen &quot;leiterbahnen&quot; an manchen L&#246;taugen zur
+Massefl&#228;che wundert: Die Anbindung mit einer richtigen Leiterbahn ist
+auf der R&#252;ckseite. KiCad erzeugt diese Verbindungen zus&#228;tzlich beim
+F&#252;llen einer Fl&#228;che, wenn man die Einstellung &quot;Thermal&quot; benutzt. Ganz
+verzichtet wird auf die Anbindung vermutlich nicht, um in der
+Massefl&#228;che keine offenen Schleifen zu haben.)
+
+In p2.jpg sieht man das gleiche mit Fittingl&#246;tpaste aus dem Baumarkt
+und Hei&#223;luftf&#246;n (aus einem anderen Baumarkt) verzinnt.
+(<A HREF="http://www.sellso.de/start.htm?d_9007302_Fittinglotpaste.htm">http://www.sellso.de/start.htm?d_9007302_Fittinglotpaste.htm</A>)
+
+p3.jpg zeigt die fertig best&#252;ckte Baugruppe. Leider etwas unscharf. Was
+man aber sehen kann: Die Dummy-Leiterbahnen mit dem Kurzschluss habe
+ich beim Durchkratz-Versuch ziemlich zerst&#246;rt...
+
+Fazit: Leiternbahnen mit 10 mil und Abstand 10 mil sind im im
+Bastelkeller das Minimum. Diesen Wert haben auch schon andere Leute im
+Internet genannt. Zwei Leiterbahnen zwischen zwei 2,54 mm Pins sind
+aber machbar. 
+
+Mein Versuch nicht seeehr erfolgreich, weil ich zu kurz bzw. zu schwach
+belichtet hatte. Ein bisschen besser sollte es noch gehen.
+
+Die n&#228;chste Beobachtung: Ja, ein 1,27 mm SMD IC l&#228;sst sich wirklich
+leicht l&#246;ten. Sogar mit meiner groben 20-Euro L&#246;tstation mit
+nicht-SMD-Spitze. Martin, Du kennst sie ja.
+
+Ein IC l&#246;tet sich sogar viel besser als z.B. die beiden 1206
+Widerst&#228;nde: Man kann ihn zur Not mit den Fingern draufsetzen, mit
+einem kleinen Schraubenzieher zurechtschieben und festdr&#252;cken und dann
+an einem Eckpin mit dem L&#246;tkolben fixieren. Auch mit einer normalen
+runden L&#246;tspitze (was sind das f&#252;r welche? 1,x mm?) erwischt man die
+Pins gut und kann kaum Br&#252;cken bauen. Die Wiederst&#228;nde kann man
+hingegen kaum ohne Pinzette l&#246;ten.
+
+In p4.jpg habe ich mal einen Gr&#246;&#223;envergleich zu dem Baustein aus dem
+XS-1541: Fast das doppelte (0,8 vs. 1,27)
+
+Wir k&#246;nnen also sowohl zwei Leiterbahnen zwischen zwei 2,54er als auch
+den RAM als SMD in Betracht ziehen. Sogar die Logik-ICs k&#246;nnte man zur
+Not SMD machen.
+
+Was mir aufgefallen ist: Wo m&#246;glich k&#246;nnen die Leiterbahnen ruhig 20
+mil oder mehr sein. Bei den Impedanzen macht das keinen Unterschied,
+h&#246;chstens bei den Kapazit&#228;ten - wenn was auf der anderen Seite ist.
+
+Deweiteren sollten die L&#246;taugen an den R's und C's wirklich nicht
+kleiner als diese 55 mil und 0,8 mm Bohrung sein. Da blieb nach dem
+Bohren schon relativ wenig Fl&#228;che &#252;brig.
+
+Ach so: Oben rechts auf p3.jpg sieht man einen eingel&#246;teten Pin von
+einer gedrehten IC-Fassung, die ich ja als Durchkontaktierung nehmen
+wollte. Sieht nicht sehr sch&#246;n aus, ginge aber f&#252;r die Prototypen als
+l&#246;tbare Durchkontaktierung. Darauf k&#228;me dann die PLCC-Fassung. Vorteil:
+hier w&#252;rde eine 0,6 mm Bohrung reichen. In der Serie m&#252;ssten es sogar
+0,8 mm sein, so steht es jedenfalls im Datenblatt eines PLCC-Sockels,
+das ich mir angesehen habe.
+
+Gut, vielleicht hilft das ja bei einer Entscheidung, falls es eng wird.
+Interessant war es allemal und ich habe endlich einen kleinen
+handlichen Logiktester ;-)
+
+Nicht f&#252;r die Mainstream-Version, sondern f&#252;r die Frickler unter uns:
+Mhhh, jetzt wo ich wei&#223;, dass eine Leiterplatte f&#252;r SMD-Bauelemente
+auch recht einfach im Keller herstellbar ist, habe ich Lust auf eine
+Voll-SMD-Version bekommen. Martin, willst Du Dir nicht mal KiCad oder
+Eagle installieren und ein SMD-Layout machen? Schaltpl&#228;ne d&#252;rften jetzt
+f&#252;r beide Programme da sein :-) Ich h&#228;tte auch Lust, mich an einem
+Layout zu versuchen. Aber jetzt muss ich endlich mit der Software
+weitermachen...
+
+Gru&#223;,
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: p1.jpg
+Type: image/jpeg
+Size: 86421 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment.jpg">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment.jpg</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: p2.jpg
+Type: image/jpeg
+Size: 108363 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0001.jpg">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0001.jpg</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: p3.jpg
+Type: image/jpeg
+Size: 76865 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0002.jpg">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0002.jpg</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: p4.jpg
+Type: image/jpeg
+Size: 88581 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0003.jpg">https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090712/0b96e708/attachment-0003.jpg</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000035.html">[EasyFlash-devel] Leiterplattenbastelei
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] (Layout) Neuer Zwischenstand
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C4A623A4D.3020207%40t-online.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000108.html">
+   <LINK REL="Next"  HREF="000110.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] (Layout) Neuer Zwischenstand</H1>
+    <B>Bjoern Wieck</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%28Layout%29%20Neuer%20Zwischenstand&In-Reply-To=%3C4A623A4D.3020207%40t-online.de%3E"
+       TITLE="[EasyFlash-devel] (Layout) Neuer Zwischenstand">bps_of_tbm at t-online.de
+       </A><BR>
+    <I>Sat Jul 18 23:10:37 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000108.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+        <LI>Next message: <A HREF="000110.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#109">[ date ]</a>
+              <a href="thread.html#109">[ thread ]</a>
+              <a href="subject.html#109">[ subject ]</a>
+              <a href="author.html#109">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hoffmann-Vetter, Martin schrieb:
+
+&gt;<i> Dabei ist mir noch das eine oder andere aufgefallen. Die unbenutzten Adelsleitungen sind nun nicht mehr &#252;ber R1 sondern direkt auf VCC gelegt. Dies war wegen der Doppelbelegung des Pin 26 n&#246;tig. Der ist beim 6116 (24pol.) der VCC-Anschlu&#223;. Beim Jumper (der ist in dem Bild immer noch f&#228;lschlich als SJ1 beschriftet) wird jedoch wieder &#252;ber R1 nach VCC geschaltet. Das sollten wir noch vereinheitlichen. Entweder liegt auch an A von JP2 direkt VCC an, oder die Pins 2, 21, 23 und 24 werden auch &#252;ber R1 nach VCC geschaltet. Ich tendiere fast f&#252;r die erste Wahl!
+</I>
+Ist das eh nicht egal ob die jetzt direkt auf VCC liegen oder &#252;ber einen 
+Pullup kommen? Pullup w&#252;rde ja eigentlich nur Sinn machen wenn da noch 
+was dran w&#228;re was die Leitung runterziehen k&#246;nnte. Ist aber hier nicht 
+so. Ganaugenommen k&#246;nnten wir uns auch R1 ganz sparen. R3 nat&#252;rlich nicht.
+
+Ich w&#252;rde R1 trotzdem drinnlassen f&#252;r den Fall das jemand die Br&#252;cke B 
+zul&#246;tet ohne Br&#252;cke A aufzuschneiden. Dann w&#228;re U1 gesch&#252;tzt und dessen 
+Ausgang an Pin 7 muss nur gegen 10k k&#228;mpfen anstatt gegen VCC direkt.
+
+
+
+&gt;<i> Tja, bleibt nur noch der Programmier-Switch...
+</I>&gt;<i> 
+</I>&gt;<i> Ich habe bei Segor einen leider stehenden Druckschalter MDS-2U gefunden: <A HREF="http://www.segor.de/bilder/0000ab17.jpg.">http://www.segor.de/bilder/0000ab17.jpg.</A> Der hat die Ma&#223;e 6,2 x 6,2 mm. Leider steht nichts &#252;ber die H&#246;he da. Wenn er ein wenig aus dem Modul herausguckt w&#228;re das okay. Ansonsten k&#246;nnte man mit einer kleiner Bohrung und einem Stift diese Schalter bedienen.
+</I>&gt;<i> 
+</I>&gt;<i> Wobei die Wahl von Thomas SS-12D03 <A HREF="http://www.segor.de/bilder/00009c03.jpg">http://www.segor.de/bilder/00009c03.jpg</A> auch nicht schlecht ist. Jedoch sch&#228;tze ich, ist der Aufwand f&#252;r das ben&#246;tigte Loch im Geh&#228;use gr&#246;&#223;er. Es sei denn, das Loch w&#228;re genau an der Naht, wo Ober- und Unterschale zusammen liegen. Dann k&#246;nnte man das feilen. Ansonsten gibt es noch dem SS-12D01 (die gleiche Version nur stehend: <A HREF="http://www.segor.de/bilder/00009c01.jpg">http://www.segor.de/bilder/00009c01.jpg</A>). Die Abmessungen sind bei beiden Versionen 8,5 x 3,7 x 3,5 mm mit einem RM 2,5. Leider scheint das ohne den Hebel zum Schalten zu sein. Der ist selbst in dem Datenblatt, welches Thomas postete (<A HREF="http://www.xiejia.net/UploadFiles%5C200872913455524375.pdf">http://www.xiejia.net/UploadFiles%5C200872913455524375.pdf</A>) nicht bema&#223;t
+</I>
+
+Entscheidet euch f&#252;r einen oder die Pads bleiben wie sie sind ;)
+
+Gr&#252;&#223;e
+Bj&#246;rn
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000108.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+	<LI>Next message: <A HREF="000110.html">[EasyFlash-devel] (Layout) Neuer Zwischenstand
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#109">[ date ]</a>
+              <a href="thread.html#109">[ thread ]</a>
+              <a href="subject.html#109">[ subject ]</a>
+              <a href="author.html#109">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

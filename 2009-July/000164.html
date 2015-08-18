@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C001601ca09ef%249f1d9430%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000159.html">
+   <LINK REL="Next"  HREF="000163.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C001601ca09ef%249f1d9430%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 12:40:09 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000159.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000163.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Alex,
+
+&gt;&gt;&gt;<i> Mich w&#252;rde das auf einem VC10 (oder MAX) schon mal interessieren.
+</I>&gt;&gt;&gt;<i> Nur leider habe ich keine.
+</I>&gt;<i> 
+</I>&gt;<i> reicht es nicht alles roms aus dem C64 rauszunehmen? ich meine das das
+</I>&gt;<i> (fast) die einzige aenreung ist - also vom um 60k geguerzten ram mal
+</I>&gt;<i> abgesehen.
+</I>
+So sehe ich das auch. Und genau unter diesen Umst&#228;nden soll auch EasyFlash noch funktionieren. Zumindest soweit es das noch kann. Ohne BASIC kann man sicherlich kein PRG laufen lassen.
+
+&gt;<i> und was ich ganz vergessen hatte: auch wenn ich noch einen reset mache
+</I>&gt;<i> aendert das nichts (also ein dopeltes ueberschreiben)
+</I>
+Schade, da&#223; w&#228;re eine meiner Vermutungen gewesen!
+
+&gt;<i> wiso merkt sich der VIC sachen nach einem reset? (also z.B.
+</I>&gt;<i> hintergrundfarbe) wird der gar nicht von der reset-leitung getroffen?
+</I>
+Richtig. Der VIC hat _keinen_ RESET-Eingang. Er bekommt vom Reset nichts mit. Vermutlich erzeugt er nur intern ein POR (PowerOnReset) und den kann man nur durch wegnehmen der Versorgungsspannung (VCC) ausl&#246;sen.
+
+Daher tendiere ich noch einmal dazu, erstmal alle Register des VIC auf 0 zu setzen und dann &quot;richtig&quot; zu initialisieren!
+
+&gt;<i> ich rufe ein paar kernal-routinen von hand auf, aendere dann den CHRIN
+</I>&gt;<i> vektor zu einer eigenen routine ($0100+). danach springe ich direkt in
+</I>&gt;<i> den kernal. und bei der ersten eingabe wird mein prog. wieder
+</I>&gt;<i> aktiviert. ich kopiere das programm in den speicher und schreibe
+</I>&gt;<i> &quot;RUN&lt;CR&gt;&quot; in den key-buffer und springe das echte CHRIN an -&gt; also
+</I>&gt;<i> fast wie original. (grobe zusammenfassung)
+</I>
+Genial! Das gef&#228;llt mir!
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000159.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000163.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

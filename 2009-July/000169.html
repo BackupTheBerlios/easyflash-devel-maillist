@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C3cdcf94b0907210429l2151e668l9f2c646ba7d302a5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000160.html">
+   <LINK REL="Next"  HREF="000145.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>ALeX Kazik</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C3cdcf94b0907210429l2151e668l9f2c646ba7d302a5%40mail.gmail.com%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">alex at kazik.de
+       </A><BR>
+    <I>Tue Jul 21 13:29:00 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000160.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000145.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mahlzeit,
+
+eigentlich wollte ich ja erst heut' abend wieder was zu dem thema
+schreiben - aber nach den vielen meldungen bleibt mir nichts anderes
+uebrig.
+
+ich war grad mittachessen... darum hier eine antwort auf alle zusammen.
+
+trotzdem versuche ich mich kurz zu halten:
+
+&gt;<i> Das Steuerregister 1 wird bei Dir mit $8B, im Kernal mit $9B beschrieben. Also schaltest Du die Bildausgabe noch nicht ein.
+</I>
+ja, ich schalte erst nach dem alles steht ein (aber die sprites sind
+irgendwie troztdem schon da)
+
+&gt;<i> Nun gibt es im Adre&#223;register einen Unterschied. Du verwendest $19, das Kernal $14. Damit liegt das Zeichenrom an einer anderen Adresse xx01 0??? anstelle von xx10 0???.
+</I>
+ja, eigener - schoenerer - zeichensatz.
+
+&gt;<i> Dann kommen die ganzen Farbregister. Dort f&#228;llt wiederum auf, das Du unbenutzte Bits (7, 6, 5 und 4) setzt, welche im Kernal (mit Ausnahme des letzten Bytes bei $D02E) nicht gesetzt sind.
+</I>
+ich hatte (1.) kernal init und dann (2.) einfach alles so gesetzt wie
+ich es wollte und dann im vice den bereich gedumped und uebernommen
+(ausser den sprites - die kamen dazu)
+
+&gt;<i> Das mit den unbenutzten Bits w&#252;rde ich mal &#228;ndern:
+</I>
+werd ich probieren.
+
+&gt;<i> Was meinst Du mit &quot;ult&quot;?
+</I>
+ultimax
+
+&gt;<i> Welche Farbe ist vermurkst?
+</I>
+also ich hatte Wizard of Wor (8k ultimax modul) geladen, das zeigt
+einen weissen titel-bildschirm (hintergrund+rahmen) dann mache ich
+einen soft-reset und die hinterdung+rahmenfarbe ist noch da.
+
+ich hatte grad mal nachgeschaut: bei einem hard-reset ist alles ok
+(nutze immer den shortcut... fuer soft reset - ohne es zu wissen)
+
+&gt;<i> Vielleich w&#252;rde es wirklich helfen, wenn Du auch die unfertigen Sachen
+</I>&gt;<i> schonmal ins &#246;ffentliche Repository stellst. Brauchst Dich nicht zu sch&#228;men,
+</I>&gt;<i> aufr&#228;umen kann man ja immernoch. Und eine genaue Beschreibung, was man tun
+</I>&gt;<i> muss, um den Fehler zu sehen und wie er geheilt wird. Vielleicht kannst Du
+</I>&gt;<i> damit einen neuen Thread aufmachen.
+</I>
+ja, aber ich bin grad am unstrukturieren (u.a. verzeichnisstruktur)
+und will das zumindest zuerst beenden.
+
+&gt;<i> Ich hatte Dir gesagt, dass ich im Moment nur einen funktionierenden
+</I>&gt;<i> Aufbau habe. Das ist so richtig, der andere hat keinen RAM und ist auch
+</I>&gt;<i> sowieso nicht auf den aktuellen Zustand umgebaut.
+</I>
+das hatte ich mir schon so gedacht.
+
+&gt;<i> Und dann h&#228;nge ich an diese Mail auch mal den vergessenen Screenshot wegen der
+</I>&gt;<i> Suche ran. [...]
+</I>
+ja, die suche funktioniert schon (fast) so.
+das finden von eintraegen am ende hat probleme + der such-reset nach x
+sec. fehlt.
+
+&gt;<i> So sehe ich das auch. Und genau unter diesen Umst&#228;nden soll auch EasyFlash noch funktionieren. Zumindest soweit es das noch kann. Ohne BASIC kann man sicherlich kein PRG laufen lassen.
+</I>
+also dafuer braucht man aber einen neuen EasyLoader oder eine 32k RAM
+erweiterung (bis $7fff RAM).
+
+&gt;<i> Daher tendiere ich noch einmal dazu, erstmal alle Register des VIC auf 0 zu setzen und dann &quot;richtig&quot; zu initialisieren!
+</I>
+ich probiers.
+
+&gt;&gt;<i> ich rufe ein paar kernal-routinen von hand auf, aendere dann den CHRIN
+</I>&gt;&gt;<i> vektor zu einer eigenen routine ($0100+). danach springe ich direkt in
+</I>&gt;&gt;<i> den kernal. und bei der ersten eingabe wird mein prog. wieder
+</I>&gt;&gt;<i> aktiviert. ich kopiere das programm in den speicher und schreibe
+</I>&gt;&gt;<i> &quot;RUN&lt;CR&gt;&quot; in den key-buffer und springe das echte CHRIN an -&gt; also
+</I>&gt;&gt;<i> fast wie original. (grobe zusammenfassung)
+</I>&gt;<i>
+</I>&gt;<i> Genial! Das gef&#228;llt mir!
+</I>
+danke, hab' da auch laenger dran rumgeknobelt.
+
+&gt;&gt;<i> Daher sollten evtl. &#196;nderungen im Bootloader auch wieder r&#252;ckg&#228;ngig gemacht
+</I>&gt;&gt;<i> werden. Also alle DDRx auf Eingang und auch die DRx der CIA wieder auf 0
+</I>&gt;&gt;<i> setzen.
+</I>
+wie gesagt: aufraumen nach EasyLoader ist todo. wenn auch schon das
+meisste so laeuft.
+
+&gt;<i> Du meinst die Initialisierungen, die der Kernel macht? Bist Du Dir sicher? Ich
+</I>&gt;<i> dachte Alex benutzt den Kernal nur f&#252;r Tastaturpuffer-Sache.
+</I>
+ich nutze den kernal erst beim laden eines programmes (s.o.) oder fuer
+das &quot;JMP ($FFFC)&quot; beim starten eines moduls / quit.
+
+fuer alles was vor'm beenden des programms passiert wird kein
+kernal/basic/charset benoetigt.
+
+also da mein eigentliches problem bei einem hard-reset (alles nur in
+vice getestet) nicht mehr auftritt weiss ich nicht, ob ich mir noch
+die sorgen machen solte wegen der falschen farbe - einen
+soft-reset-schalter gibt's am C64 ja nicht. aber all das muss wirklich
+mal auf echter hardware ueberprueft werden.
+
+Ciao, ALeX.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000160.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000145.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

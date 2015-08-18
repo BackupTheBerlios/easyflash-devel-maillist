@@ -1,0 +1,2732 @@
+From skoe at directbox.com  Mon Aug  3 20:44:37 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 3 Aug 2009 20:44:37 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Vormerkung_f=C3=BCr_die_Aufbauanleitu?=
+	=?utf-8?q?ng?=
+Message-ID: <20090803204437.70db7f8f@akoya>
+
+
+Hallo Leute,
+
+Was f?r die Aufbauanleitung zum Vormerken: Wer nicht vorhat, das Modul
+in ein Geh?use zu bauen und trotzdem den Schiebeschalter best?ckt,
+sollte ihn mit etwas Kleber an der Leiterplatte fixieren. Andernfalls
+k?nnen beim Hoch- und Runterbiegen des Schalters die Pins fr?her oder
+sp?ter abbrechen. Ich hab das gerade mal mutwillig probiert (ein Opfer
+f?r die Wissenschaft).
+
+Wenn man einen Schlitz in's Geh?use macht, d?rfte dieser den
+Biegewinkel so begrenzen, dass alles im elastischen Bereich bleibt.
+
+Bl?des Experiment. Jetzt muss ich die abgebrochenen Pins wieder
+ranl?ten. Und dann klebe ich das Ding mit Hei?kleber an.
+
+Oder doch ein Jumper mit F?hnchen zum Hin- und Herstecken? Dann m?sste
+man ggfs. an der Oberseite des Geh?uses ein Loch bohren, was ich
+weniger sch?n f?nde. Andererseits w?rde das wieder die paar Cent
+einsparen, die Nils urspr?nglich nicht f?r die Fassungen eingeplant
+hatte :D
+
+@Alex: Nanana, das offizielle EasyFlash-Geh?use ist blau :) Aber stimmt
+schon, transparent macht mehr her. Nur werden die transparenten momentan
+f?r alle m?glichen Module benutzt und in den n?chsten Monaten gibt's die
+nicht zu kaufen...
+
+Gru?,
+
+Thomas
+
+
+
+From nils.eilers at gmx.de  Tue Aug  4 09:38:36 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Tue, 04 Aug 2009 09:38:36 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <1MVBdT-0TH9pw0@fwd02.aul.t-online.de>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>
+	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de>
+Message-ID: <4A77E57C.9060909@gmx.de>
+
+Wie schaut's aus?
+
+Hat sich der ?rger mit den Modulen gegeben?
+
+Sollen wir die Platinen jetzt bestellen?
+
+
+
+From skoe at directbox.com  Tue Aug  4 20:38:26 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Tue, 4 Aug 2009 20:38:26 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <4A77E57C.9060909@gmx.de>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>
+	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de> <4A77E57C.9060909@gmx.de>
+Message-ID: <20090804203826.3456f6c2@akoya>
+
+
+Hi Nils,
+
+Achso, Du hast noch nicht bestellt. Ist auch okay, dann k?nnen wir
+jegliche Zweifel ausschlie?en.
+
+Die Situation: Alex' neuere Module laufen bei mir nicht, aber im
+Emulator. Die ?lteren laufen nach wie vor. Leider hat er in den letzten
+Tagen auch wenig Zeit gehabt, dem nachzugehen. Naja, und keine Hardware
+zum Testen.
+
+Dann ist mir gestern aufgefallen, dass beim Umschalten der Bank von 3
+auf 4 (wahrscheinlich auch bei anderen Kombinationen) Bit 0 stehen
+bleibt. Das ist bis jetzt nur mit Bit 0 passiert, so dass ich einen
+Fehler bei der Verdrahtung vermute. Also werde ich nochmal alle ICs
+rausnehmen und D0 gegen alles m?gliche durchmessen.
+
+Vorher werde ich aber den in EasyProg begonnenen Selbsttest (oder
+besser: Modultest) fertigstellen.
+
+Aber wie ich gelesen habe, ist ja im Moment auch viel mit der FE zu
+tun, so schadet die kleine Pause sicher nicht.
+
+Gru?,
+
+Thomas
+
+
+
+From nils.eilers at gmx.de  Tue Aug  4 20:50:58 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Tue, 04 Aug 2009 20:50:58 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090804203826.3456f6c2@akoya>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de>
+	<4A77E57C.9060909@gmx.de> <20090804203826.3456f6c2@akoya>
+Message-ID: <4A788312.7090204@gmx.de>
+
+Hallo Thomas,
+
+> Achso, Du hast noch nicht bestellt. Ist auch okay, dann k?nnen wir
+> jegliche Zweifel ausschlie?en.
+Nein, habe ich noch nicht. Ich wollte die Bestelldaten wieder mit Bj?rn 
+zusammen durchgehen (der war jetzt auch weg) und von Dir w?sste ich noch 
+gerne, ob Du 10 oder 20 Beta-Tester f?r sinnvoll h?ltst - dann w?rde ich 
+die entsprechende Menge bestellen, sobald ich sowohl von Dir als auch 
+von Bj?rn gr?nes Licht habe.
+
+> Aber wie ich gelesen habe, ist ja im Moment auch viel mit der FE zu
+> tun, so schadet die kleine Pause sicher nicht.
+Nein, langweilig wird mir mit Sicherheit nicht werden... das ist 
+richtig. Ich wollte damit nur sagen: ich w?re soweit.
+Lass Dich nicht stressen - wenn Du meinst, das ist es jetzt, gib' 
+Bescheid. Das Layout scheint ja sowohl von Bj?rn als auch von Martin 
+frei gegeben zu sein.
+
+Und wie gesagt: 10 oder 20?
+
+Viele Gr??e,
+Nils
+
+
+
+From martinHV at arcor.de  Tue Aug  4 21:06:49 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Tue, 4 Aug 2009 21:06:49 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090804203826.3456f6c2@akoya>
+Message-ID: <002401ca1536$b8b075f0$6800a8c0@mhv.webmade.com>
+
+Hallo Thomas,
+
+> Die Situation: Alex' neuere Module laufen bei mir nicht, aber im
+> Emulator. Die ?lteren laufen nach wie vor. Leider hat er in den
+> letzten Tagen auch wenig Zeit gehabt, dem nachzugehen. Naja, und
+> keine Hardware zum Testen.
+
+Das ist sehr dumm. Aber gut, da? dies jetzt schon auff?llt!
+
+> Dann ist mir gestern aufgefallen, dass beim Umschalten der Bank von 3
+> auf 4 (wahrscheinlich auch bei anderen Kombinationen) Bit 0 stehen
+> bleibt. Das ist bis jetzt nur mit Bit 0 passiert, so dass ich einen
+> Fehler bei der Verdrahtung vermute. Also werde ich nochmal alle ICs
+> rausnehmen und D0 gegen alles m?gliche durchmessen.
+
+Ich w?rde auf zwei andere Dinge tippen. Einmal bitte den Abblockkondensator f?r U6 ?berpr?fen (bzw. gegebenenfalls einl?ten) und dann die Widerst?nde im Datenpfad D0 heruntersetzen bzw. kurzschlie?en (0 Ohm). Evtl. bringt das eine ?nderung.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Tue Aug  4 21:07:57 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Tue, 4 Aug 2009 21:07:57 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <4A788312.7090204@gmx.de>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>
+	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de> <4A77E57C.9060909@gmx.de>
+	<20090804203826.3456f6c2@akoya> <4A788312.7090204@gmx.de>
+Message-ID: <20090804210757.7fc22ba8@akoya>
+
+
+> 
+> Und wie gesagt: 10 oder 20?
+
+Es scheint ja preislich sinnvoll zu sein, gleich 20 Platinen zu
+bestellen. Was h?ltst Du davon, das so zu machen, 10 davon erstmal zwei
+Wochen oder so zur?ckzuhalten. Dann k?nnte man die dann rausr?cken,
+wenn die ersten erfolgreich getestet wurden. Und im
+Mal-den-Teufel-an-die-Wand-Fall h?tten wir dann die restlichen 10 noch
+in der Hand zum Umf?deln oder so.
+
+Ist das total abstrus? Oder sinnvoll?
+
+Gru?,
+
+Thomas
+
+
+
+
+
+From skoe at directbox.com  Tue Aug  4 21:43:02 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Tue, 4 Aug 2009 21:43:02 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <002401ca1536$b8b075f0$6800a8c0@mhv.webmade.com>
+References: <20090804203826.3456f6c2@akoya>
+	<002401ca1536$b8b075f0$6800a8c0@mhv.webmade.com>
+Message-ID: <20090804214302.3f53dcdd@akoya>
+
+Hi,
+
+> > Die Situation: Alex' neuere Module laufen bei mir nicht, aber im
+> > Emulator. Die ?lteren laufen nach wie vor. Leider hat er in den
+> > letzten Tagen auch wenig Zeit gehabt, dem nachzugehen. Naja, und
+> > keine Hardware zum Testen.
+> 
+> Das ist sehr dumm. Aber gut, da? dies jetzt schon auff?llt!
+
+Wahrscheinlich m?ssen wir uns da langsam rantasten, sobald Alex wieder
+Zeit hat. Mal sehen, wie weit das Programm so l?uft wie es sollte und
+wo es stecken bleibt.
+
+> > Das ist bis jetzt nur mit Bit 0 passiert, so dass ich einen
+> > Fehler bei der Verdrahtung vermute. Also werde ich nochmal alle ICs
+> > rausnehmen und D0 gegen alles m?gliche durchmessen.
+> 
+> Ich w?rde auf zwei andere Dinge tippen. Einmal bitte den
+> Abblockkondensator f?r U6 ?berpr?fen (bzw. gegebenenfalls einl?ten)
+
+Gute Idee. Da ist einer, aber die Drahtf?hrung ist an der Stelle nicht
+ideal. Ich backe mal einen diagonal r?ber und teste dann nochmal.
+
+(Ein paar Minuten sp?ter)
+
+Ja, bis jetzt ist es nicht mehr passiert. Sollte es das gewesen sein?
+Das w?re toll. Allerdings habe ich zum Testen nur (wie vorher) im
+Hexviewer hin- und hergebl?ttert. Jetzt mache ich mit dem Torture Test
+weiter, den lasse ich dann einfach mal tausendfach die Banken
+durchrattern.
+
+> und dann die Widerst?nde im Datenpfad D0 heruntersetzen bzw.
+> kurzschlie?en (0 Ohm). Evtl. bringt das eine ?nderung.
+
+Da ist keiner. Zum Testen hatte ich nur einen in D2 eingel?tet und den
+als "H?rtetest" eine ganze Ecke gr??er als der offizielle (180 statt
+100 Ohm). Ja ich wei?, die richtigen Widerst?nde in allen Leitungen
+w?ren auch nicht schlecht gewesen, aber weil der genaue Wert nicht
+layout-relevant ist, habe ich mir die Zeit mal gespart.
+
+Gru?,
+
+Thomas
+
+
+
+From nils.eilers at gmx.de  Wed Aug  5 00:08:02 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Wed, 05 Aug 2009 00:08:02 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090804210757.7fc22ba8@akoya>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de>
+	<4A77E57C.9060909@gmx.de>	<20090804203826.3456f6c2@akoya>
+	<4A788312.7090204@gmx.de> <20090804210757.7fc22ba8@akoya>
+Message-ID: <4A78B142.6020302@gmx.de>
+
+>> Und wie gesagt: 10 oder 20?
+> 
+> Es scheint ja preislich sinnvoll zu sein, gleich 20 Platinen zu
+> bestellen. Was h?ltst Du davon, das so zu machen, 10 davon erstmal zwei
+> Wochen oder so zur?ckzuhalten. Dann k?nnte man die dann rausr?cken,
+> wenn die ersten erfolgreich getestet wurden. Und im
+> Mal-den-Teufel-an-die-Wand-Fall h?tten wir dann die restlichen 10 noch
+> in der Hand zum Umf?deln oder so.
+> 
+> Ist das total abstrus? Oder sinnvoll?
+
+Im Grunde halte ich das f?r sinnvoll. Ich wei? allerdings nicht, ob's 
+beim Easyflash direkt von Anfang an den "gro?en run" auf die Platinen 
+geben wird, dass man das klar in "die ersten 10" und "die zweiten 10" 
+trennen kann.
+
+Beim VC20 Final Expansion haben wir zwar 10 freiwillige Tester, aber das 
+bedeutet nicht, dass die alle gleichzeitig anfangen. Ich habe ich eher 
+den Eindruck, dass es ein paar schnelle, wagemute gibt, die vorneweg das 
+gr??te Wagnis und die meiste Arbeit auf sich nehmen und der Rest eher 
+verhalten abwartet und die anderen "erst einmal machen l?sst".
+Das tr?pfelt also bislang so vor sich hin...
+
+Ich gehe also von 20 aus und warte auf Dich (Thomas), dass Du mir 
+Bescheid gibst, wann wir die Bestellung starten sollen.
+
+
+
+From skoe at directbox.com  Wed Aug  5 01:07:03 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 5 Aug 2009 01:07:03 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <4A78B142.6020302@gmx.de>
+References: <005601ca0e25$05782860$1909a8c0@mhvnb10>
+	<1MVBdT-0TH9pw0@fwd02.aul.t-online.de> <4A77E57C.9060909@gmx.de>
+	<20090804203826.3456f6c2@akoya> <4A788312.7090204@gmx.de>
+	<20090804210757.7fc22ba8@akoya> <4A78B142.6020302@gmx.de>
+Message-ID: <20090805010703.4c961ac5@akoya>
+
+
+Hi,
+
+> Im Grunde halte ich das f?r sinnvoll. Ich wei? allerdings nicht, ob's 
+> beim Easyflash direkt von Anfang an den "gro?en run" auf die Platinen 
+> geben wird, dass man das klar in "die ersten 10" und "die zweiten 10" 
+> trennen kann.
+
+Damit meinte ich die 10, die wir jetzt schon im "engeren Kreis"
+verplant haben. Unter den 10 wird's wahrscheinlich nicht viele geben,
+die mehrere Wochen rumliegen werden. Aber Du hast schon recht, die
+?berweisungen und P?ckchen etc. werden mindestens ?ber ein paar Tage
+verstreut bei Dir/uns eintrudeln.
+
+Der Bankingtest meldet keinen Fehler. Jetzt muss ich den C wieder
+runternehmen und hoffen, dass er dann Alarm schl?gt. Man muss ja mal
+den Test testen...
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Wed Aug  5 12:59:58 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 5 Aug 2009 12:59:58 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <002401ca1536$b8b075f0$6800a8c0@mhv.webmade.com>
+References: <20090804203826.3456f6c2@akoya>
+	<002401ca1536$b8b075f0$6800a8c0@mhv.webmade.com>
+Message-ID: <20090805125958.36ac2c91@akoya>
+
+
+Hallo,
+
+> Ich w?rde auf zwei andere Dinge tippen. Einmal bitte den
+> Abblockkondensator f?r U6 ?berpr?fen (bzw. gegebenenfalls einl?ten)
+
+nach einem l?ngeren Test und einem Gegentest wieder ohne Zusatz-C: Das
+war's nicht. Der Fehler tritt nur sehr unregelm??ig auf. Vielleicht ist
+er temperaturabh?ngig, mehr dazu weiter unten.
+
+Also das Testprogramm fand den Fehler manchmal nach wenigen 1000
+Bankwechseln, manchmal nach mehreren Millionen.
+
+Beim Blick auf den Schaltplan ist mir wieder was in den Sinn gekommen,
+was mir irgendwann mal nicht supersch?n vorkam: Der 139er hat, sowohl
+als HCT als auch als LS eine Durchlaufzeit von mehreren 10 ns
+(Gr??enordnung von 30 ns je Dekoder). Jens schrieb mal, dass er
+Dotclock nicht mehr als Timing-Grundlage f?r /WE benutzt, weil es eine
+temperaturabh?ngige Verschiebung gibt.
+
+Das alles lie? mich vermuten, dass die End-Flanke von /WE vielleicht
+schon an der Kante ist. Deshalb habe ich testweise mal den LS139, der
+momentan draufsteckte (hatte damals dummerweise kein HCT mitbestellt)
+gegen einen ACT gewechselt, den ich aus fr?heren Versionen noch da
+hatte. Und siehe da: mittlerweise 200 Millionen Bankwechsel ohne
+Fehler. Momentan lasse ich den Rechner abk?hlen, um mit kaltem
+Rechner neu zu beginnen. Danach mache ich wieder einen LS139
+rauf, dann einen anderen, als erneuten Gegentest.
+
+Zwei M?glichkeiten:
+- ACT139 benutzen, um das Timing ca. 20 ns auf die sichere Seite zu
+  ziehen, keine Layout-?nderung
+
+- Schaltung so ?ndern, dass /WE beginnt wie jetzt, aber schon nach
+  einem Dotcklock-Zyklus endet. Hab ich noch nicht durchdacht, z?ge
+  eine (vielleicht minimale) Layout-?nderung nach sich. Martin, f?llt
+  Dir die passende ?nderung ein? Du bist doch schnell mit sowas :-)
+  Laut Datenbl?ttern w?rden die 125 ns Write-Puls bei allen
+  beteiligten Chips dicke reichen.
+
+Was sagt ihr?
+
+Ich werde jedenfalls erstmal weiterhin mit der ACT-Variante am C64 und
+C128 dauertesten.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Wed Aug  5 20:55:53 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Wed, 5 Aug 2009 20:55:53 +0200
+Subject: [EasyFlash-devel] d020-bug
+Message-ID: <20090805205553.44d0f30b@akoya>
+
+
+Alex: Das Problem mit der d020-Initialisierung ist ein Bug in Vice. Hat
+Hannu gerade best?tigt.
+
+Wird wirklich Zeit, dass Du ein eigenes Modul bekommst, damit Du nicht
+um Emu-Bugs herumarbeiten musst.
+
+(Zur Info an alle)
+
+Gru?,
+
+Thomas
+
+
+
+From martinHV at arcor.de  Thu Aug  6 13:07:54 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Thu, 6 Aug 2009 13:07:54 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090805125958.36ac2c91@akoya>
+Message-ID: <003501ca1686$26785710$6800a8c0@mhv.webmade.com>
+
+Hallo Thomas,
+
+> nach einem l?ngeren Test und einem Gegentest wieder ohne Zusatz-C: Das
+> war's nicht. Der Fehler tritt nur sehr unregelm??ig auf. Vielleicht
+> ist er temperaturabh?ngig, mehr dazu weiter unten.
+> 
+> Also das Testprogramm fand den Fehler manchmal nach wenigen 1000
+> Bankwechseln, manchmal nach mehreren Millionen.
+
+Das ist nicht so gut. Jedoch schreibst zu selbst zuvor, da? der Fehler offensichtlich mit dem Abblockkondensator seltener (also erst nach einigen Millionen) auftritt. Daher w?rde ich bitte noch einmal nachschauen, ob wirklich der Abblockkondensator auch korrekt im Speisezweig sitzt. Dieser Abblockkondensator sollte auf jeden Falle direkt auf dem Weg der Spannungsquelle (Einspeisung) und der Spannungssenke (U6) sitzen. Hinter dem Kondensator darf nur noch die Leitung zum IC U6 verlaufen. Keine Abzweigung zu einem anderen IC! Ich hatte die Diskussion schon mit Bj?rn bez?glich dem Layout.
+
+* http://server.ibfriedrich.com/wiki/ibfwikide/index.php?title=Verwendung_von_Abblockkondensatoren
+* http://www.netco.de/cms/index.php?area=2&p=news&newsid=78
+
+> Beim Blick auf den Schaltplan ist mir wieder was in den Sinn gekommen,
+> was mir irgendwann mal nicht supersch?n vorkam: Der 139er hat, sowohl
+> als HCT als auch als LS eine Durchlaufzeit von mehreren 10 ns
+> (Gr??enordnung von 30 ns je Dekoder). Jens schrieb mal, dass er
+> Dotclock nicht mehr als Timing-Grundlage f?r /WE benutzt, weil es eine
+> temperaturabh?ngige Verschiebung gibt.
+> 
+> Das alles lie? mich vermuten, dass die End-Flanke von /WE vielleicht
+> schon an der Kante ist.
+
+Das kann's eigentlich nicht sein. Wir haben mit dem 74LS74 ein Timing-Signal f?r /WE generiert, welches ca. 1,5 Takte nach DotClk aktiv wird und nach weiteren 2 Takten inaktiv. D.h. 187,5 ns nach der steigenden Flanke von Phi2 wird /WE aktiv (low) und nach weiteren 250 ns wieder inaktiv. Das wiederum ist 62,5 ns _vor_ der fallenden Flanke von Phi2, bis zu der die Daten auf jeden Fall anliegen! Selbst wenn die beiden 74LS139 wirklich 30ns f?r jeden Dekoder ben?tigen (ich meine mich an etwas im 20er Bereich zu erinnern), haben wir noch eine (kleine) Sicherheit.
+
+So noch einmal in das Datenblatt des 74LS139 von TI geguckt: Die tPLH-Zeit (also von Low nach High) betr?gt f?r eine ?nderung am Enable (und das gilt f?r den zweiten Dekoder, welcher die Takt-Signale f?r die Register generiert) typ. 16 ns, max. 24 ns! Bei dem ersten Dekoder haben wir nur eine ?nderung bei den "Binary Select"-Eing?ngen und daher im schlechtesten Fall f?r 3 Gatter (auch hier wieder tPLH) typ. 18 ns, max. 29 ns. Das macht in der Summe max. 53 ns (typ. 34 ns)!
+
+> Deshalb habe ich testweise mal den LS139, der
+> momentan draufsteckte (hatte damals dummerweise kein HCT mitbestellt)
+> gegen einen ACT gewechselt, den ich aus fr?heren Versionen noch da
+> hatte. Und siehe da: mittlerweise 200 Millionen Bankwechsel ohne
+> Fehler. Momentan lasse ich den Rechner abk?hlen, um mit kaltem
+> Rechner neu zu beginnen. Danach mache ich wieder einen LS139
+> rauf, dann einen anderen, als erneuten Gegentest.
+
+Ich erinnere mich noch an eine andere Unsicherheit. Wir haben auf A1 der ersten Dekoder (Pin 3) das selbstgeneriert /OE Signal (aus R/W und Phi2) angelegt. Normalerweise geh?rte dort nur das R/W-Signal hin. Dein berechtigter Einwand war damals, die R/W-Leitung wenig belasten zu wollen. Evtl. gibt es hier Spikes. Das R/W-Signal wird in der CPU aus dem Phi2-Signal generiert. Und auch genau hier liegt der Unterschied zwischen dem C64 und dem C128. Dabei stellt sich dann auch die Frage, in welchem System Du getestet hast?
+
+Ich w?rde also mal versuchen an A1 (Pin 3) das R/W-Signal vom Cartridge-Port Pin 5 anzulegen. Da dieses Signal jedoch in seiner Funktion invertiert ist, mu? der Ausgang nun nicht Q3 (Pin 7) sein, sondern Q1 (Pin 5) werden.
+
+> Zwei M?glichkeiten:
+> - ACT139 benutzen, um das Timing ca. 20 ns auf die sichere Seite zu
+>   ziehen, keine Layout-?nderung
+
+Hmm, das hat wieder so einen bitteren Beigeschmack!
+
+> - Schaltung so ?ndern, dass /WE beginnt wie jetzt, aber schon nach
+>   einem Dotcklock-Zyklus endet. Hab ich noch nicht durchdacht, z?ge
+>   eine (vielleicht minimale) Layout-?nderung nach sich. Martin, f?llt
+>   Dir die passende ?nderung ein? Du bist doch schnell mit sowas :-)
+
+Ja, das k?nnte man sicherlich auch machen. Wir haben am ersten Dekoder noch einen Eingang (Enable an Pin 1) frei. Den k?nnte man noch mit dem invertieren Ausgang des zweiten FlipFlop (Pin 8) verbinden. Da die FlopFlops im Gray-Code z?hlen, gibt es nur an einem Ausgang (FlipFlop 1 oder 2) eine ?nderung, ist es m?glich ohne Spikes eine solche Ausdekodierung zu machen.
+
+Jedoch verk?rzt das unser /WE generell, also auch f?r die Flash-Bausteine.
+
+>   Laut Datenbl?ttern w?rden die 125 ns Write-Puls bei allen
+>   beteiligten Chips dicke reichen.
+
+Okay, dann sollte das reichen.
+
+Aber vielleicht kann man noch eine andere kleine ?nderung machen. Der erste Dekoder wird fast ausschlie?lich als NAND verwendet (das war er fr?her auch mal). In dieser Betriebsart sind jedoch die internen Gatterlaufzeiten maximal. Wir k?nnen aber auch den Eingang A0 (Pin 2) von Q (Pin 5) des ersten FlipFlops gegen den Eingang E (Enable an Pin 1) mit /Q (Pin 6) tauschen. Dann w?re A0 auf VCC (bzw. ?ber den Widerstand R1) zu legen. Nun sinkt die Gatterlaufzeit von typ 18 ns, max 29 ns auf typ 16 ns, max. 24 ns! Gleichzeitig w?rde sich bei kleiner kapazitiver Last am Ausgang des 74LS74 die Gatterlaufzeit um weitere 5 ns verk?rzen. Die tPLH betr?gt bei CL = 15 pF nur 25 ns im Gegensatz zur tPHL von 30ns.
+
+Und genau hier k?nnte evtl. noch der weitere Zeitfaktor liegen. Die FlipFlops ben?tigen auch um die 30 ns zum Schalten. Daher ist unser Timing noch weiter verz?gert!
+
+Das wiederum bringt mich auf eine weitere sehr gravierend eingreifende aber wie ich finde auch sehr sch?ne, gattersparende ?nderung:
+
+Z.Z. erzeugen wir mit den FlipFlops ein "Timing-Fenster" f?r das /WE-Signal und verkn?pfen das dann ?ber dem ersten Dekoder mit dem R/W- und Phi2-Signal zum /WE-Signal. F?r die Synchronisierung des Timing-Fenster zum Timing der CPU nutzen wir ebenfalls und alleinig das Phi2-Signal am /Reset-Eingang der FlipFlops. D.h. die FlipFlops werden auf log. Null gehalten, wenn kein Schreibzugriff m?glich ist, weil der VIC zugreift. Nun k?nnte man diese Verkn?pfung (Gatter U2C und U2D) auch in die Synchronisation der FlipFlops einfliessen lassen. D.h. man mu? nur die beiden /Reset-Eing?nge der FlipFlops (Pin 1 und 13) nicht direkt an Phi2 (Cartridge Port E) sondern an den Ausgang der Gatters U2D (Pin 13) verbinden.
+
+Nun steht am invertierten Ausgang des ersten FlipFlops (Pin 6) bereits das korrekt (und nicht nur das "Timing-Fenster") /WE-Signal an. Wir k?nnen damit den ersten Dekoder U1A ersatzlos streichen und f?hren das Signal direkt auf die /WE-Eing?nge der Flashbausteine (Pin 31) und auf den /E-Eingang des zweiten Dekoder.
+
+Damit sollten sich die Gatterlaufzeiten drastisch reduzieren.
+
+Bitte Thomas, probiere diese kleine aber nette ?nderung mal aus:
+
+* Pin 1 und 13 von IC7 nicht zu Pin E des Cartridge Port f?hren, sondern auftrennen und zu Pin 13 des IC2 legen.
+* Draht von Pin 7 des IC1 abl?ten und nach Pin 6 von IC7 anl?ten.
+* erster Test
+* wenn erfolgreich, Br?cken von Pin 2 und 3 des IC 1 abl?ten und diese Pins (2 und 3) auf GND (wie Pin 1) legen.
+
+Jetzt k?nnte nur noch passieren, da? R/W ?ber 62,5 ns nach der steigenden Flanke von Phi2 aktiv wird. Dann w?rde sich das Timing verschieden und uns einen Strich durch diese Idee machen. Da R/W jedoch intern in der CPU bereits w?hrend der Phase Phi1 (Phi2 ist log. Null) erzeugt wird, ist nur die Abh?ngigkeit zu AEC zu ber?cksichtigen. Diese war jedoch, so ich mich richtig erinnere, sehr kurz. Vielleicht hat Thomas hier sogar die korrekten Werte noch im Kopf oder auf Papier! ;-)
+
+> Ich werde jedenfalls erstmal weiterhin mit der ACT-Variante am C64 und
+> C128 dauertesten.
+
+Wo trat bis jetzt der Fehler auf? C64 oder C128? Bei Beiden? Wo war die Fehlerrate h?her?
+
+Wie verh?lt sich das mit dem anderen Register U5? Hier k?nnte man zwischen normalem 16k Modul und Ultimax umschalten und nachsehen, ob das Flash ROMH immer im richtig dem entsprechenden Adressbereich liegt ($E000 oder $A000). Wenn's an den Dekodern bzw. Gatterlaufzeiten liegt, sollte hier auch ein Fehler auftreten.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Thu Aug  6 23:13:43 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 6 Aug 2009 23:13:43 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <003501ca1686$26785710$6800a8c0@mhv.webmade.com>
+References: <20090805125958.36ac2c91@akoya>
+	<003501ca1686$26785710$6800a8c0@mhv.webmade.com>
+Message-ID: <20090806231343.368a254b@akoya>
+
+
+Hi Martin und alle anderen,
+
+> > nach einem l?ngeren Test und einem Gegentest wieder ohne Zusatz-C:
+> > Das war's nicht. Der Fehler tritt nur sehr unregelm??ig auf.
+> > Vielleicht ist er temperaturabh?ngig, mehr dazu weiter unten.
+[...]
+> Das ist nicht so gut. Jedoch schreibst zu selbst zuvor, da? der
+> Fehler offensichtlich mit dem Abblockkondensator seltener (also erst
+> nach einigen Millionen) auftritt.
+
+So meinte ich das nicht, sowohl mit also auch ohne C tritt der Fehler
+unregelm??ig auf. Ich meine erkannt zu haben, dass bei kaltem Rechner
+der Fehler seltener auftritt als bei warmen. Bin mir aber nicht sicher,
+vielleicht spielen noch andere Faktoren mit rein. So sporadisch, wie der
+Fehler auftritt, k?nnte es durchaus sein, dass auf einem
+MW-Radiosender Obituary laufen muss, was die Flanke etwas unsauberer
+macht und damit das Timing verschiebt...
+
+Es ist auch so, dass mit einem meiner 139er der Fehler wesentlich
+h?ufiger vorkommt als mit anderen (alles LS von der Firma ST, der eine
+ist aus einem anderen Jahr). Selbst mit diesem Problemb?r ist der
+Fehler beim C128 ?brigens noch nicht aufgetreten. Naja, wenn wirklich
+nur ein paar ns den Unterschied machen und wir nichts unternehmen
+w?rden, k?nnte es auf jedem Rechner anders aussehen.
+
+> Das kann's eigentlich nicht sein. Wir haben mit dem 74LS74 ein
+> Timing-Signal f?r /WE generiert, welches ca. 1,5 Takte nach DotClk
+> aktiv wird und nach weiteren 2 Takten inaktiv. D.h. 187,5 ns nach der
+> steigenden Flanke von Phi2 wird /WE aktiv (low) und nach weiteren 250
+> ns wieder inaktiv. Das wiederum ist 62,5 ns _vor_ der fallenden
+> Flanke von Phi2, bis zu der die Daten auf jeden Fall anliegen!
+
+Wir haben damals geglaubt (der groben Messung vertraut), dass die
+fallende Flanke von Dotclock und die steigende von Phi2 _gleichzeitig_
+kommen. Das war vielleicht etwas naiv. Du erinnerst Dich vielleicht,
+dass Phi0 aus Dotclock entsteht, wo schon mindestens eine
+(temperaturabh?ngige) Gatterlaufzeit drin steckt und daraus dann unser
+Phi2, wo wieder mehrere (temperaturabh?ngige) Gatterlaufzeiten
+drinstecken. Die fallende Dotclock-Flanke liegt also eher "zuf?llig"
+auf der steigenden von Phi2. Vor der Temperaturabh?ngigkeit hat uns
+Jens Sch?nfeld ja auch schon gewarnt.
+
+> wenn die beiden 74LS139 wirklich 30ns f?r jeden Dekoder ben?tigen
+> (ich meine mich an etwas im 20er Bereich zu erinnern), haben wir noch
+> eine (kleine) Sicherheit.
+
+Die vielleicht aus oben genannten Gr?nden nicht so sicher ist, wie
+gedacht.
+
+Das alles best?tigt, was Jens damals (bei Verwendung von FPGAs)
+empfohlen hat: Aus einem eigenen, h?heren Takt die Signale "Address
+Valid" und "Data Valid" selbst erzeugen. Aber das haben wir ja auch so
+schon fast perfekt geschaft, und ich glaube mit Deinen
+empfohlenen ?nderungen wird's ganz perfekt.
+
+> Das macht in der Summe max. 53 ns (typ. 34 ns)!
+
+Da wir hier einen ziemlich sporadischen Fehler suchen, w?rde ich eher
+vom worst case ausgehen, nicht vom typischen. Sollte ein Ingenieur
+wahrscheinlich immer so machen.
+
+Ach so, ich muss noch erw?hnen: Mit dem ACT lief es ?ber Nacht
+(vielleicht 1 Milliarde Bankwechsel) auf dem C64 verl?sslich. Auf dem
+C128 habe ich's auch einen halben Tag ohne Fehler laufen lassen.
+
+> Hmm, das hat wieder so einen bitteren Beigeschmack!
+
+Da wir hier von Zeitfenstern reden, die ohnehin nur wenige 10 ns gro?
+sind, finde ich ein Delta von 20 ns schon ziemlich fett. 20 ns von
+z.B. 60 ns sind eine ganze Menge. Aber ich wei?, was Du meinst: Es ist
+nicht das supervorbildliche Timing, was z.B. auch Jens meinte.
+
+> Und genau hier k?nnte evtl. noch der weitere Zeitfaktor liegen. Die
+> FlipFlops ben?tigen auch um die 30 ns zum Schalten. Daher ist unser
+> Timing noch weiter verz?gert!
+
+Siehste, da ist das dicke Ende ;-)
+
+[...]
+> Damit sollten sich die Gatterlaufzeiten drastisch reduzieren.
+
+Ja, klingt gut. Dass wir diese sch?ne L?sung nicht schon fr?her gesehen
+haben...
+
+> Bitte Thomas, probiere diese kleine aber nette ?nderung mal aus:
+> 
+> * Pin 1 und 13 von IC7 nicht zu Pin E des Cartridge Port f?hren,
+> sondern auftrennen und zu Pin 13 des IC2 legen.
+> * Draht von Pin 7 des IC1 abl?ten und nach Pin 6 von IC7 anl?ten.
+> * erster Test
+> * wenn erfolgreich, Br?cken von Pin 2 und 3 des IC 1 abl?ten und
+> diese Pins (2 und 3) auf GND (wie Pin 1) legen.
+
+Okay, hab ich. Nach einer halben Stunde noch kein Fehler. Mit
+Problemb?r best?ckt.
+
+> Jetzt k?nnte nur noch passieren, da? R/W ?ber 62,5 ns nach der
+> steigenden Flanke von Phi2 aktiv wird. Dann w?rde sich das Timing
+> verschieden und uns einen Strich durch diese Idee machen. Da R/W
+> jedoch intern in der CPU bereits w?hrend der Phase Phi1 (Phi2 ist
+> log. Null) erzeugt wird, ist nur die Abh?ngigkeit zu AEC zu
+> ber?cksichtigen. Diese war jedoch, so ich mich richtig erinnere, sehr
+> kurz. Vielleicht hat Thomas hier sogar die korrekten Werte noch im
+> Kopf oder auf Papier! ;-)
+
+Ich meine mich erinnern zu k?nnen, dass diese Verz?gerung fast
+unglaublich gro? war. Du hattest damals noch gesagt, dass Du erwartet
+h?ttest, dass sie nur eine Gatterlaufzeit sein sollte, weil Du
+angenommen hattest, dass nur die Ausgangstreiber eingeschaltet werden
+w?rden. Oder verwechsle ich jetzt was?
+
+Wie auch immer, ich glaube, auch noch das i-T?pfelchen f?r Deine
+Verbesserung gefunden zu haben:
+
+Wenn man Reset des ersten Flipflops auf Phi2 l?sst, Reset des zweiten
+aber wie von Die empfohlen mit /OE beschaltet, passiert das: Das erste
+Flipflop kann garantiert nach Phi2 die erste Dotclock-Flanke mitz?hlen.
+Egal ob dann /WR in diesem Moment schon geschaltet ist oder nicht,
+bleibt /WE inaktiv. Entweder durch Reset oder durch Durchschalten von D
+= low.
+
+Bis zur zweiten Dotclock-High-Flanke ist dann /WR garantiert im
+richtigen Zustand und alles l?uft weiter wie gehabt.
+
+Das habe ich auch gleich mal so eingebaut und teste jetzt damit. Was
+denkst Du? Sind damit unsere letzten potentiellen Bauchschmerzen
+beseitigt?
+
+> Wie verh?lt sich das mit dem anderen Register U5? Hier k?nnte man
+> zwischen normalem 16k Modul und Ultimax umschalten und nachsehen, ob
+> das Flash ROMH immer im richtig dem entsprechenden Adressbereich
+> liegt ($E000 oder $A000). Wenn's an den Dekodern bzw.
+> Gatterlaufzeiten liegt, sollte hier auch ein Fehler auftreten.
+
+Es sei denn, mein 175er hat wieder ein Hauch anderes Timing als mein
+174er. Ich glaube, der Fehler ist dort noch nicht aufgetreten. Beim
+174er ist es ja nach meinen Beobachtungen auch nur mit D0 passiert.
+Nein, da steht was so knapp an der Kante, dass das nicht aussagekr?ftig
+ist.
+
+So, dann teste ich mal kr?ftig. Sch?n, dass endlich der Stresstest
+fertig implementiert ist. Der war schon lange f?llig. Aber die
+manuellen Tests mache ich auch noch.
+
+Jedenfalls gef?llt mir das auch besser, als das Timing nur mit einem
+schnelleren HCT-IC aufzupolieren. Wenn die Tests bis zum Wochenende
+fehlerlos sind und Bj?rn so nett ist, die ?nderungen einzubauen,
+k?nnten wir am Montag die Leiterplatten bestellen. Ich bin gespannt.
+
+Gru?,
+
+Thomas
+
+
+Gru?,
+
+Thomas
+
+
+
+From martinhv at arcor.de  Fri Aug  7 02:18:49 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Fri, 7 Aug 2009 02:18:49 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090806231343.368a254b@akoya>
+Message-ID: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> So meinte ich das nicht, sowohl mit also auch ohne C tritt der Fehler
+> unregelm??ig auf.
+
+Okay, dann hatte ich das falsch verstanden.
+
+> Ich meine erkannt zu haben, dass bei kaltem Rechner
+> der Fehler seltener auftritt als bei warmen.
+
+Hmm, diese Aussage gef?llt mir zwar gar nicht, aber wenn's so ist, m?ssen wir damit leider leben. :-(
+
+> Es ist auch so, dass mit einem meiner 139er der Fehler wesentlich
+> h?ufiger vorkommt als mit anderen (alles LS von der Firma ST, der eine
+> ist aus einem anderen Jahr).
+
+Das wiederum ist sehr merkw?rdig. Kann es sein, da? dieser 139 einfach defekt ist? Wenn er mal sehr hei? geworden ist, k?nnte es evtl. zu solchen Problemen kommen.
+
+> Selbst mit diesem Problemb?r ist der
+> Fehler beim C128 ?brigens noch nicht aufgetreten.
+
+Das ist eine sehr interessante Information.
+
+> Naja, wenn wirklich
+> nur ein paar ns den Unterschied machen und wir nichts unternehmen
+> w?rden, k?nnte es auf jedem Rechner anders aussehen.
+
+Das sollten wir versuchen zu vermeiden!
+
+> Wir haben damals geglaubt (der groben Messung vertraut), dass die
+> fallende Flanke von Dotclock und die steigende von Phi2 _gleichzeitig_
+> kommen. Das war vielleicht etwas naiv.
+
+Das sehe ich noch etwas anderes. Klar eine 100%ige Gleichzeitigkeit kann es nicht geben. Aber mehr als 30 ns waren es auch nicht.
+
+> Vor der Temperaturabh?ngigkeit hat uns
+> Jens Sch?nfeld ja auch schon gewarnt.
+
+Stimmt. Wir waren vorgewarnt. Ob wir trotzdem gewinnen?
+
+> Das alles best?tigt, was Jens damals (bei Verwendung von FPGAs)
+> empfohlen hat: Aus einem eigenen, h?heren Takt die Signale "Address
+> Valid" und "Data Valid" selbst erzeugen.
+
+Ich glaube nicht, da? dies unbedingt die L?sung ist. Ein h?herer Takt ist immer Asynchron und bringt weitere Probleme mit sich. Ich denke auch nicht, da? es jetzt ein Problem mit dem Takt ist. Vermutlich liegt es eben an diesen Kunstgriffen mit max. f?nf Logik-ICs auszukommen.
+
+> Aber das haben wir ja auch so
+> schon fast perfekt geschaft, und ich glaube mit Deinen
+> empfohlenen ?nderungen wird's ganz perfekt.
+
+Wir n?hern uns immer weiter an! ;-)
+
+> Ach so, ich muss noch erw?hnen: Mit dem ACT lief es ?ber Nacht
+> (vielleicht 1 Milliarde Bankwechsel) auf dem C64 verl?sslich. Auf dem
+> C128 habe ich's auch einen halben Tag ohne Fehler laufen lassen.
+
+Okay, dann scheint es wirklich die Summe aller Gatterlaufzeiten zu sein.
+
+> Ja, klingt gut. Dass wir diese sch?ne L?sung nicht schon fr?her
+> gesehen haben...
+
+Ich meine, da? da etwas dagegen sprach. Siehe auch meine Bef?rchtung, welche Du versuchst auszumerzen.
+
+>> Bitte Thomas, probiere diese kleine aber nette ?nderung mal aus:
+>> 
+>> * Pin 1 und 13 von IC7 nicht zu Pin E des Cartridge Port f?hren,
+>> sondern auftrennen und zu Pin 13 des IC2 legen.
+>> * Draht von Pin 7 des IC1 abl?ten und nach Pin 6 von IC7 anl?ten.
+>> * erster Test
+>> * wenn erfolgreich, Br?cken von Pin 2 und 3 des IC 1 abl?ten und
+>> diese Pins (2 und 3) auf GND (wie Pin 1) legen.
+> 
+> Okay, hab ich. Nach einer halben Stunde noch kein Fehler. Mit
+> Problemb?r best?ckt.
+
+Ohh, da? freut.
+
+>> Jetzt k?nnte nur noch passieren, da? R/W ?ber 62,5 ns nach der
+>> steigenden Flanke von Phi2 aktiv wird. Dann w?rde sich das Timing
+>> verschieden und uns einen Strich durch diese Idee machen. Da R/W
+>> jedoch intern in der CPU bereits w?hrend der Phase Phi1 (Phi2 ist
+>> log. Null) erzeugt wird, ist nur die Abh?ngigkeit zu AEC zu
+>> ber?cksichtigen. Diese war jedoch, so ich mich richtig erinnere, sehr
+>> kurz. Vielleicht hat Thomas hier sogar die korrekten Werte noch im
+>> Kopf oder auf Papier! ;-)
+> 
+> Ich meine mich erinnern zu k?nnen, dass diese Verz?gerung fast
+> unglaublich gro? war. Du hattest damals noch gesagt, dass Du erwartet
+> h?ttest, dass sie nur eine Gatterlaufzeit sein sollte, weil Du
+> angenommen hattest, dass nur die Ausgangstreiber eingeschaltet werden
+> w?rden. Oder verwechsle ich jetzt was?
+
+Nee, da? k?nnte durchaus sein. Jedoch war sie nur im Datenblatt so gro?. Gemessen hatten wir dann etwas anderes, oder? Das mu? ich mir morgen oder am Wochenende noch einmal genauer ansehen. Diesen Punkt sollten wir nicht zu schnell ?berspringen.
+
+> Wie auch immer, ich glaube, auch noch das i-T?pfelchen f?r Deine
+> Verbesserung gefunden zu haben:
+
+Prima, das w?re sch?n.
+
+> Wenn man Reset des ersten Flipflops auf Phi2 l?sst, Reset des zweiten
+> aber wie von Die empfohlen mit /OE beschaltet, passiert das: Das erste
+> Flipflop kann garantiert nach Phi2 die erste Dotclock-Flanke
+> mitz?hlen. Egal ob dann /WR in diesem Moment schon geschaltet ist
+> oder nicht, bleibt /WE inaktiv. Entweder durch Reset oder durch
+> Durchschalten von D = low.
+> 
+> Bis zur zweiten Dotclock-High-Flanke ist dann /WR garantiert im
+> richtigen Zustand und alles l?uft weiter wie gehabt.
+
+Das mu? ich mir noch einmal in Ruhe ansehen. Bin gerade bei meiner Freundin und habe daher keinen Schaltplan zur Hand. Mache ich morgen!
+
+> Das habe ich auch gleich mal so eingebaut und teste jetzt damit.
+
+Also ist das auch ohne Fehler? Prima!
+
+> Was
+> denkst Du? Sind damit unsere letzten potentiellen Bauchschmerzen
+> beseitigt?
+
+Beantworte ich Dir morgen.
+
+> Es sei denn, mein 175er hat wieder ein Hauch anderes Timing als mein
+> 174er. Ich glaube, der Fehler ist dort noch nicht aufgetreten. Beim
+> 174er ist es ja nach meinen Beobachtungen auch nur mit D0 passiert.
+> Nein, da steht was so knapp an der Kante, dass das nicht
+> aussagekr?ftig ist.
+
+Okay, das kann ich verstehen. Jedoch verwundert es mich trotzdem ein wenig.
+
+> So, dann teste ich mal kr?ftig. Sch?n, dass endlich der Stresstest
+> fertig implementiert ist. Der war schon lange f?llig. Aber die
+> manuellen Tests mache ich auch noch.
+
+Prima! Sowas braucht man immer. Insbesondere sollte das auch noch f?r den Beta-Test dokumentiert werden und dann durchgef?hrt werden.
+
+> Jedenfalls gef?llt mir das auch besser, als das Timing nur mit einem
+> schnelleren HCT-IC aufzupolieren.
+
+Mir auch!
+
+> Wenn die Tests bis zum Wochenende
+> fehlerlos sind und Bj?rn so nett ist, die ?nderungen einzubauen,
+> k?nnten wir am Montag die Leiterplatten bestellen. Ich bin gespannt.
+
+Auf jeden Fall sollte Nils noch mit den Platinen warten! Hallo Nils liest Du hier mit?
+
+Und Bj?rn sollten wir noch einmal die ?nderungen als Liste zukommen lassen.
+
+Gru? Martin
+
+
+
+From Bps_of_Tbm at t-online.de  Fri Aug  7 07:38:26 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Fri, 07 Aug 2009 07:38:26 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?EasyFlash_Beta-Test?=
+In-Reply-To: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+References: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+Message-ID: <1MZI9q-0Wzrs00@fwd07.aul.t-online.de>
+
+
+>Und Bj?rn sollten wir noch einmal die ?nderungen als Liste zukommen
+lassen.
+
+Das w?re Super von euch, ich kann n?mlich eurer Diskussion nicht so ganz
+folgen ;)
+Aber testet erst mal in Ruhe.
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From nils.eilers at gmx.de  Fri Aug  7 13:07:01 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Fri, 07 Aug 2009 13:07:01 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+References: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+Message-ID: <4A7C0AD5.1070905@gmx.de>
+
+> Auf jeden Fall sollte Nils noch mit den Platinen warten! Hallo Nils liest Du hier mit?
+Na klar! Auch wenn ich von den ganzen Timing-Problemen nur Bahnhof 
+verstehe, da ich keine Zeit hatte, mich da einzuarbeiten.
+Aber auf jeden Fall warte ich, bis ich von Euch h?re, dass ich bestellen 
+soll.
+
+
+
+From skoe at directbox.com  Fri Aug  7 15:57:44 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Fri, 7 Aug 2009 15:57:44 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <1MZI9q-0Wzrs00@fwd07.aul.t-online.de>
+References: <000e01ca16f4$a39c4800$1b09a8c0@mhvnb10>
+	<1MZI9q-0Wzrs00@fwd07.aul.t-online.de>
+Message-ID: <20090807155744.0d502cc8@akoya>
+
+
+Hallo alle,
+
+auf dem C64 ist es ?ber Nacht fehlerfrei durchgelaufen. Getestet habe
+ich mit i-T?pchelchen und Problemb?r (ob diese Formulierungen
+Au?enstehenden die Einarbeit erschweren?)
+
+Vorhin habe ich den C64 nochmal eine Stunde auf Zimmertemperatur
+abk?hlen gelassen und nochmal neu gestartet. Sieht immer noch gut aus.
+
+Heute Abend und n?chste Nacht ist noch der C128 dran. Wenn dann auch
+noch alles geht, schicke ich Bj?rn die ?nderungen. Sind nur ein paar
+wenige Leiterbahnen. Dadurch, dass wir bei der zweiten H?lfte des 139
+alle Eing?nge auf GND legen k?nnen, wird's vielleicht im Layout sogar
+etwas einfacher.
+
+Und wenn Martin noch das i-T?pfelchen absegnet und Bj?rn die
+?nderungen eingearbeitet hat, kann n?chste Woche die Platinenbestellung
+raus. Endlich, ich bin schon ganz aufgeregt =D
+
+Alex, ist Dir die Lust vergangen oder g?nnst Du Dir nur eine verdiente
+Pause? Wollen wir uns mal auf die Suche nach den Problemen mit Deinen
+neuen Modulen machen? Ich k?nnte mir vorstellen, dass Du an wichtigen
+Stellen im Code beginnend mit dem Einsprung in Dein Programm die
+Rahmenfarbe auf markante Werte setzt und ich Dir dann sage, welche die
+letzte ist, die erscheint. Und keine Angst, auf dem C64 macht $D020
+nicht solche Anstalten wie momentan im Vice :-) Kannst ja dann hier mal
+einen neuen Thread aufmachen.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Sat Aug  8 15:47:35 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sat, 08 Aug 2009 15:47:35
+Subject: [EasyFlash-devel] =?iso-8859-1?q?EasyFlash_letzte_Hardware-=C4nde?=
+	=?iso-8859-1?q?rung?=
+Message-ID: <0E7C07D908080D2F231D6@directbox.com>
+
+
+Tach Leute,
+
+also die Dauertests liefen sowohl am C64 als auch am C128 fehlerlos durch.
+
+Das OK von Martin zu meinem i-T?pchelchen fehlt zwar noch, aber falls Du, Bj?rn, schonmal einen Blick auf's Layout werfen m?chtest, das sind die ?nderungen. In Klammern immer eine Erkl?rung zur Bedeutung der ?nderung.
+
+Die IC- und Pin-Nummern beziehen sich auf diesen Schaltplan (Bj?rns hab ich gerade nicht zur Hand): 
+http://hg.berlios.de/repos/easyflash/raw-file/2e5c13ca27a7/Hardware/kicad-logic-tht/easyflash.pdf
+
+* Pin 1 von IC7 nicht zu Pin E des Cartridge Port (Phi2) f?hren, sondern auftrennen und zu Pin 13 des IC2 (NOR-Gatter, das /OE erzeugt) legen. (Dadurch wird das zweite Flipflop direkt durch /OE im Reset gehalten. Das erste wird nach wie vor durch Phi2 gel?scht)
+
+* Draht von Pin 7 des U1A abl?ten (/WE) und nach Pin 6 von IC7 (/Q des zweiten FF) anl?ten. (/WE wird direkt durch das zweite FF erzeugt und nun durch den Schritt zuvor durch /OE verriegelt)
+
+* U1A jetzt unbenutzt, Eing?nge Pins 2 und 3 auf GND (wie Pin 1) legen.
+
+Na dann bis demn?chst, Gru?
+
+Thomas
+
+P.S. Die letzte Version in HG ist nich nicht dieser Stand, die hab ich gestern aus versehen commited. Falls da zuf?llig einer dr?ber gestolpert ist
+
+
+
+From martinHV at arcor.de  Sat Aug  8 23:01:13 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sat, 8 Aug 2009 23:01:13 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090806231343.368a254b@akoya>
+Message-ID: <005401ca186b$5d6afb60$0202fea9@mhv.webmade.com>
+
+Hallo Thomas,
+
+> Wie auch immer, ich glaube, auch noch das i-T?pfelchen f?r Deine
+> Verbesserung gefunden zu haben:
+> 
+> Wenn man Reset des ersten Flipflops auf Phi2 l?sst, Reset des zweiten
+> aber wie von Die empfohlen mit /OE beschaltet, passiert das: Das erste
+> Flipflop kann garantiert nach Phi2 die erste Dotclock-Flanke
+> mitz?hlen. Egal ob dann /WR in diesem Moment schon geschaltet ist
+> oder nicht, bleibt /WE inaktiv. Entweder durch Reset oder durch
+> Durchschalten von D = low.
+> 
+> Bis zur zweiten Dotclock-High-Flanke ist dann /WR garantiert im
+> richtigen Zustand und alles l?uft weiter wie gehabt.
+> 
+> Das habe ich auch gleich mal so eingebaut und teste jetzt damit. Was
+> denkst Du? Sind damit unsere letzten potentiellen Bauchschmerzen
+> beseitigt?
+
+So ich habe nun mehrmals dar?ber nachgedacht und fand die Idee zu beginn nicht so gelungen. Meine Bef?rchtungen waren, da? dieser D-FlipFlop-Verbund zu asynchron wird. Wir verwenden es als 2-Bit-Gray-Code-Z?hler, welcher die Phase 2 (Phi2 ist log. eins) in kleine 125ns-Schritten abz?hlt. Damit sind diese beiden FlopFlops als eine Einheit zu sehen: Beide haben den gleichen Takt, und eben auch das gleiche Reset.
+
+Du trennst nun den Reset der beiden FlipFlops. Daher k?nnte es vorkommen, da? die Z?hler nicht mehr richtig das z?hlen, was sie sollten: Gray-Code. Jedoch ist diese Trennung eben nur die zus?tzliche R/W-Leitung f?r das erste (?) FlipFlop.
+
+Zustand Gray-Code /WE
+   0      0 0      1   <- RESET beider FlipFlops wenn Phi2=0
+   1      1 0      1
+   2      1 1      0
+   3      0 1      0
+
+Zus?tzlich gibt es einen Sprung von Zust?nden 0 und 3 zu 0 bzw. von 1 und 2 zu 1, vereinfacht von 2 zu 1 und 3 zu 0. Betrachte ich mal beide F?lle getrennt:
+
+Von 2 zu 1: Hei?t, der Z?hler mind. w?rde einen Takt auslassen. Damit w?re das Zeitfenster f?r das gerade aktive /WE-Signal etwas l?nger. N?tig w?re dazu ein R/W-Signal, welches zu diesem Zeitpunkt _wieder_ high wird, da sonst der Z?hler im Zustand 1 verharren w?rde. Ich denke, dies kann man ausschlie?en. Wenn R/W f?r Schreibzugriffe aktiv wird, sollte das immer bis zum Ende der Phase 2 anliegen.
+
+Von 3 zu 0: Dies entspricht eigentlich dem normalen Umlauf bzw. einem normalen Reset. Der aktive Schreibzugriff (Zustand 2 und 3) wird damit beendet. Da der vorherige Zustand 2 vollst?ndig durchlaufen wurde, ist die min. /WE-Zeit mit 125 ns definiert und okay. Diese Situation sollte eigentlich auch nicht eintreffen. Es gibt die gleiche Begr?ndung wie unter "Von 2 zu 1:".
+
+So kann man also sagen, da? das I-T?pfelchen von Thomas so schon okay ist. Und das haben seine Tests auch bewiesen.
+
+Ich denke daher, meine anf?nglichen Bauchschmerzen dazu sind wiederlegt. Ich habe also nichts gegen diese Schaltung einzuwenden.
+
+Aber etwas anderes ist mit eingefallen:
+
+Der 74LS139 wird nun nur zur H?lfte genutzt. Da sehe ich zwei m?gliche Ver?nderungen:
+
+1) Wir tauschen den gegen einen 74LS138. Dann k?nnen wir auch A0 zur Ausdekodierung nutzen und haben eine h?here Kompatibilit?t bez?glich der sp?teren Erweiterung des Banking-Register zu 16-Bit.
+2) Wir k?nnen jetzt auch wieder den 74LS139 (U1) gegen einen 74LS00 tauschen. Dann m??te U2C (Inverter) ein Gatter aus dem 74LS00 werden und wir k?nnen mit den restlichen drei 74LS00 (einmal Inverter f?r A1 und zweimal als Gatter f?r die Takt-Leitungen der Register) und dem einen 74LS02 (zur Verkn?pfung des /WE-Signal mit dem /IO1-Signal) die Takt-Signale f?r die Register mit einzelnen Gattern erzeugen. Das w?rde auch zwei Pins freiwerden lassen, da von 16 pol. auf 14 pol. ge?ndert wird. Damit haben wir auch etwas mehr Platz auf der Platine. Auch w?rden sich vermutlich die Gatterlaufzeiten noch einmal reduzieren!
+
+Ich pers?nlich tendiere generell zu 2).
+
+Beiden ?nderungen sind in meinen Augen nicht so umfangreich und daher leicht im Layout machbar.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Sat Aug  8 23:33:26 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sat, 8 Aug 2009 23:33:26 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <005401ca186b$5d6afb60$0202fea9@mhv.webmade.com>
+References: <20090806231343.368a254b@akoya>
+	<005401ca186b$5d6afb60$0202fea9@mhv.webmade.com>
+Message-ID: <20090808233326.6fc944be@akoya>
+
+
+Hallo Martin, hallo alle,
+
+> Wir verwenden es als 2-Bit-Gray-Code-Z?hler
+
+verwendeten ;)
+
+Wobei der Gray-Code nur Mittel zum Zweck war. Jetzt ist es halt ein
+anderes Mittel. Aber Du hast es ja auch durchdacht und abgenickt,
+da brauche ich also eigentlich nichts mehr zu argumentieren.
+
+> So kann man also sagen, da? das I-T?pfelchen von Thomas so schon okay
+> ist. Und das haben seine Tests auch bewiesen.
+> 
+> Ich denke daher, meine anf?nglichen Bauchschmerzen dazu sind
+> wiederlegt. Ich habe also nichts gegen diese Schaltung einzuwenden.
+
+Danke, dass Du es auch nochmal durchdacht und so ausf?hrlich beschrieben
+hast.
+
+> 2) Wir k?nnen jetzt auch wieder den 74LS139 (U1) gegen einen 74LS00
+> tauschen. Dann m??te U2C (Inverter) ein Gatter aus dem 74LS00 werden
+> und wir k?nnen mit den restlichen drei 74LS00 (einmal Inverter f?r A1
+> und zweimal als Gatter f?r die Takt-Leitungen der Register) und dem
+> einen 74LS02 (zur Verkn?pfung des /WE-Signal mit dem /IO1-Signal) die
+> Takt-Signale f?r die Register mit einzelnen Gattern erzeugen. Das
+> w?rde auch zwei Pins freiwerden lassen, da von 16 pol. auf 14 pol.
+> ge?ndert wird. Damit haben wir auch etwas mehr Platz auf der Platine.
+> Auch w?rden sich vermutlich die Gatterlaufzeiten noch einmal
+> reduzieren!
+> 
+> Ich pers?nlich tendiere generell zu 2).
+
+Du hast aus rein technischer Sicht vollkommen recht. Nun w?rde das
+bedeuten, dass ich sicherheitshalber nochmal umbauen und testen
+und Bj?rn mehr als nur ca. drei Leiterbahnen ?ndern m?sste. Da es
+eigentlich keinen Leidensdruck gibt, das zu ?ndern, w?rde ich die
+Entscheidung Bj?rn ?berlassen. Es ist durchaus okay, gar nichts mehr zu
+?ndern au?er der Verbesserung, die wir in den letzten Tagen erarbeitet
+haben (siehe Mail von heute Nachmittag). 
+
+Gru?,
+
+Thomas
+
+
+
+From bps_of_tbm at t-online.de  Sun Aug  9 00:37:02 2009
+From: bps_of_tbm at t-online.de (Bjoern Wieck)
+Date: Sun, 09 Aug 2009 00:37:02 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090808233326.6fc944be@akoya>
+References: <20090806231343.368a254b@akoya>	<005401ca186b$5d6afb60$0202fea9@mhv.webmade.com>
+	<20090808233326.6fc944be@akoya>
+Message-ID: <4A7DFE0E.7070501@t-online.de>
+
+Thomas Giesel schrieb:
+
+> Du hast aus rein technischer Sicht vollkommen recht. Nun w?rde das
+> bedeuten, dass ich sicherheitshalber nochmal umbauen und testen
+> und Bj?rn mehr als nur ca. drei Leiterbahnen ?ndern m?sste. Da es
+> eigentlich keinen Leidensdruck gibt, das zu ?ndern, w?rde ich die
+> Entscheidung Bj?rn ?berlassen. Es ist durchaus okay, gar nichts mehr zu
+> ?ndern au?er der Verbesserung, die wir in den letzten Tagen erarbeitet
+> haben (siehe Mail von heute Nachmittag). 
+
+Meiner Meinung nach solltet Ihr die Schaltung perfektionieren,
+ganz egal wieviel dabei dann im Layout ?ndert.
+
+Ich muss das ja gl?cklicherweise nicht wie fr?her mit Tape
+und Rubbelsymbolen zusammenbasteln ;)
+
+Wenn Ihr dann der Meinung seid das alles gut ist und
+es getestet ist dann gebt mir die ?nderungen durch und
+ich stricke dann das Layout um.
+
+Gr??e
+Bj?rn
+
+
+From skoe at directbox.com  Sun Aug  9 01:16:34 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 9 Aug 2009 01:16:34 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <4A7DFE0E.7070501@t-online.de>
+References: <20090806231343.368a254b@akoya>
+	<005401ca186b$5d6afb60$0202fea9@mhv.webmade.com>
+	<20090808233326.6fc944be@akoya> <4A7DFE0E.7070501@t-online.de>
+Message-ID: <20090809011634.45f23838@akoya>
+
+
+Hallo,
+
+Nun gut, auf dem langen Weg zur Perfektion habe ich mal die
+Optimierungen in den Schaltplan eingebaut.
+
+Martin: Kannst Du bitte mal drauf schauen, ob alles stimmt?
+
+Bj?rn: Schonmal vorab zur Info: Die ?nderungen Leiterbahn f?r Leiterbahn
+zu beschreiben, wird jetzt etwas viel, lass es mich so zusammenfassen:
+- Das zweite Flipflip vom 74HCT74 ist jetzt anders beschaltet, wie
+  bereits zuvor beschrieben (Ausg?nge und Reset)
+- 74HCT139 (U1) ist rausgeflogen
+- Neuer U1: 74HCT00
+- Alter U2C wurde durch U1A ersetzt (Pullup statt GND!)
+- Die Funktion des 139ers ?bernehmen der freigewordene U2C und U1B/C/D
+
+Morgen Abend werde ich das zusammenbruzeln und in den Test schicken.
+
+Gru?,
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: easyflash.pdf
+Type: application/pdf
+Size: 93870 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090809/929911af/attachment.pdf>
+
+From martinHV at arcor.de  Sun Aug  9 14:39:25 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sun, 9 Aug 2009 14:39:25 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090809011634.45f23838@akoya>
+Message-ID: <000e01ca18ee$6eacc560$6800a8c0@mhv.webmade.com>
+
+Hallo Thomas,
+
+> Nun gut, auf dem langen Weg zur Perfektion habe ich mal die
+> Optimierungen in den Schaltplan eingebaut.
+
+Prima, so in etwa hatte ich mir das gedacht.
+
+> Martin: Kannst Du bitte mal drauf schauen, ob alles stimmt?
+
+Leider nicht ganz:
+* Der Ausgang der Gatters U2C ist high-aktiv. Daher ist das nur WEIO1 und nicht /WEIO1.
+* Das Gatter U1B verkn?pft das WEIO1-Signal mit A1. Daher ist der Ausgang nicht /DE00, sondern /DE02.
+* Das Gatter U1C verkn?pft das WEIO1-Signal mit dem invertierten A1 (/A1). Daher ist der Ausgang das obige /DE00 und nicht /DE02.
+
+> Bj?rn: Schonmal vorab zur Info: Die ?nderungen Leiterbahn f?r
+> Leiterbahn zu beschreiben, wird jetzt etwas viel, lass es mich so
+> zusammenfassen: - Das zweite Flipflip vom 74HCT74 ist jetzt anders
+>   beschaltet, wie bereits zuvor beschrieben (Ausg?nge und Reset)
+> - 74HCT139 (U1) ist rausgeflogen
+> - Neuer U1: 74HCT00
+> - Alter U2C wurde durch U1A ersetzt (Pullup statt GND!)
+> - Die Funktion des 139ers ?bernehmen der freigewordene U2C und U1B/C/D
+
+Ich versuche das trotzdem mal:
+
+Phi2:
+  J1 Pin E
+  U7 Pin 13
+  U1 Pin 1
+
+_Phi2:
+  U1 Pin 3
+  U2 Pin 11
+
+DotClk:
+  J1 Pin 6
+  U7 Pin 3
+  U7 Pin 11
+
+R/W:
+  J1 Pin 5
+  U2 Pin 12
+
+_OE:
+  U2 Pin 13
+  U7 Pin 1
+  U3 Pin 24
+  U4 Pin 24
+  U8 Pin 22
+
+GC_Q0:
+  U7 Pin 9
+  U7 Pin 2
+
+_WE:
+  U7 Pin 6
+  U7 Pin 12
+  U2 Pin 8
+  U3 Pin 31
+  U4 Pin 31
+  U8 Pin 27
+
+_IO1:
+  J1 Pin 7
+  U2 Pin 9
+
+WEIO1:
+  U2 Pin 10
+  U1 Pin 4
+  U1 Pin 9
+
+_A1:
+  U1 Pin 11
+  U1 Pin 10
+
+_DE00:
+  U1 Pin 8
+  U6 Pin 9
+
+_DE02:
+  U1 Pin 6
+  U5 Pin 9
+
+A1:
+  J1 Pin X
+  U1 Pin 5
+  U1 Pin 12
+  U3 Pin 11
+  U4 Pin 11
+  U8 Pin 9
+
+VCCR
+  R1 ???
+  U1 Pin 2
+  U1 Pin 13
+  U7 Pin 4
+  U7 Pin 10
+
+Ich hoffe, ich habe nun nichts ?bersehen. Aufgelistet habe ich nur die ge?nderten Netze!
+
+> Morgen Abend werde ich das zusammenbruzeln und in den Test schicken.
+
+Ich hoffe, Du vermeldest Erfolg, oder?
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Sun Aug  9 22:08:05 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 9 Aug 2009 22:08:05 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <000e01ca18ee$6eacc560$6800a8c0@mhv.webmade.com>
+References: <20090809011634.45f23838@akoya>
+	<000e01ca18ee$6eacc560$6800a8c0@mhv.webmade.com>
+Message-ID: <20090809220805.59a15554@akoya>
+
+
+Hallo,
+
+> Leider nicht ganz:
+
+> * Der Ausgang der Gatters U2C ist high-aktiv. Daher ist das nur WEIO1
+> und nicht /WEIO1.
+
+Oh, die Gewohnheit mit der Negation. Das stimmt, der Netzname war
+falsch.
+
+> * Das Gatter U1B verkn?pft das WEIO1-Signal mit A1. Daher ist der
+> Ausgang nicht /DE00, sondern /DE02.
+
+Ach, habe ich gestern Nacht wohl zu viel hin- und hergeschoben :-(
+
+> Ich versuche das trotzdem mal:
+
+Danke f?r die M?he!
+
+> Ich hoffe, Du vermeldest Erfolg, oder?
+
+Bis jetzt sieht's gut aus: Zusammengel?tet, Alex' Modul l?uft (*) auf
+Anhieb. Den Stresstest habe ich gerade gestartet. Den lasse ich ?ber
+Nacht durchlaufen. Und morgen ist der C128 dran.
+
+(*) Das Problem mit Alex' EasyLoader haben wir heute auch gefunden. Es
+lag an einer Initialisierungsreihenfolge, die der Emulator wohl etwas
+toleranter gefressen hat.
+
+Anbei der korrigierte Schaltplan.
+
+Gru?,
+
+Thomas
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: easyflash.pdf
+Type: application/pdf
+Size: 93881 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090809/18edc6eb/attachment.pdf>
+
+From martinHV at arcor.de  Sun Aug  9 22:23:12 2009
+From: martinHV at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sun, 9 Aug 2009 22:23:12 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090809220805.59a15554@akoya>
+Message-ID: <000801ca192f$38a27a50$0202fea9@mhv.webmade.com>
+
+Hallo Thomas,
+
+> Oh, die Gewohnheit mit der Negation. Das stimmt, der Netzname war
+> falsch.
+
+Das kann ich verstehen. W?re mir vermutlich auch passiert.
+
+>> * Das Gatter U1B verkn?pft das WEIO1-Signal mit A1. Daher ist der
+>> Ausgang nicht /DE00, sondern /DE02.
+> 
+> Ach, habe ich gestern Nacht wohl zu viel hin- und hergeschoben :-(
+
+Auch das kann passieren. W?re jedoch beim Aufbau aufgefallen, wenn pl?tzlich die Register vertauscht sind.
+
+>> Ich hoffe, Du vermeldest Erfolg, oder?
+> 
+> Bis jetzt sieht's gut aus: Zusammengel?tet, Alex' Modul l?uft (*) auf
+> Anhieb.
+
+Super. Dann k?nnen wir getrost die neuen Fehlermeldungen von Dir abwarten?
+
+> Den Stresstest habe ich gerade gestartet. Den lasse ich ?ber
+> Nacht durchlaufen. Und morgen ist der C128 dran.
+
+Prima. Dann dr?cke ich mal die Daumen. Aber eigentlich sollten wir nun in jeder Hinsicht auf der sicheren Seite sein.
+
+> (*) Das Problem mit Alex' EasyLoader haben wir heute auch gefunden. Es
+> lag an einer Initialisierungsreihenfolge, die der Emulator wohl etwas
+> toleranter gefressen hat.
+
+OKay. Dann geht's mit der Software auch weiter voran. Das freut mich auch. Man h?rte in letzter Zeit nicht mehr viel davon.
+
+> Anbei der korrigierte Schaltplan.
+
+Sieht gut aus. Dann k?nnte Bj?rn so langsam Eagle starten... ;-) Und wenn er mir wieder die Dateien schickt, kontrolliere ich das wieder!
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Mon Aug 10 20:22:57 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 10 Aug 2009 20:22:57 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <000801ca192f$38a27a50$0202fea9@mhv.webmade.com>
+References: <20090809220805.59a15554@akoya>
+	<000801ca192f$38a27a50$0202fea9@mhv.webmade.com>
+Message-ID: <20090810202257.4302f133@akoya>
+
+
+Kurzes Update:
+
+Am C64 ist der Stresstest ?ber Nacht fehlerfrei durchgelaufen. C128
+starte ich jetzt.
+
+Sieht juut aus.
+
+Gru?,
+
+Thomas
+
+
+
+From Bps_of_Tbm at t-online.de  Mon Aug 10 20:35:18 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Mon, 10 Aug 2009 20:35:18 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?EasyFlash_Beta-Test?=
+In-Reply-To: <20090810202257.4302f133@akoya>
+References: <20090809220805.59a15554@akoya>
+	<000801ca192f$38a27a50$0202fea9@mhv.webmade.com>
+	<20090810202257.4302f133@akoya>
+Message-ID: <1MaZiI-1R6fb60@fwd10.aul.t-online.de>
+
+
+>Am C64 ist der Stresstest ?ber Nacht fehlerfrei durchgelaufen. C128
+>starte ich jetzt.
+
+>Sieht juut aus.
+
+
+Na denn schmeiss ich mal das Eagle an..
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From martinhv at arcor.de  Mon Aug 10 21:43:50 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Mon, 10 Aug 2009 21:43:50 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090810202257.4302f133@akoya>
+Message-ID: <000e01ca19f2$e3348350$1b09a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> Am C64 ist der Stresstest ?ber Nacht fehlerfrei durchgelaufen.
+
+Mal eine Frage am Rande: Was genau macht der "Stresstest" zur Zeit? Vermutlich nur das Banking-Register testen? Sch?n w?re es, wenn auch Schreibzugriff im Flash und RAM getestet werden w?rden. Bei den "Schreibzugriffen" f?r das Flash w?rde es reichen, den Hersteller und den Typ (DeviceID) auszulesen. Dann h?tte man auch schon eine gute "Diagnostic for EasyFlash"-Routine.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Mon Aug 10 21:52:17 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 10 Aug 2009 21:52:17 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <000e01ca19f2$e3348350$1b09a8c0@mhvnb10>
+References: <20090810202257.4302f133@akoya>
+	<000e01ca19f2$e3348350$1b09a8c0@mhvnb10>
+Message-ID: <20090810215217.51195a34@akoya>
+
+
+Hallo,
+
+Momentan schreibt er beide Flashs mit diversen Bitmustern voll,
+macht dann in einer Endlosschleife Burst-Banking-Tests und liest und
+pr?ft alle Daten von allen Banken.
+
+Bin gerade dabei, den Test zu erweitern, w?hrend er dr?ben auf dem
+C128 dr?hnt: Das ID-Auslesen ist mir auch in den Sinn gekommen, um das
+Schreiben zu testen ohne dass der Flash unn?tig altert.
+
+Ein RAM-Test wird im Moment auch nur einmalig beim Starten von EasyProg
+gemacht, der soll auch mit in die Schleife. Da f?llt mir auf, das ich
+den RAM damals eingebaut hatte und er nie gezickt hat, au?er einmal,
+als ich ihn vergessen hatte, wieder in die Fassung zu setzen. Da stimmt
+doch was nicht ;) 
+
+Ach so, die Testsuite ist Teil von EasyProg, kann dort einfach von
+jedermann ?ber einen Men?punkt gestartet werden.
+
+Gru?,
+
+Thomas
+
+
+Am Mon, 10 Aug 2009 21:43:50 +0200
+schrieb "Hoffmann-Vetter, Martin" <martinhv at arcor.de>:
+
+> Hallo Thomas,
+> 
+> > Am C64 ist der Stresstest ?ber Nacht fehlerfrei durchgelaufen.
+> 
+> Mal eine Frage am Rande: Was genau macht der "Stresstest" zur Zeit?
+> Vermutlich nur das Banking-Register testen? Sch?n w?re es, wenn auch
+> Schreibzugriff im Flash und RAM getestet werden w?rden. Bei den
+> "Schreibzugriffen" f?r das Flash w?rde es reichen, den Hersteller und
+> den Typ (DeviceID) auszulesen. Dann h?tte man auch schon eine gute
+> "Diagnostic for EasyFlash"-Routine.
+> 
+> Gru? Martin
+> 
+> _______________________________________________
+> EasyFlash-devel mailing list
+> EasyFlash-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/easyflash-devel
+
+
+
+
+From martinhv at arcor.de  Mon Aug 10 22:27:13 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Mon, 10 Aug 2009 22:27:13 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090810215217.51195a34@akoya>
+Message-ID: <001401ca19f8$f37315f0$1b09a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> Momentan schreibt er beide Flashs mit diversen Bitmustern voll,
+> macht dann in einer Endlosschleife Burst-Banking-Tests und liest und
+> pr?ft alle Daten von allen Banken.
+
+Okay, das ich auch eine Variante. Eigentlich die bessere, jedoch mit dem untigen Nachteil. Dies sollte man dann in der unten erw?hnten Testsuite noch reinschreiben, bevor man das wirklich "endlos" startet!
+
+> Das ID-Auslesen ist mir auch in den Sinn gekommen, um das
+> Schreiben zu testen ohne dass der Flash unn?tig altert.
+
+Sollte zum Testen des Write-Timing ausreichen. Und die meisten Adress- und Datenbusfehler bekommt man durch die magischen Schreibzugriffe auch mit.
+
+> Ein RAM-Test wird im Moment auch nur einmalig beim Starten von
+> EasyProg gemacht, der soll auch mit in die Schleife.
+
+Sehe ich auch so.
+
+> Da f?llt mir
+> auf, das ich den RAM damals eingebaut hatte und er nie gezickt hat,
+> au?er einmal, als ich ihn vergessen hatte, wieder in die Fassung zu
+> setzen. Da stimmt doch was nicht ;)
+
+Wie meinst Du das?
+
+> Ach so, die Testsuite ist Teil von EasyProg, kann dort einfach von
+> jedermann ?ber einen Men?punkt gestartet werden.
+
+Prima! Sch?n w?ren evtl. zwei Testl?ufe: Einer, welcher destruktiv ist und einer welcher keine Daten l?scht.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Tue Aug 11 12:58:14 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Tue, 11 Aug 2009 12:58:14
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+Message-ID: <0E0407D9080B0A3A0E3E5@directbox.com>
+
+
+Guten Morgen,
+
+auf dem C128 habe ich den alten Test gestern nur ca. 2 Stunden laufen lassen, war fehlerfrei.
+
+Dann habe ich den umfassenderen Test fertig gehabt (mit RAM testen und Flash schreiben / ID lesen) und diesen ?ber Nacht auf dem C64 laufen lassen. War alles okay.
+
+Heute abend starte ich den neuen Test auf dem C128, wenn das auch gut geht, sind wir fertig.
+
+Zu aller Ironie sind gestern endlich meine bestellten 139er als HCT angekommen, jetzt, wo wir sie rausgeschmissen haben :)
+
+Gru?,
+
+Thomas
+
+
+
+
+From Bps_of_Tbm at t-online.de  Tue Aug 11 16:49:11 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Tue, 11 Aug 2009 16:49:11 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?EasyFlash_Beta-Test?=
+In-Reply-To: <0E0407D9080B0A3A0E3E5@directbox.com>
+References: <0E0407D9080B0A3A0E3E5@directbox.com>
+Message-ID: <1Masf1-05v6I40@fwd06.aul.t-online.de>
+
+
+Moin,
+
+Das neue Layout ist fertig. Platine hat jetzt REV B
+
+@Martin: ich schicke die die Eagle-Files zu.
+
+Gr??e
+Bj?rn
+
+
+-----Original Message-----
+Date: Tue, 11 Aug 2009 12:58:14 +0200
+Subject: Re: [EasyFlash-devel] EasyFlash Beta-Test
+From: "Thomas Giesel" <skoe at directbox.com>
+To: <martinhv at arcor.de>
+
+
+Guten Morgen,
+
+auf dem C128 habe ich den alten Test gestern nur ca. 2 Stunden laufen
+lassen, war fehlerfrei.
+
+Dann habe ich den umfassenderen Test fertig gehabt (mit RAM testen und
+Flash schreiben / ID lesen) und diesen ?ber Nacht auf dem C64 laufen
+lassen. War alles okay.
+
+Heute abend starte ich den neuen Test auf dem C128, wenn das auch gut
+geht, sind wir fertig.
+
+Zu aller Ironie sind gestern endlich meine bestellten 139er als HCT
+angekommen, jetzt, wo wir sie rausgeschmissen haben :)
+
+Gru?,
+
+Thomas
+
+
+_______________________________________________
+EasyFlash-devel mailing list
+EasyFlash-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/easyflash-devel
+
+
+
+
+
+From skoe at directbox.com  Tue Aug 11 23:48:06 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Tue, 11 Aug 2009 23:48:06 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <1Masf1-05v6I40@fwd06.aul.t-online.de>
+References: <0E0407D9080B0A3A0E3E5@directbox.com>
+	<1Masf1-05v6I40@fwd06.aul.t-online.de>
+Message-ID: <20090811234806.2078d774@akoya>
+
+
+Nabend,
+
+> Das neue Layout ist fertig. Platine hat jetzt REV B
+
+das ist sch?n, danke!
+
+Nachdem heute Abend auch auf dem C128 mehrere 100 MByte in Flash und
+RAM hin- und hergschaufelt wurden und die Banken und Modi mehrere
+100000 mal umgeschaltet wurden, k?nnen wir wohl dieses Stadium des
+Tests abschlie?en.
+
+Wenn Martin das Layout abgesegnet hat, sollte also den ersten
+Leiterplatten nichts mehr im Wege stehen.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Thu Aug 13 09:38:32 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 13 Aug 2009 09:38:32
+Subject: [EasyFlash-devel] Wie geht's voran?
+Message-ID: <0E0407D9080D07262038F@directbox.com>
+
+Hallo alle,
+
+man h?rt in letzter Zeit so wenig, wie geht's eigentlich voran? L?uft bez?glich
+des letzten Layout was hinter den Kulissen?
+
+In den letzten Tagen habe ich EasyProg weiter verbessert und die 
+Vice-Emulation getestet. Der Stress-Test in EasyProg l?sst sich mit <Stop>
+abbrechen, vor jeder Operation, die den Flash l?scht ist eine Sicherheitsabfrage,
+Fehler beim Flashen werden sauberer abgefangen.
+
+N?chste Woche wird das Tool wahrscheinlich bereit sein f?r unseren Beta-Test.
+Es fehlen z.B. noch ein paar Bildschirmausgaben (z.B. Datei- bzw. Modulname)
+und ein einigerma?en benutzbarer Dateibrowser, bei dem man auch andere 
+Laufwerksnummern einstellen kann.
+
+Gru?,
+
+Thomas
+
+
+
+
+From Bps_of_Tbm at t-online.de  Thu Aug 13 12:22:41 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Thu, 13 Aug 2009 12:22:41 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Wie_geht=27s_voran=3F?=
+In-Reply-To: <0E0407D9080D07262038F@directbox.com>
+References: <0E0407D9080D07262038F@directbox.com>
+Message-ID: <1MbXSD-1Vy3CS0@fwd02.aul.t-online.de>
+
+Hallo Thomas,
+
+ich kann Dir nichts dazu sagen, ich hatte am Dienstag dem Martin die
+Layout-Dateien zur
+?berpr?fung geschickt und bisher noch nichts von Ihm geh?rt.
+
+Gr??e
+Bj?rn
+
+-----Original Message-----
+Date: Thu, 13 Aug 2009 09:38:32 +0200
+Subject: [EasyFlash-devel] Wie geht's voran?
+From: "Thomas Giesel" <skoe at directbox.com>
+To: <easyflash-devel at lists.berlios.de>
+
+Hallo alle,
+
+man h?rt in letzter Zeit so wenig, wie geht's eigentlich voran? L?uft
+bez?glich
+des letzten Layout was hinter den Kulissen?
+
+In den letzten Tagen habe ich EasyProg weiter verbessert und die 
+Vice-Emulation getestet. Der Stress-Test in EasyProg l?sst sich mit
+<Stop>
+abbrechen, vor jeder Operation, die den Flash l?scht ist eine
+Sicherheitsabfrage,
+Fehler beim Flashen werden sauberer abgefangen.
+
+N?chste Woche wird das Tool wahrscheinlich bereit sein f?r unseren
+Beta-Test.
+Es fehlen z.B. noch ein paar Bildschirmausgaben (z.B. Datei- bzw.
+Modulname)
+und ein einigerma?en benutzbarer Dateibrowser, bei dem man auch andere 
+Laufwerksnummern einstellen kann.
+
+Gru?,
+
+Thomas
+
+
+_______________________________________________
+EasyFlash-devel mailing list
+EasyFlash-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/easyflash-devel
+
+
+
+
+
+From skoe at directbox.com  Fri Aug 14 09:06:28 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Fri, 14 Aug 2009 09:06:28
+Subject: [EasyFlash-devel] Wie geht's voran?
+Message-ID: <0E0407D9080E07061CCA@directbox.com>
+
+
+Hallo,
+
+Tja, wenn Martin keine Zeit hat, sich das anzusehen, kannst Du es gern auch
+noch an mich und vielleicht Nils schicken, die ?nderungen sind ja nicht sooo
+umfangreich, dass wir nicht auch durchsehen w?rden. Heute Abend bin ich 
+allerdings nicht zuhause, ich w?rde es mir dann morgen ansehen.
+
+Gru?,
+
+Thomas
+
+-------- directBOX Reply ---------------
+From: Bps_of_Tbm at t-online.de
+To  : easyflash-devel at lists.berlios.de
+Date: 13.08.2009 12:23:08
+
+Hallo Thomas,
+
+ich kann Dir nichts dazu sagen, ich hatte am Dienstag dem Martin die
+Layout-Dateien zur
+?berpr?fung geschickt und bisher noch nichts von Ihm geh?rt.
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From Bps_of_Tbm at t-online.de  Fri Aug 14 14:53:55 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Fri, 14 Aug 2009 14:53:55 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Wie_geht=27s_voran=3F?=
+In-Reply-To: <0E0407D9080E07061CCA@directbox.com>
+References: <0E0407D9080E07061CCA@directbox.com>
+Message-ID: <1MbwI7-2121kO0@fwd03.aul.t-online.de>
+
+Hallo Thomas,
+
+Ich schicke Dir dann mal die Datei zu.
+Wichtig ist das der Schaltplan korrekt ist, das Layout ergibt sich dann
+daraus.
+
+Gr??e
+Bj?rn
+
+-----Original Message-----
+Date: Fri, 14 Aug 2009 09:06:28 +0200
+Subject: Re: [EasyFlash-devel] Wie geht's voran?
+From: "Thomas Giesel" 
+To: 
+
+
+Hallo,
+
+Tja, wenn Martin keine Zeit hat, sich das anzusehen, kannst Du es gern
+auch
+noch an mich und vielleicht Nils schicken, die ?nderungen sind ja nicht
+sooo
+umfangreich, dass wir nicht auch durchsehen w?rden. Heute Abend bin ich 
+allerdings nicht zuhause, ich w?rde es mir dann morgen ansehen.
+
+Gru?,
+
+Thomas
+
+-------- directBOX Reply ---------------
+From: Bps_of_Tbm at t-online.de
+To ?: easyflash-devel at lists.berlios.de
+Date: 13.08.2009 12:23:08
+
+Hallo Thomas,
+
+ich kann Dir nichts dazu sagen, ich hatte am Dienstag dem Martin die
+Layout-Dateien zur
+?berpr?fung geschickt und bisher noch nichts von Ihm geh?rt.
+
+Gr??e
+Bj?rn
+
+
+
+_______________________________________________
+EasyFlash-devel mailing list
+EasyFlash-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/easyflash-devel
+
+
+
+
+
+From skoe at directbox.com  Sat Aug 15 22:27:01 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sat, 15 Aug 2009 22:27:01 +0200
+Subject: [EasyFlash-devel] Wie geht's voran?
+In-Reply-To: <1MbwI7-2121kO0@fwd03.aul.t-online.de>
+References: <0E0407D9080E07061CCA@directbox.com>
+	<1MbwI7-2121kO0@fwd03.aul.t-online.de>
+Message-ID: <20090815222701.0f0f5ff7@akoya>
+
+
+Hallo alle,
+
+gerade habe ich den Schaltplan von Bj?rn hinsichtlich Steuerleitungen
+genau mit meinem verglichen. Es ist alles korrekt.
+
+Also aus meiner Sicht kann die Platinenbestellung anrollen, Nils.
+
+Gru?,
+
+Thomas
+
+
+> Hallo Thomas,
+> 
+> Ich schicke Dir dann mal die Datei zu.
+> Wichtig ist das der Schaltplan korrekt ist, das Layout ergibt sich
+> dann daraus.
+> 
+
+
+
+From nils.eilers at gmx.de  Sun Aug 16 06:37:17 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Sun, 16 Aug 2009 06:37:17 +0200
+Subject: [EasyFlash-devel] Wie geht's voran?
+In-Reply-To: <20090815222701.0f0f5ff7@akoya>
+References: <0E0407D9080E07061CCA@directbox.com>	<1MbwI7-2121kO0@fwd03.aul.t-online.de>
+	<20090815222701.0f0f5ff7@akoya>
+Message-ID: <4A878CFD.1080007@gmx.de>
+
+> Also aus meiner Sicht kann die Platinenbestellung anrollen, Nils.
+Wenn jemand Einw?nde vorzutragen hat, m?ge er jetzt sprechen, oder aber 
+f?r immer schweigen... oder so ?hnlich :-)
+
+Heute habe ich noch volles Programm (12 Std. Nachschicht), wegen mir 
+k?nnen wir Montag Abend bestellen. Was meinst Du, Bj?rn?
+
+
+
+From Bps_of_Tbm at t-online.de  Sun Aug 16 11:51:19 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Sun, 16 Aug 2009 11:51:19 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Wie_geht=27s_voran=3F?=
+In-Reply-To: <4A878CFD.1080007@gmx.de>
+References: <0E0407D9080E07061CCA@directbox.com>	<1MbwI7-2121kO0@fwd03.aul.t-online.de>
+	<20090815222701.0f0f5ff7@akoya> <4A878CFD.1080007@gmx.de>
+Message-ID: <1MccOV-0AQl1s0@fwd04.aul.t-online.de>
+
+
+>> Also aus meiner Sicht kann die Platinenbestellung anrollen, Nils.
+>Wenn jemand Einw?nde vorzutragen hat, m?ge er jetzt sprechen, oder aber
+
+>f?r immer schweigen... oder so ?hnlich :-)
+
+>Heute habe ich noch volles Programm (12 Std. Nachschicht), wegen mir 
+>k?nnen wir Montag Abend bestellen. Was meinst Du, Bj?rn?
+
+
+Meinetwegen kann es losgehen, ich h?tte zwar gerne noch Martins
+Meinung geh?rt aber Thomas hat ja schon best?tigt das alles OK ist.
+
+@Nils: ich schicke Dir die Dateien zu. Am besten telefonieren wir
+dann nochmal.
+
+BTW was ist denn eigentlich mit dem Martin? 
+
+Gr??e
+Bj?rn
+
+
+
+
+From skoe at directbox.com  Sun Aug 16 19:08:00 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 16 Aug 2009 19:08:00 +0200
+Subject: [EasyFlash-devel] Wie geht's voran?
+In-Reply-To: <1MccOV-0AQl1s0@fwd04.aul.t-online.de>
+References: <0E0407D9080E07061CCA@directbox.com>
+	<1MbwI7-2121kO0@fwd03.aul.t-online.de>
+	<20090815222701.0f0f5ff7@akoya> <4A878CFD.1080007@gmx.de>
+	<1MccOV-0AQl1s0@fwd04.aul.t-online.de>
+Message-ID: <20090816190800.771633b6@akoya>
+
+
+Hallo ihr,
+
+> Meinetwegen kann es losgehen, ich h?tte zwar gerne noch Martins
+> Meinung geh?rt aber Thomas hat ja schon best?tigt das alles OK ist.
+
+Eine Kleinigkeit ist mir da noch aufgefallen: Du hast ja die Vias extra
+gro? gemacht, damit ich sie bei einem Selbst?tzprototypen auch bohren
+kann (0,6 mm). Wollen wir die so lassen oder noch auf 0,3 schrumpfen
+lassen, was denkt ihr? Ist ja eher eine optische Sache und daher nicht
+so wichtig.
+
+> BTW was ist denn eigentlich mit dem Martin? 
+
+Im Forum hat er zwischenzeitlich mal irgendwo was gepostet, also war er
+prinzipiell mal online. Aber er ist oft ziemlich busy.
+
+Gru?,
+
+Thomas
+
+
+
+From martinhv at arcor.de  Sun Aug 16 20:28:45 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sun, 16 Aug 2009 20:28:45 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <1Masf1-05v6I40@fwd06.aul.t-online.de>
+Message-ID: <001e01ca1e9f$66f24ff0$1909a8c0@mhvnb10>
+
+Hallo Bj?rn, hallo Thomas, hallo Nils,
+
+> Das neue Layout ist fertig. Platine hat jetzt REV B
+>
+> @Martin: ich schicke die die Eagle-Files zu.
+
+Diese waren bereits am Dienstag angekommen.
+
+> Wenn Martin das Layout abgesegnet hat, sollte also den ersten
+> Leiterplatten nichts mehr im Wege stehen.
+
+Und ich habe es dann letzte Nacht auch geschafft, die PCB-Datei zu
+kontrollieren:
+
+> gerade habe ich den Schaltplan von Bj?rn hinsichtlich Steuerleitungen
+> genau mit meinem verglichen. Es ist alles korrekt.
+>
+> Also aus meiner Sicht kann die Platinenbestellung anrollen, Nils.
+
+Genau zu diesem Ergebnis komme ich auch. Alle Leitungen sind korrekt
+verbunden. Dabei sind mir zwei Sachen aufgefallen:
+
+@Bj?rn: Du hast zwei Eingang-Pins eines Gatters vom 74LS02 vertauscht. Das
+ist zwar richtig, jedoch macht das in meinen Augen das Layout ein wenig
+komplizierter. ?berhaupt h?tte man bestimmt noch etwas Feinschliff (meist
+nur f?r's Auge) machen k?nnen. Aber das wiederum ist ein anderes Thema.
+Alles in allem ist es doch gut gelungen. Auch dadurch, da? der 16pol. nun
+gegen einen 14pol. getauscht wurde, ist auf der rechten Seite etwas Platz
+entstanden, was das ganze auch aufgelockerte wirken l??t.
+
+@Thomas: Ich hatte Deinen Schaltplan als Referenz in Verbindung mit meinem
+Posting (Netzliste) und den zwei Fehlern nehmen wollen. Dabei fiel mir erst
+sehr sp?t auf, da? Du diesen im Listen-Archiv manipuliert hattest. Das
+gef?llt mir so eigentlich nicht, da der gesamte Tread nicht mehr richtig
+nachvollziehbar wird.
+
+@All: Auch w?rde ich es begr??en, wenn wir bei der Entwicklung ordentlich
+die Versionen und Daten anpassen. Ich meine, da? der Schaltplan von Thomas
+noch ein Datum vom Juli tr?gt. Das macht die Suche nach dem "Richtigen"
+etwas schwierig. Auch Bj?rns Eagle-Dateien beinhalten in der Regel keine
+Versionen (okay die letzte hatte zumindest eine Revision) oder Daten.
+Vielleicht k?nnten wir uns hier zuk?nftig auf einen Standard einigen.
+
+Ich w?re daf?r, da? jede ?nderung, die gravierend ist oder den Schreibtisch
+von einem Entwickler verl??t, eine neue Versionsnummer bekommt. Versionen,
+welche produktiv werden bekommen Revisionsbuchstaben, und au?erdem werden
+immer die aktuellen Daten angepa?t. Bei der Software macht man das doch auch
+so, oder?
+
+> Eine Kleinigkeit ist mir da noch aufgefallen: Du hast ja die Vias
+> extra gro? gemacht, damit ich sie bei einem Selbst?tzprototypen auch
+> bohren kann (0,6 mm). Wollen wir die so lassen oder noch auf 0,3
+> schrumpfen lassen, was denkt ihr? Ist ja eher eine optische Sache und
+> daher nicht so wichtig.
+
+Ich w?rde, wenn's machbar ist, und das zeigt das aktuelle Layout, die Werte
+auf 0,6 mm belassen. Dann hat man auch noch eine Chance eine defekte Platine
+zu reparieren oder gar ?nderungen durchzuf?hren. Ich sehe das also nicht als
+Bug sondern als Feature!
+
+>> BTW was ist denn eigentlich mit dem Martin?
+>
+> Im Forum hat er zwischenzeitlich mal irgendwo was gepostet, also war
+> er prinzipiell mal online. Aber er ist oft ziemlich busy.
+
+Sehr gut erkannt und kombiniert. Leider war's bei mir eine Verkettung von
+ungl?cklichen Zust?nden. Dienstag abend hatte ich einen beruflichen Einsatz.
+Diese Arbeiten mu?ten dann auch bis zum Vormittag des Mittwochs erledigt
+sein. Das brachte dann meinen Ablauf f?r die vergangene Woche etwas
+durcheinander. Tja, und dann war da noch der Freitag, wo ich versuchte
+wieder einen geordneten Tagesablauf hinzubekommen. Aber auch da machte mir
+jemand einen Strich durch die Rechnung. Ich war ?ber Nacht erkrankt und
+konnte kaum aus dem Bett. Aber auch davon hatte ich mich gestern abend gut
+erholt - war selber dar?ber ?berrascht. Und dann eine der n?chsten
+Katastrophen, ich hatte Probleme mit meinen Mails. Lesen war m?glich, aber
+senden nicht. Okay, das habe ich (hoffentlich) nun auch wieder im Griff und
+kann den obigen Erfolg vermelden. Den restlichen kleinen Katastrophen
+versuche ich noch in den folgenden Tagen Herr zu werden.
+
+Tja, manchmal geht's eben anders als mal's denkt.
+
+Ich hoffe, Ihr seid mir nicht b?se. Ich gelobe auch Besserung.
+
+@Nils in Kurzform: Auch von mir eine Freigabe f?r die Platinen zur REV B!
+
+Sonnt?gliche Gr??e
+
+Martin
+
+
+
+From skoe at directbox.com  Sun Aug 16 21:20:41 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 16 Aug 2009 21:20:41 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <001e01ca1e9f$66f24ff0$1909a8c0@mhvnb10>
+References: <1Masf1-05v6I40@fwd06.aul.t-online.de>
+	<001e01ca1e9f$66f24ff0$1909a8c0@mhvnb10>
+Message-ID: <20090816212041.2072efa3@akoya>
+
+
+Hi Martin,
+
+> @Thomas: Ich hatte Deinen Schaltplan als Referenz in Verbindung mit
+> meinem Posting (Netzliste) und den zwei Fehlern nehmen wollen. Dabei
+> fiel mir erst sehr sp?t auf, da? Du diesen im Listen-Archiv
+> manipuliert hattest. Das gef?llt mir so eigentlich nicht, da der
+> gesamte Tread nicht mehr richtig nachvollziehbar wird.
+
+Was meinst Du? Ich hab eigentlich seit vielen Wochen nichts mehr im
+Archiv gemacht. Das letzte mal war, als ich die Sache mit der
+Leiterplattenbestellung gel?scht hatte.
+
+Vielleicht hat es Dir die Sache schwierig gemacht, dass nicht alle
+Mails richtig in die Threads einsortiert werden. Das liegt daran, dass
+verschiedene Mail-Clients verschiedene Spuren (z.B. Message IDs) zum
+Sortieren hinterlassen. Ich seh da auch nicht ganz durch.
+
+Deswegen f?nde ich es besser, f?r neue Themen auch einen neuen Thread
+zu starten.
+
+> Ich meine, da? der
+> Schaltplan von Thomas noch ein Datum vom Juli tr?gt.
+
+Nanu? Eigentlich setzt doch KiCad dort immer das Datum der letzten
+?nderung ein. Aber zus?tzlich schreibe ich seit einigen Wochen per Hand
+eine Versionsnummer auf den Schaltplan (habe gestern auch die Stelle in
+Kicad gefunden, an der man es "richtig" macht). Die aktuelle Version
+ist die 1.4.0. Die letzten ?nderungen sind auch in hg archiviert.
+Vorher hatte ich das da noch nicht hingepackt, weil der Stand noch
+nicht "stabil" war.
+
+> Ich w?re daf?r, da? jede ?nderung, die gravierend ist oder den
+> Schreibtisch von einem Entwickler verl??t, eine neue Versionsnummer
+> bekommt. 
+
+Genau. Schaltplan 1.4.0 ;) Zweite Stelle wesentliche ?nderungen (139er
+raus), dritte Stelle f?r kleinere Fehlerbehebungen und Kosmetik.
+
+> Aber auch da machte mir jemand einen
+> Strich durch die Rechnung. Ich war ?ber Nacht erkrankt und konnte
+> kaum aus dem Bett. Aber auch davon hatte ich mich gestern abend gut
+> erholt - war selber dar?ber ?berrascht.
+
+So eine Sommergrippe? Die gehen manchmal so schnell, wie sie gekommen
+sind. Sch?n, dass es Dir wieder besser geht.
+
+> Ich hoffe, Ihr seid mir nicht b?se. Ich gelobe auch Besserung.
+
+Kein Problem.
+
+Gru?,
+
+Thomas
+
+
+
+From martinhv at arcor.de  Sun Aug 16 21:34:55 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sun, 16 Aug 2009 21:34:55 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <20090816212041.2072efa3@akoya>
+Message-ID: <001f01ca1ea8$a2393e80$1909a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> Was meinst Du? Ich hab eigentlich seit vielen Wochen nichts mehr im
+> Archiv gemacht. Das letzte mal war, als ich die Sache mit der
+> Leiterplattenbestellung gel?scht hatte.
+
+Okay, Du hast nat?rlich Recht. Irgendwie hatte ich den ?berblick ?ber die Versionen verloren. Jetzt wo ich mir das noch einmal ansehe scheint es zu stimmen. Vielleicht hatte auch mein Acrobat mal wieder gesponnen.
+
+REV B mit Fehler gepostet 09.08.2009 01:17 Rev. 1.4.0 Datum im Schaltbild 03.07.2009
+REV B ohne Fehler gepostet 09.08.2009 22:08 Rev. 1.4.0 Datum im Schaltbild 03.07.2009
+
+> Vielleicht hat es Dir die Sache schwierig gemacht, dass nicht alle
+> Mails richtig in die Threads einsortiert werden. Das liegt daran, dass
+> verschiedene Mail-Clients verschiedene Spuren (z.B. Message IDs) zum
+> Sortieren hinterlassen. Ich seh da auch nicht ganz durch.
+
+Das ist mir auch schon aufgefallen.
+
+> Deswegen f?nde ich es besser, f?r neue Themen auch einen neuen Thread
+> zu starten.
+
+Ich auch!
+
+> Nanu? Eigentlich setzt doch KiCad dort immer das Datum der letzten
+> ?nderung ein.
+
+Hmm, dann stimmt Deine Uhr nicht richtig. Beide Versionen tragen den 03.07.2009 drin.
+
+> Aber zus?tzlich schreibe ich seit einigen Wochen per
+> Hand eine Versionsnummer auf den Schaltplan (habe gestern auch die
+> Stelle in Kicad gefunden, an der man es "richtig" macht). Die
+> aktuelle Version ist die 1.4.0.
+
+Tja, neben der aktuellen Version auch die mit den Fehlern drin. Das ist nicht sehr praktisch!
+
+> Die letzten ?nderungen sind auch in
+> hg archiviert.
+
+Okay, da h?tte ich nat?rlich auch nachsehen k?nnen. Danke f?r den Tip.
+
+> Genau. Schaltplan 1.4.0 ;) Zweite Stelle wesentliche ?nderungen (139er
+> raus), dritte Stelle f?r kleinere Fehlerbehebungen und Kosmetik.
+
+Das klingt gut und mit meiner Idee ?berein. Aber bei der Gelegenheit vielleicht noch etwas: Sollten wir neben der Rev auch noch die Version mit auf die Platine schreiben? Dann sollte Bj?rn das noch schnell nachlegen!
+
+> So eine Sommergrippe? Die gehen manchmal so schnell, wie sie gekommen
+> sind. Sch?n, dass es Dir wieder besser geht.
+
+M?glich, so ganz wei? ich das nicht. Aber ich freue mich auch wieder, mich bewegen zu k?nnen, keinen schweren Kopf zu haben und klar denken zu k?nnen.
+
+Gru? Martin
+
+
+
+From skoe at directbox.com  Sun Aug 16 22:10:11 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sun, 16 Aug 2009 22:10:11 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <001f01ca1ea8$a2393e80$1909a8c0@mhvnb10>
+References: <20090816212041.2072efa3@akoya>
+	<001f01ca1ea8$a2393e80$1909a8c0@mhvnb10>
+Message-ID: <20090816221011.654afd39@akoya>
+
+
+Hi Ihr,
+
+> > Nanu? Eigentlich setzt doch KiCad dort immer das Datum der letzten
+> > ?nderung ein.
+> 
+> Hmm, dann stimmt Deine Uhr nicht richtig. Beide Versionen tragen den
+> 03.07.2009 drin.
+
+Komisch. Seit diesem Tag muss an meinem KiCad irgendwas anders
+sein. Hab's gerade nochmal probiert: Das Datum ?ndert sich nicht,
+selbst, wenn ich ein Bauelement hinzuf?ge. Zum Gl?ck benutzt Kicad ein
+reines Textformat, so konnte ich das Problem beheben, ohne den
+richtigen Knopf zu finden.
+
+> > Aber zus?tzlich schreibe ich seit einigen Wochen per
+> > Hand eine Versionsnummer auf den Schaltplan (habe gestern auch die
+> > Stelle in Kicad gefunden, an der man es "richtig" macht). Die
+> > aktuelle Version ist die 1.4.0.
+> 
+> Tja, neben der aktuellen Version auch die mit den Fehlern drin. Das
+> ist nicht sehr praktisch!
+
+Du hast recht, das h?tte eine 1.4.1 sein sollen.
+
+Also habe ich jetzt nochmal einen inhaltlich identischen Schaltplan
+commited. Auf dem ist das Datum auf heute gesetzt und die
+Versionsnummer auf 1.4.1. Und da ich die richtigen Eingabefelder daf?r
+gefunden habe, jetzt auch nicht mehr als r?bergemaltes Label.
+
+http://hg.berlios.de/repos/easyflash/file/1802b435d2ea/Hardware/kicad-logic-tht/easyflash.pdf
+
+Man kann sich durch das Klartextformat die ?nderungen im Schaltplan
+auch als diff ansehen:
+
+http://hg.berlios.de/repos/easyflash/diff/1802b435d2ea/Hardware/kicad-logic-tht/easyflash.sch
+
+> > Die letzten ?nderungen sind auch in
+> > hg archiviert.
+> 
+> Okay, da h?tte ich nat?rlich auch nachsehen k?nnen. Danke f?r den Tip.
+
+Wobei einmal ein commit dazwischen ist, bei dem der Kommentar gar
+nichts mit der Hardware zu tun hat. Das war ein versehen, die Datei
+wollte ich eigentlich au?en vor lassen. Nur falls Du Dich wunderst.
+ 
+> Das klingt gut und mit meiner Idee ?berein. Aber bei der Gelegenheit
+> vielleicht noch etwas: Sollten wir neben der Rev auch noch die
+> Version mit auf die Platine schreiben? Dann sollte Bj?rn das noch
+> schnell nachlegen!
+
+Zahlen f?r Schaltplan und Buchstaben f?r (offizielle) Layouts, klingt
+doch gut. Bj?rn: Wenn Du Lust hast (!), kannst Du ja noch den
+Schaltplan 1.4.1 auf dem Board vermerken. Aber falls Nils die Daten
+schon hat und ihr alles abgesprochen habt, kann das nat?rlich auch so
+bleiben.
+
+Gru?,
+
+Thomas
+
+
+
+From Bps_of_Tbm at t-online.de  Mon Aug 17 03:33:03 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Mon, 17 Aug 2009 03:33:03 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?EasyFlash_Beta-Test?=
+In-Reply-To: <20090816221011.654afd39@akoya>
+References: <20090816212041.2072efa3@akoya>
+	<001f01ca1ea8$a2393e80$1909a8c0@mhvnb10>
+	<20090816221011.654afd39@akoya>
+Message-ID: <1Mcr5r-25ixUW0@fwd03.aul.t-online.de>
+
+>Zahlen f?r Schaltplan und Buchstaben f?r (offizielle) Layouts, klingt
+>doch gut. Bj?rn: Wenn Du Lust hast (!), kannst Du ja noch den
+>Schaltplan 1.4.1 auf dem Board vermerken. Aber falls Nils die Daten
+>schon hat und ihr alles abgesprochen habt, kann das nat?rlich auch so
+>bleiben.
+
+Hallo,
+
+ich hatte das irgendwie im Gef?hl das ich noch etwas warten sollte mit
+dem
+Versenden ;)
+
+Also: Ich trage im Schaltplan die Version 1.4.1 ein.
+Auf dem Board wird stehen: VER 1.4.1 REV B
+
+Die Dateinamen der Eagle-Dateien werde ich in Zukunft so formatieren:
+
+EasyFlash 1.4.1 REV B.sch sowie das gleiche f?r .brd
+
+Wenn Ihr damit Einverstanden seit schicke ich dem Nils die Dateien zu.
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From skoe at directbox.com  Mon Aug 17 08:54:34 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 17 Aug 2009 08:54:34
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+Message-ID: <0E0407D9081106362387@directbox.com>
+
+Hi alle,
+
+> ich hatte das irgendwie im Gef?hl das ich noch etwas warten sollte mit
+> dem
+> Versenden ;)
+
+Tendenziell wird man ja nie 100% fertig ;)
+
+> Wenn Ihr damit Einverstanden seit schicke ich dem Nils die Dateien zu.
+
+Jup!
+
+Gru?,
+
+Thomas
+
+
+
+
+From martinhv at arcor.de  Mon Aug 17 13:52:52 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Mon, 17 Aug 2009 13:52:52 +0200
+Subject: [EasyFlash-devel] EasyFlash Beta-Test
+In-Reply-To: <1Mcr5r-25ixUW0@fwd03.aul.t-online.de>
+Message-ID: <001601ca1f31$411b09b0$1909a8c0@mhvnb10>
+
+Hallo Bj?rn,
+
+> Also: Ich trage im Schaltplan die Version 1.4.1 ein.
+> Auf dem Board wird stehen: VER 1.4.1 REV B
+
+Super!
+
+> Die Dateinamen der Eagle-Dateien werde ich in Zukunft so formatieren:
+>
+> EasyFlash 1.4.1 REV B.sch sowie das gleiche f?r .brd
+
+Ja, damit d?rfte ein wenig Ordnung reinkommen. Wobei die Versionen des
+Layouts noch eine weitere Stelle bekommen m??ten. Da waren wir immer noch
+einem Schaltplan (Version 1.4.1) ausgegangen und haben dann Schritt f?r
+Schritt weiterentwickelt. Also m??te das Layout (.BRD) selbst die 1.4.1.0
+tragen.
+
+> Wenn Ihr damit Einverstanden seit schicke ich dem Nils die Dateien zu.
+
+Klar!
+
+Gru? Martin
+
+
+
+From nils.eilers at gmx.de  Mon Aug 17 22:37:18 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Mon, 17 Aug 2009 22:37:18 +0200
+Subject: [EasyFlash-devel] Platinen sind bestellt!
+Message-ID: <4A89BF7E.5050507@gmx.de>
+
+Hallo liebe Entwicklergemeinde,
+
+heute k?nnen wir uns alle ein Bier aufmachen.
+20 Platinen Easyflash 1.4.1 REV B sind bestellt!
+
+Getr?bt wird die Freude etwas dadurch, dass PCBCART die Preise erh?ht 
+hat und insbesondere das Tooling deutlich teurer berechnet hat, als sie 
+das zum Zeitpunkt der Erstellung der Kalkulation angegeben haben. Anbei 
+ein Screenshot der Daten.
+Da das Easyflash mega-knapp kalkuliert ist, werde ich die Mehrkosten 
+umlegen m?ssen - wird aber nicht die Welt sein.
+Jetzt, wo das Layout und damit die verwendeten Teile fest stehen, werde 
+ich die Teile bestellen und dann nochmal neu rechnen.
+
+An dieser Stelle ein gro?es Lob f?r Bj?rn, der ein wundersch?nes 
+"oldschool-layout" gezaubert hat und an alle anderen, die daran 
+arbeiten! Ich freue mich schon und bin sehr gespannt!
+
+Viele Gr??e,
+Nils
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Easyflash_1.4.1_rB_Auftrag.png
+Type: image/png
+Size: 67515 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/easyflash-devel/attachments/20090817/fb08b265/attachment.png>
+
+From skoe at directbox.com  Mon Aug 17 22:52:29 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Mon, 17 Aug 2009 22:52:29 +0200
+Subject: [EasyFlash-devel] Platinen sind bestellt!
+In-Reply-To: <4A89BF7E.5050507@gmx.de>
+References: <4A89BF7E.5050507@gmx.de>
+Message-ID: <20090817225229.7841c165@akoya>
+
+
+Hi Nils,
+
+> 20 Platinen Easyflash 1.4.1 REV B sind bestellt!
+
+Sch?n, bin schon ganz aufgeregt ;)
+
+> Getr?bt wird die Freude etwas dadurch, dass PCBCART die Preise erh?ht 
+> hat und insbesondere das Tooling deutlich teurer berechnet hat, als
+> sie das zum Zeitpunkt der Erstellung der Kalkulation angegeben haben.
+
+Tja, so ist das, wenn man der Inflation hinterherentwickelt :)
+
+Gut, dass die HW-Entwicklung endlich abgeschlossen ist. War
+interessant, aber langwierig. 
+
+Momentan sitze ich ?brigens gerade an EasyProg und baue einen
+einfachen Filebrowser zum ?ffnen der CRT-Datei ein. Wenn's was zu sehen
+gibt, melde ich mich.
+
+Gru?,
+
+Thomas
+
+
+
+From Bps_of_Tbm at t-online.de  Mon Aug 17 23:03:33 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Mon, 17 Aug 2009 23:03:33 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Platinen_sind_bestellt!?=
+In-Reply-To: <4A89BF7E.5050507@gmx.de>
+References: <4A89BF7E.5050507@gmx.de>
+Message-ID: <1Md9Mb-0qv5Yu0@fwd00.aul.t-online.de>
+
+>Hallo liebe Entwicklergemeinde,
+>
+>heute k?nnen wir uns alle ein Bier aufmachen.
+>20 Platinen Easyflash 1.4.1 REV B sind bestellt!
+
+Danke auch an Dir Nils,
+f?r deinen grossartigen Einsatz an der Commodorefront
+und nat?rlich auch den anderen Entwicklern.
+
+Besonders gef?llt mir die reibungslose Zusammenarbeit
+aller Beteiligten ?ber das Net, das ist eine Sache die
+im Real Life so nicht passiert und Erfahrungsgem?ss 
+im Vorfeld kaputtgeredet wird.
+
+Daher ein Prost an alle.
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From nils.eilers at gmx.de  Thu Aug 20 23:25:03 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Thu, 20 Aug 2009 23:25:03 +0200
+Subject: [EasyFlash-devel] Platinen sind bestellt!
+In-Reply-To: <4A89BF7E.5050507@gmx.de>
+References: <4A89BF7E.5050507@gmx.de>
+Message-ID: <4A8DBF2F.9010800@gmx.de>
+
+Hallo Easyflash-Freunde,
+
+> Da das Easyflash mega-knapp kalkuliert ist, werde ich die Mehrkosten 
+> umlegen m?ssen - wird aber nicht die Welt sein.
+> Jetzt, wo das Layout und damit die verwendeten Teile fest stehen, werde 
+> ich die Teile bestellen und dann nochmal neu rechnen.
+
+"Widersprechen Sie niemals einer Frau, warten Sie einfach, bis sie es 
+sich selbst tut."
+
+Ich habe eben noch einmal die Preise nach der unsch?nen 
+PCB-Cart-Preiserh?hung durchgerechnet. Der break-even verschiebt sich 
+nat?rlich weiter nach hinten, aber ich halte es f?r "psychologisch 
+wichtig" den Preis zu halten. Ich werde einen ganzen Haufen verkaufen 
+m?ssen, bis das EF anf?ngt, andere Kosten (wie Webspace) mitzutragen, 
+aber ich denke, das k?nnte klappen.
+
+Mit anderen Worten: es gibt KEINE Preiserh?hungen, die bislang 
+kommunizierten Preise bleiben stabil, bis auf das Geh?use, was ich 10 
+Cent BILLIGER machen m?chte:
+
+  5,50 EUR Platine
++9,40 EUR Teilesatz
+------------------
+=14,90 EUR Bausatz ohne Geh?use
+
++5,00 EUR Modulgeh?use
+=19,90 EUR f?r einen Komplett-Bausatz
+=====================================
+
+Viele Gr??e,
+Nils
+
+
+
+From skoe at directbox.com  Thu Aug 20 23:59:09 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Thu, 20 Aug 2009 23:59:09 +0200
+Subject: [EasyFlash-devel] =?utf-8?q?Kompatibilit=C3=A4tsliste?=
+Message-ID: <20090820235909.0c513252@akoya>
+
+
+Hallo,
+
+dort habe ich eine angefangen, eine Liste zu machen:
+
+http://skoe.de/easyflash/index.php?page=compatibility
+
+Weil die im Moment aus Zeitgr?nden recht kurz ist, poste ich das
+erstmal nur hier. Ich flashe jedes der Module und spiele kurz rein. Das
+flashen geht zu schnell, als das man inzwischen was anderes machen
+k?nnte und dauert zu lange, als das man die Module alle hintereinander
+reinknallen k?nnte.
+
+Gru?,
+
+Thomas
+
+
+
+From skoe at directbox.com  Fri Aug 28 13:50:05 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Fri, 28 Aug 2009 13:50:05
+Subject: [EasyFlash-devel] Die weite Welt
+Message-ID: <106C07D9081C0B3205235@directbox.com>
+
+
+Hallo alle,
+
+Langsam spricht es sich rum:
+http://noname.c64.org/csdb/release/?id=82073 (das war ich, der Rest nicht)
+http://www.lemon64.com/forum/viewtopic.php?t=31188&highlight=easyflash
+http://folkvagn.commodore64.org/phpbb/viewtopic.php?t=4174&highlight=easyflash
+http://www.c64scene.pl/viewtopic.php?t=163&postdays=0&postorder=asc&start=15
+http://retrohackers.com/viewtopic.php?f=14&t=517&hilit=easyflash
+
+Nils, darf man schon Links auf Deinen Online-Shop verteilen? Kann man
+die Info "ca. 15 Euro ohne / ca. 20 Euro mit" auch schon ank?ndigen?
+Ich w?rde alles mit "probably" und "soon" relativieren.
+Denkst Du, dass Du auch in's Ausland verschicken wirst?
+
+Gru?,
+
+Thomas
+
+
+
+
+From subzero1 at web.de  Fri Aug 28 14:42:02 2009
+From: subzero1 at web.de (s)
+Date: Fri, 28 Aug 2009 14:42:02 +0200
+Subject: [EasyFlash-devel] Die weite Welt
+References: <106C07D9081C0B3205235@directbox.com>
+Message-ID: <95D1E9CD07624D32B61D33B4FB9D1260@subzero>
+
+Das ist ja mal was. Hat ja richtig anklang gefunden.
+Kann es ja kaum schon erwarten das easyflash in meiner hand zu halten. War 
+von Anfang an davon ?berzeugt.
+
+@thomas: Logo fertig?
+
+gruss sven
+
+
+
+----- Original Message ----- 
+From: "Thomas Giesel" <skoe at directbox.com>
+To: <easyflash-devel at lists.berlios.de>
+Sent: Friday, August 28, 2009 1:50 PM
+Subject: [EasyFlash-devel] Die weite Welt
+
+
+
+Hallo alle,
+
+Langsam spricht es sich rum:
+http://noname.c64.org/csdb/release/?id=82073 (das war ich, der Rest nicht)
+http://www.lemon64.com/forum/viewtopic.php?t=31188&highlight=easyflash
+http://folkvagn.commodore64.org/phpbb/viewtopic.php?t=4174&highlight=easyflash
+http://www.c64scene.pl/viewtopic.php?t=163&postdays=0&postorder=asc&start=15
+http://retrohackers.com/viewtopic.php?f=14&t=517&hilit=easyflash
+
+Nils, darf man schon Links auf Deinen Online-Shop verteilen? Kann man
+die Info "ca. 15 Euro ohne / ca. 20 Euro mit" auch schon ank?ndigen?
+Ich w?rde alles mit "probably" und "soon" relativieren.
+Denkst Du, dass Du auch in's Ausland verschicken wirst?
+
+Gru?,
+
+Thomas
+
+
+_______________________________________________
+EasyFlash-devel mailing list
+EasyFlash-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/easyflash-devel 
+
+
+
+From skoe at directbox.com  Sat Aug 29 20:30:35 2009
+From: skoe at directbox.com (Thomas Giesel)
+Date: Sat, 29 Aug 2009 20:30:35 +0200
+Subject: [EasyFlash-devel] Easyflash im IRC und anderes
+Message-ID: <20090829203035.435d5155@akoya>
+
+
+Hallo alle,
+
+obwohl ich ein IRC-Dummy bin, hab ich jetzt mal den channel #easyflash
+aufgemacht.
+
+Wer also von Euch Lust hat, kann mal vorbeischauen. Wer IRC noch nicht
+benutzt hat: Client runterladen, mit freenode.net verbinden,
+irgendeinen Namen w?hlen, Mit Kanal #easyflash verbinden.
+
+@Bj?rn: Hab Deine Leiterplatte auf mikrocontroller.net gesehen. Kam ja
+sehr gut an. Na dann kann mal nur sagen: Ehre, wem Ehre geb?hrt. Ist ja
+wirklich ein tolles Layout geworden.
+
+Apropos Ehre: Auf der Seite m?chte ich, wie versprochen, die Mitmacher
+aufz?hlen. Bitte sagt mir, wie ihr dort genannt werden wollt. Ich werde
+"Thomas 'skoe' Giesel" w?hlen. Also, Alex, for(;;), HofMar, JMP$FCE2,
+meldet Euch bei mir. SubZero: Mal sehen, ob's klappt, dann bist Du auch
+dabei ;)
+
+Na dann, bis bald,
+
+Thomas
+
+
+
+From martinhv at arcor.de  Sat Aug 29 23:07:10 2009
+From: martinhv at arcor.de (Hoffmann-Vetter, Martin)
+Date: Sat, 29 Aug 2009 23:07:10 +0200
+Subject: [EasyFlash-devel] Easyflash im IRC und anderes
+In-Reply-To: <20090829203035.435d5155@akoya>
+Message-ID: <00ac01ca28ec$acd2ced0$1909a8c0@mhvnb10>
+
+Hallo Thomas,
+
+> Apropos Ehre: Auf der Seite m?chte ich, wie versprochen, die Mitmacher
+> aufz?hlen. Bitte sagt mir, wie ihr dort genannt werden wollt. Ich
+> werde "Thomas 'skoe' Giesel" w?hlen. Also, Alex, for(;;), HofMar,
+> JMP$FCE2, meldet Euch bei mir. SubZero: Mal sehen, ob's klappt, dann
+> bist Du auch dabei ;)
+
+Nenne mich lieber einfach mit richtigen Namen: Martin Hoffmann-Vetter
+
+Der ist schon lang genug, da braucht es keine Erweiterung! ;-)
+
+Danke und Gru?
+
+Martin
+
+
+
+
+From Bps_of_Tbm at t-online.de  Sun Aug 30 01:11:59 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Sun, 30 Aug 2009 01:11:59 +0200
+Subject: [EasyFlash-devel] =?iso-8859-15?q?Easyflash_im_IRC_und_anderes?=
+In-Reply-To: <20090829203035.435d5155@akoya>
+References: <20090829203035.435d5155@akoya>
+Message-ID: <1MhX5T-0JHthI0@fwd05.aul.t-online.de>
+
+>Apropos Ehre: Auf der Seite m?chte ich, wie versprochen, die Mitmacher
+>aufz?hlen. Bitte sagt mir, wie ihr dort genannt werden wollt. Ich werde
+>"Thomas 'skoe' Giesel" w?hlen. Also, Alex, for(;;), HofMar, JMP$FCE2,
+>meldet Euch bei mir. SubZero: Mal sehen, ob's klappt, dann bist Du auch
+>dabei ;)
+
+Ich habe kein Problem damit wenn Du "Bj?rn 'JMP$FCE2'  Wieck "
+schreibst.
+
+Gr??e
+Bj?rn
+
+
+
+
+
+From nils.eilers at gmx.de  Sun Aug 30 01:18:42 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Sun, 30 Aug 2009 01:18:42 +0200
+Subject: [EasyFlash-devel] Die weite Welt
+In-Reply-To: <106C07D9081C0B3205235@directbox.com>
+References: <106C07D9081C0B3205235@directbox.com>
+Message-ID: <4A99B752.3080905@gmx.de>
+
+> Nils, darf man schon Links auf Deinen Online-Shop verteilen? Kann man
+> die Info "ca. 15 Euro ohne / ca. 20 Euro mit" auch schon ank?ndigen?
+> Ich w?rde alles mit "probably" und "soon" relativieren.
+> Denkst Du, dass Du auch in's Ausland verschicken wirst?
+
+Den Link kannst Du gerne auch jetzt schon verteilen. Vielleicht sollte 
+ich eine "Vorank?ndigung" aufnehmen, die mich vor Fragen bewahrt, wann 
+wie wo usw. man es dann auch bekommen kann.
+Kaufen wird man es aber erst k?nnen, wenn es von Dir (skoe) freigegeben ist.
+
+Die Preise solltest Du nur als "Gr??enordnung" nennen, wobei ich alles 
+tun werde, was ich kann, um die Preise unten zu halten.
+Da ich aber nicht garantieren kann, dass keine ?nderungen an der 
+Hardware n?tig oder sinnvoll werden, oder PCBCART die Preise stabil 
+h?lt, kann ich heute auch keinen Preis garantieren. Gravierend wird sich 
+  aber wohl nichts ?ndern, von daher passt der Preis mit einem "ca." 
+davor schon.
+
+Ich versende auch in's Ausland und auch das recht g?nstig mit 7,55 Euro 
+innerhalb Europas und 10,60 Euro in das au?ereurop?ische Ausland.
+Ggfs. anfallende Einfuhrsteuern und Z?lle sind dabei Sache des K?ufers.
+Zahlung nur per Vorkasse ?ber Paypal oder innerhalb der EU ?ber 
+IBAN/BIC-?berweisung, PayPal-Geb?hren trage ich.
+Steht auch alles hier: http://www.for8bits.com/agb
+Eine englische Fassung von for8bits.com ist angedacht, wird aber noch 
+dauern. Das deutsche Rechtsprechung sieht "ganz oder gar nicht" vor, ich 
+d?rfte also z.B. nicht nur die Bestellseite ?bersetzen, die AGB aber 
+nicht - das ist nat?rlich mit einigem Aufwand verbunden.
+
+
+
+
+From nils.eilers at gmx.de  Sun Aug 30 01:22:00 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Sun, 30 Aug 2009 01:22:00 +0200
+Subject: [EasyFlash-devel] Easyflash im IRC und anderes
+In-Reply-To: <20090829203035.435d5155@akoya>
+References: <20090829203035.435d5155@akoya>
+Message-ID: <4A99B818.7080406@gmx.de>
+
+> Apropos Ehre: Auf der Seite m?chte ich, wie versprochen, die Mitmacher
+> aufz?hlen. Bitte sagt mir, wie ihr dort genannt werden wollt. Ich werde
+> "Thomas 'skoe' Giesel" w?hlen. Also, Alex, for(;;), HofMar, JMP$FCE2,
+> meldet Euch bei mir. 
+
+Nils 'for(;;)' Eilers
+
+
+
+From nils.eilers at gmx.de  Sun Aug 30 01:36:53 2009
+From: nils.eilers at gmx.de (Nils Eilers)
+Date: Sun, 30 Aug 2009 01:36:53 +0200
+Subject: [EasyFlash-devel] Easyflash in mikrocontroller.net und anderswo
+In-Reply-To: <20090829203035.435d5155@akoya>
+References: <20090829203035.435d5155@akoya>
+Message-ID: <4A99BB95.9070906@gmx.de>
+
+> @Bj?rn: Hab Deine Leiterplatte auf mikrocontroller.net gesehen. Kam ja
+> sehr gut an. Na dann kann mal nur sagen: Ehre, wem Ehre geb?hrt. Ist ja
+> wirklich ein tolles Layout geworden.
+
+Ich habe es dort trotz Suchens nicht gefunden - ist jemand so lieb und 
+schickt mir einen Link?
+Wenn weitere Links auf andere Foren zum Thema Easyflash folgen w?rden, 
+w?rde mich das auch sehr freuen!
+
+
+
+From Bps_of_Tbm at t-online.de  Sun Aug 30 01:59:37 2009
+From: Bps_of_Tbm at t-online.de (Bps_of_Tbm at t-online.de)
+Date: Sun, 30 Aug 2009 01:59:37 +0200
+Subject: [EasyFlash-devel]
+ =?iso-8859-15?q?Easyflash_in_mikrocontroller=2E?=
+ =?iso-8859-15?q?net_und_anderswo?=
+In-Reply-To: <4A99BB95.9070906@gmx.de>
+References: <20090829203035.435d5155@akoya> <4A99BB95.9070906@gmx.de>
+Message-ID: <1MhXpZ-1hSWv20@fwd01.aul.t-online.de>
+
+http://www.mikrocontroller.net/topic/136702#new
+
+
+>Ich habe es dort trotz Suchens nicht gefunden - ist jemand so lieb und 
+>schickt mir einen Link?
+
+
+
+
+

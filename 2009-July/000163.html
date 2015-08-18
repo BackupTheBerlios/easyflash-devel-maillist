@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Steil bergauf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C001501ca09ee%24e51a1a40%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000164.html">
+   <LINK REL="Next"  HREF="000157.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Steil bergauf</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Steil%20bergauf&In-Reply-To=%3C001501ca09ee%24e51a1a40%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Steil bergauf">martinhv at arcor.de
+       </A><BR>
+    <I>Tue Jul 21 12:34:41 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000164.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+        <LI>Next message: <A HREF="000157.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Thomas,
+
+&gt;&gt;<i> Wenn ich mich richtig erinnere waren beim PET wesentlich weniger
+</I>&gt;&gt;<i> Sprungvektoren
+</I>&gt;<i>
+</I>&gt;<i> Das stimmt, die Tabelle wurde mit sp&#228;teren Rechnern immer gr&#246;&#223;er.
+</I>
+War das wirklich der einzige Unterschied? Ich meine, es hatten auch einzelne
+Vektoren neue Aufgaben bekommen. Aber dazu mu&#223; ich viel heraussuchen, was
+ich mir in diesem Moment gerne sparen w&#252;rde. Wenn ich's nicht vergesse,
+komme ich mal wieder darauf zur&#252;ck.
+
+&gt;<i> Du wei&#223;t doch jetzt, wie man Eagle bedient :-) Die Chips sollten
+</I>&gt;<i> leicht aufzutreiben/nachzubilden sein :-)
+</I>
+Ich gehe davon aus, da&#223; unser Modul auch auf dem MAX laufen wird! ;-)
+
+&gt;<i> Genau das wird das Problem sein, was ich auch in meinen Start-Up-Code
+</I>&gt;<i> f&#252;r normale Module beachten muss: Der KERNAL initialisiert eben das
+</I>&gt;<i> System *anders*, als es ein Hardware-Reset tut. Und das ist das
+</I>&gt;<i> gleiche mit Deinem init-Code.
+</I>
+Daher sollten evtl. &#196;nderungen im Bootloader auch wieder r&#252;ckg&#228;ngig gemacht
+werden. Also alle DDRx auf Eingang und auch die DRx der CIA wieder auf 0
+setzen.
+
+&gt;<i> &#220;ber den genauen Reset-Zustand der Chips k&#246;nnten die Datenbl&#228;tter
+</I>&gt;<i> informieren oder evtl. der Vice-Emulator. Das mit dem DDR/DPx ist
+</I>&gt;<i> eine Vermutung von mir, weil das die &#252;bliche Reset-Belegung von I/O
+</I>&gt;<i> Chips ist. M&#252;sste man &#252;berpr&#252;fen.
+</I>
+Sehe ich genauso. Kann's jetzt nicht beweisen, meine es aber mal gelesen zu
+haben.
+
+&gt;<i> Ich sollte also in meinem Start-Up-Code m&#246;glichst gar nichts machen.
+</I>
+Bzw. nur das, was Du ben&#246;tigst (Tastatur abfragen) und dann aber auch wieder
+r&#252;ckg&#228;ngig machen!
+
+&gt;&gt;&gt;<i> Stimmt, also k&#246;nnte man auf &gt;=$8000 abtesten. Das sollte sehr
+</I>&gt;&gt;&gt;<i> einfach mit BMI gehen.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Ja, versuch ich spaeter mal.
+</I>&gt;<i>
+</I>&gt;<i> Ich finde das unzureichend.
+</I>
+Meine ich auch, aber das w&#228;re ein erster Ansatz!
+
+&gt;<i> Hier sollte auf alle F&#228;lle eine
+</I>&gt;<i> semantische Code-Analyse gemacht werden. Wenn man Schleifen und
+</I>&gt;<i> Spr&#252;nge vektorisiert sollte das recht einfach sein :-P
+</I>
+Das war auch meine erste Idee. Nach dem RESET kommen (fast) immer
+Kodefragmente mit TXS, CLD und SEI vor. Diese Bytes k&#246;nnte man in den ersten
+16 Bytes nach dem Reset-Vektor suchen.
+
+&gt;<i> Martin, hier schie&#223;t Du ein bisschen
+</I>&gt;<i> &#252;ber's Ziel hinaus, oder?
+</I>
+Okay, Du hast mich &#252;berzeugt!
+
+&gt;<i> Schonmal daran gedacht, dass beim Lesen
+</I>&gt;<i> eines defekten oder nicht vorhandenen ROMs die Wahrscheinlichkeit,
+</I>&gt;<i> dort einen Vektor zw. $8000 und $ffff zu lesen 50% oder sogar h&#246;her
+</I>&gt;<i> ist?
+</I>
+Ich hatte es gewu&#223;t aber wiederum bewu&#223;t versucht zu verdr&#228;ngen. Bis eben
+erfolgreich. Danke, da&#223; Du mich wieder auf den Boden der Tatsachen
+zur&#252;ckgeholt hast.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000164.html">[EasyFlash-devel] Steil bergauf
+</A></li>
+	<LI>Next message: <A HREF="000157.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

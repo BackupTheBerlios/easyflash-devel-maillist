@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Easyflash-devel] C128 unter Kontrolle
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyflash-devel%5D%20C128%20unter%20Kontrolle&In-Reply-To=%3C000301c9f055%24c9614010%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Easyflash-devel] C128 unter Kontrolle</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyflash-devel%5D%20C128%20unter%20Kontrolle&In-Reply-To=%3C000301c9f055%24c9614010%241909a8c0%40mhvnb10%3E"
+       TITLE="[Easyflash-devel] C128 unter Kontrolle">martinhv at arcor.de
+       </A><BR>
+    <I>Thu Jun 18 22:45:58 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+&gt;<i> Das
+</I>&gt;<i> ist also kein reines C128-Problem, beim C64 und beim C128-Low kamen
+</I>&gt;<i> wahrscheinlich ein paar beg&#252;nstigende Faktoren hinzu, so dass es
+</I>&gt;<i> zuf&#228;llig stabil geklappt hat. (Bei der Gelegenheit muss man dran
+</I>&gt;<i> denken, dass der Flash seine Adressen an der ersten Flanke latched.)
+</I>
+Dann hat es doch etwas Gutes, da&#223; ich so darauf bestanden hatte, dieses Problem zu suchen und zu l&#246;sen und nicht nur zu umschiffen.
+
+Es freut mich, da&#223; nun beide Flash-Bausteine beschrieben werden k&#246;nnen.
+
+Wie soll es nun weitergehen?
+
+Wenn ich das richtig mitbekommen habe, gibt es div. M&#246;glichkeiten:
+
+a) Wir bleiben beim jetzigen Design mit zwei Flash-Bausteine f&#252;r ROML und ROMH. (Insgesamt 1MB)
+b) Wir reduzieren die Kapazit&#228;t auf die H&#228;lfte (512kB), also ein Flash-Baustein f&#252;r ROML und ROMH. Dies kostet ein wenig zus&#228;tzliche Logik.
+c) Wir legen wie unter b) angedacht die Speicherbereiche ROML und ROMH zusammen, erlauben aber neben dem einen Flash-Baustein auch die Best&#252;ckung eines zweiten Bausteines.
+d) Wie machen das wie unter b), nur verwenden wir andere Flash-Bausteine, welche eine gr&#246;&#223;ere Kapazit&#228;t haben. Diese bekommen wir aber nicht mehr im DIL- bzw. PLCC-Geh&#228;use sondern nur als SMD.
+
+Wie sind die Meinungen dazu? Ich tendiere in der Version 1 zu a). In einer sp&#228;teren Version 2 k&#246;nnte man &#252;ber c) oder d) nachdenken. Gerade c) w&#252;rde sicherlich einiges an Logik ben&#246;tigen, welches in PLD besser aufgehoben w&#228;re. Jedoch w&#228;re es auch ein wenig unorthogonal.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[Easyflash-devel] C128 unter Kontrolle
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

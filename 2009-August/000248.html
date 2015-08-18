@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash letzte Hardware-&#196;nderung
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-1%3Fq%3FEasyFlash_letzte_Hardware-%3DC4nde%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Frung%3F%3D&In-Reply-To=%3C0E7C07D908080D2F231D6%40directbox.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000241.html">
+   <LINK REL="Next"  HREF="000261.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash letzte Hardware-&#196;nderung</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20%3D%3Fiso-8859-1%3Fq%3FEasyFlash_letzte_Hardware-%3DC4nde%3F%3D%0A%09%3D%3Fiso-8859-1%3Fq%3Frung%3F%3D&In-Reply-To=%3C0E7C07D908080D2F231D6%40directbox.com%3E"
+       TITLE="[EasyFlash-devel] EasyFlash letzte Hardware-&#196;nderung">skoe at directbox.com
+       </A><BR>
+    <I>Sat Aug  8 15:47:35 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000241.html">[EasyFlash-devel] d020-bug
+</A></li>
+        <LI>Next message: <A HREF="000261.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Tach Leute,
+
+also die Dauertests liefen sowohl am C64 als auch am C128 fehlerlos durch.
+
+Das OK von Martin zu meinem i-T&#252;pchelchen fehlt zwar noch, aber falls Du, Bj&#246;rn, schonmal einen Blick auf's Layout werfen m&#246;chtest, das sind die &#196;nderungen. In Klammern immer eine Erkl&#228;rung zur Bedeutung der &#196;nderung.
+
+Die IC- und Pin-Nummern beziehen sich auf diesen Schaltplan (Bj&#246;rns hab ich gerade nicht zur Hand): 
+<A HREF="http://hg.berlios.de/repos/easyflash/raw-file/2e5c13ca27a7/Hardware/kicad-logic-tht/easyflash.pdf">http://hg.berlios.de/repos/easyflash/raw-file/2e5c13ca27a7/Hardware/kicad-logic-tht/easyflash.pdf</A>
+
+* Pin 1 von IC7 nicht zu Pin E des Cartridge Port (Phi2) f&#252;hren, sondern auftrennen und zu Pin 13 des IC2 (NOR-Gatter, das /OE erzeugt) legen. (Dadurch wird das zweite Flipflop direkt durch /OE im Reset gehalten. Das erste wird nach wie vor durch Phi2 gel&#246;scht)
+
+* Draht von Pin 7 des U1A abl&#246;ten (/WE) und nach Pin 6 von IC7 (/Q des zweiten FF) anl&#246;ten. (/WE wird direkt durch das zweite FF erzeugt und nun durch den Schritt zuvor durch /OE verriegelt)
+
+* U1A jetzt unbenutzt, Eing&#228;nge Pins 2 und 3 auf GND (wie Pin 1) legen.
+
+Na dann bis demn&#228;chst, Gru&#223;
+
+Thomas
+
+P.S. Die letzte Version in HG ist nich nicht dieser Stand, die hab ich gestern aus versehen commited. Falls da zuf&#228;llig einer dr&#252;ber gestolpert ist
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000241.html">[EasyFlash-devel] d020-bug
+</A></li>
+	<LI>Next message: <A HREF="000261.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

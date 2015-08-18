@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] Layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C000e01ca014f%24785c9ce0%241909a8c0%40mhvnb10%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] Layout</H1>
+    <B>Hoffmann-Vetter, Martin</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20Layout&In-Reply-To=%3C000e01ca014f%24785c9ce0%241909a8c0%40mhvnb10%3E"
+       TITLE="[EasyFlash-devel] Layout">martinhv at arcor.de
+       </A><BR>
+    <I>Fri Jul 10 13:13:34 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[EasyFlash-devel] Layout
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Bj&#246;rn,
+
+&gt;<i> Ich habe gestern mal mit dem Layout angefangen und muss sagen:
+</I>&gt;<i> Das wird nicht einfach. Der Platz auf der Platine ist zwar ausreichend
+</I>&gt;<i> f&#252;r die Bauteile,
+</I>&gt;<i> aber die Tatsache das die Flash in PLCC-Fassungen stecken macht das
+</I>&gt;<i> Layout sehr
+</I>&gt;<i> kompliziert und es werden viele Duchkontaktierungen n&#246;tig sein.
+</I>
+Das der Platz f&#252;r die Bauteile ausreicht aber trotzdem das Layout mit den
+PLCC-Fassungen nicht einfach wird, haben wir schon zuvor bef&#252;rchtet. Ich
+hatte mir mit skoe dar&#252;ber schon einmal Gedanken gemacht. Mein Vorschlag
+w&#228;re, folgende Anordnung:
+
++---------------------+
+|<i> +-+ +-+ +-+ +-+ +-+ |
+</I>|<i> |U| |U| |U| |U| |U| |
+</I>|<i> |?| |?| |?| |?| |?| |
+</I>|<i> +-+ +-+ +-+ +-+ +-+ |
+</I>|<i>                     |
+</I>|<i> +-----+     +-----+ |
+</I>|<i> | 29F |     +-----+ |
+</I>|<i> | 040 |     |     | |
+</I>|<i> +-----+     |     | |
+</I>|<i>             | RAM | |
+</I>|<i> +-----+ +-+ |     | |
+</I>|<i> | 29F | |U| |     | |
+</I>|<i> | 040 | |6| |     | |
+</I>|<i> +-----+ +-+ +-----+ |
+</I>|<i>                     |
+</I>|||||||||||||||||||||||<i>
+</I>|||||||||||||||||||||||<i>
+</I>
+Die Herausforderung w&#228;re, die Verbindungen zwischen den beiden PLCC-Sockeln
+herzustellen. Dabei m&#252;ssen beiden Fl&#228;chen (oben und unten) verwendet werden.
+Hier sind also die Leiterbahnen beider Fl&#228;chen vertikal zu legen. Daher
+scheidet ein Autorouter aus. Des weiteren m&#252;ssen vermutlich mind. zwei nur
+Not auch drei Leiterbahnen zwischen den Pins der PLCC-Fassungen gef&#252;hrt
+werden. Das Umsortieren der Leiterbahnen kann dann unter dem RAM bzw. in
+dessen N&#228;he erfolgen.
+
+|||||||||||||<i>    | | | | | |
+</I>||<i>0|0|0|0|0||    |o|o|o|o|o|
+</I>0|0 0 0 0 0 0   o|o|o|o|o|o|o
+o 0       o o   o|o| | | |o|o
+o o       o o   o|o| | | |o|o
+o o o o o o o   o|o|o|o|o|o 0
+  o o o o o       0 0 0 0 0
+
+o: Pin noch nicht angeschlossen
+0: Pin mit Leiterbahn
+|:<i> Leiterbahn (vertikal)
+</I>
+Damit w&#228;ren 19 von 32 Leitungen abgedeckt. Es fehlen also noch 13 Leitungen,
+also 6 auf jeder Seite. Wenn man diese noch zus&#228;tzlich zwischen den Pins
+f&#252;hrt, sollte das aufgehen. Die Herausforderung sind dann nur die Pins auf
+der linken bzw. rechten Seite der Fassung zu diesen vertikalen Verbindungen
+zu routen. Da jedoch die PLCC32-Fassung quer liegt, sind da auch nur
+einzelne bis max. drei Pins, welche Probleme machen.
+
+&gt;<i> Ist also eher ungeeignet um die Platine mit Hausmitteln herzustellen.
+</I>
+Das m&#252;&#223;te man zum Schlu&#223; mal genauer ansehen. Klar ab drei Leiterbahnen
+wird's kritisch.
+
+&gt;<i> Und es braucht mehr Zeit das zu layouten, ich hoffe Ihr habt es nicht
+</I>&gt;<i> extrem eilig ;)
+</I>
+Versuche mal Dein Gl&#252;ck. Poste evtl. Zwischenst&#228;nde und Probleme und wir
+helfen Dir weiter.
+
+Gru&#223; Martin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[EasyFlash-devel] Layout
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[EasyFlash-devel] Layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>

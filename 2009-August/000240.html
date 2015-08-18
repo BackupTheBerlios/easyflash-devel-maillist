@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [EasyFlash-devel] EasyFlash Beta-Test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/easyflash-devel/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C20090805125958.36ac2c91%40akoya%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000237.html">
+   <LINK REL="Next"  HREF="000242.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[EasyFlash-devel] EasyFlash Beta-Test</H1>
+    <B>Thomas Giesel</B> 
+    <A HREF="mailto:easyflash-devel%40lists.berlios.de?Subject=Re%3A%20%5BEasyFlash-devel%5D%20EasyFlash%20Beta-Test&In-Reply-To=%3C20090805125958.36ac2c91%40akoya%3E"
+       TITLE="[EasyFlash-devel] EasyFlash Beta-Test">skoe at directbox.com
+       </A><BR>
+    <I>Wed Aug  5 12:59:58 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000237.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+        <LI>Next message: <A HREF="000242.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hallo,
+
+&gt;<i> Ich w&#252;rde auf zwei andere Dinge tippen. Einmal bitte den
+</I>&gt;<i> Abblockkondensator f&#252;r U6 &#252;berpr&#252;fen (bzw. gegebenenfalls einl&#246;ten)
+</I>
+nach einem l&#228;ngeren Test und einem Gegentest wieder ohne Zusatz-C: Das
+war's nicht. Der Fehler tritt nur sehr unregelm&#228;&#223;ig auf. Vielleicht ist
+er temperaturabh&#228;ngig, mehr dazu weiter unten.
+
+Also das Testprogramm fand den Fehler manchmal nach wenigen 1000
+Bankwechseln, manchmal nach mehreren Millionen.
+
+Beim Blick auf den Schaltplan ist mir wieder was in den Sinn gekommen,
+was mir irgendwann mal nicht supersch&#246;n vorkam: Der 139er hat, sowohl
+als HCT als auch als LS eine Durchlaufzeit von mehreren 10 ns
+(Gr&#246;&#223;enordnung von 30 ns je Dekoder). Jens schrieb mal, dass er
+Dotclock nicht mehr als Timing-Grundlage f&#252;r /WE benutzt, weil es eine
+temperaturabh&#228;ngige Verschiebung gibt.
+
+Das alles lie&#223; mich vermuten, dass die End-Flanke von /WE vielleicht
+schon an der Kante ist. Deshalb habe ich testweise mal den LS139, der
+momentan draufsteckte (hatte damals dummerweise kein HCT mitbestellt)
+gegen einen ACT gewechselt, den ich aus fr&#252;heren Versionen noch da
+hatte. Und siehe da: mittlerweise 200 Millionen Bankwechsel ohne
+Fehler. Momentan lasse ich den Rechner abk&#252;hlen, um mit kaltem
+Rechner neu zu beginnen. Danach mache ich wieder einen LS139
+rauf, dann einen anderen, als erneuten Gegentest.
+
+Zwei M&#246;glichkeiten:
+- ACT139 benutzen, um das Timing ca. 20 ns auf die sichere Seite zu
+  ziehen, keine Layout-&#196;nderung
+
+- Schaltung so &#228;ndern, dass /WE beginnt wie jetzt, aber schon nach
+  einem Dotcklock-Zyklus endet. Hab ich noch nicht durchdacht, z&#246;ge
+  eine (vielleicht minimale) Layout-&#196;nderung nach sich. Martin, f&#228;llt
+  Dir die passende &#196;nderung ein? Du bist doch schnell mit sowas :-)
+  Laut Datenbl&#228;ttern w&#252;rden die 125 ns Write-Puls bei allen
+  beteiligten Chips dicke reichen.
+
+Was sagt ihr?
+
+Ich werde jedenfalls erstmal weiterhin mit der ACT-Variante am C64 und
+C128 dauertesten.
+
+Gru&#223;,
+
+Thomas
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000237.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+	<LI>Next message: <A HREF="000242.html">[EasyFlash-devel] EasyFlash Beta-Test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/easyflash-devel">More information about the EasyFlash-devel
+mailing list</a><br>
+</body></html>
